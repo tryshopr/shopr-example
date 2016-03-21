@@ -37,7 +37,7 @@ module Shoppe
 
     # Validations
     with_options if: proc { |p| p.parent.nil? } do |product|
-      product.validate :has_at_least_one_product_category
+      # product.validate :has_at_least_one_product_category
       product.validates :description, presence: true
       product.validates :short_description, presence: true
     end
@@ -157,13 +157,16 @@ module Shoppe
    # ;"Матрас Цветные сны Ферст 90 x 200";"775";"Ferst_kartinka.jpg";"Ferst_ikonka.jpg";"1626300.00";
    # "Матрас эконом-класса.<br />1) Чехол «Bodet & Horst»( Германия)
 
-
+ # File.extname(file.original_filename)
+ # Roo::Excel.new(file.path)
     def self.import(file)
       spreadsheet = open_spreadsheet(file)
       spreadsheet.default_sheet = spreadsheet.sheets.first
-      binding.pry
+      # binding.pry
+      # spreadsheet.force_encoding("cp1251").encode("utf-8", undef: :replace)
+      # #spreadsheet.encode('utf-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+      # binding.pry
       header = spreadsheet.row(1)
-      binding.pry
       (2..spreadsheet.last_row).each do |i|
         row = Hash[[header, spreadsheet.row(i)].transpose]
 
@@ -176,22 +179,36 @@ module Shoppe
             product.stock_level_adjustments.create!(description: I18n.t('shoppe.import'), adjustment: qty)
           end
         else
-          product = new
-          product.name = row['name']
+          product = Product.find_or_initialize_by(permalink: row['url'])
+          product.name = row['name']+
           product.sku = row['item_code']
           product.description = row['abstract']
           product.short_description = row['info']
-          product.weight = row['weight']
           product.price = row['price'].nil? ? 0 : row['price']
-          product.permalink = row['url']
+	      # product.permalink = row['url'].take  row['url']
+
+
+         #  if
+         #  	Shoppe::Product.where(permalink: row['permalink']).present?
+         #  	Shoppe::Product.where(permalink: row['permalink']).take
+         #  else
+	        #   product.permalink = row['url']
+      	  # end
 
           product.product_categories << begin
-            if Shoppe::ProductCategory.where(name: row['category_name']).present?
-              Shoppe::ProductCategory.where(name: row['category_name']).take
+            if 
+              Shoppe::ProductCategory.where(name: 'Imported').present?
+              Shoppe::ProductCategory.where(name: 'Imported').take
+              # Shoppe::ProductCategory.where(name: row['category_name']).present?
+              # Shoppe::ProductCategory.where(name: row['category_name']).take
             else
-              Shoppe::ProductCategory.create(name: row['category_name'])
+              #Shoppe::ProductCategory.create(name: row['category_name'])
+              Shoppe::ProductCategory.create(name: 'Imported')
             end
           end
+
+          # find_or_create (active record method)
+          # 
 
           product.save!
 
@@ -205,7 +222,8 @@ module Shoppe
 
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
-      when '.csv' then Roo::CSV.new("file.path", csv_options: {col_sep: ";"})
+      # when '.csv' then Roo::CSV.new(file.path, csv_options: {col_sep: ";"})
+      when '.csv' then Roo::CSV.new(file.path, csv_options: {col_sep: ";", encoding: "windows-1251:utf-8"})
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
       else fail I18n.t('shoppe.imports.errors.unknown_format', filename: File.original_filename)
