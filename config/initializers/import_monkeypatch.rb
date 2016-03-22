@@ -179,36 +179,31 @@ module Shoppe
             product.stock_level_adjustments.create!(description: I18n.t('shoppe.import'), adjustment: qty)
           end
         else
-          product = Product.find_or_initialize_by(permalink: row['url'])
-          product.name = row['name']+
+          # product = Shoppe::Product.find_or_initialize_by(permalink: row['url'])
+          product = Shoppe::Product.find_or_initialize_by(permalink: row['url'], name: row['name'])
+          product.name = row['name']
           product.sku = row['item_code']
           product.description = row['abstract']
           product.short_description = row['info']
           product.price = row['price'].nil? ? 0 : row['price']
-	      # product.permalink = row['url'].take  row['url']
+	      # product.permalink = Shoppe::Product.find_or_create_by(permalink: row['url']) || row['url'].parameterize
+	      # binding.pry
+	      # product.permalink = Product.find_or_initialize_by(permalink: row['url'])
 
 
-         #  if
-         #  	Shoppe::Product.where(permalink: row['permalink']).present?
-         #  	Shoppe::Product.where(permalink: row['permalink']).take
-         #  else
-	        #   product.permalink = row['url']
-      	  # end
 
           product.product_categories << begin
-            if 
-              Shoppe::ProductCategory.where(name: 'Imported').present?
-              Shoppe::ProductCategory.where(name: 'Imported').take
-              # Shoppe::ProductCategory.where(name: row['category_name']).present?
-              # Shoppe::ProductCategory.where(name: row['category_name']).take
-            else
-              #Shoppe::ProductCategory.create(name: row['category_name'])
-              Shoppe::ProductCategory.create(name: 'Imported')
-            end
+          	Shoppe::ProductCategory.find_or_initialize_by(name: 'Imported')
+            # if 
+            #   Shoppe::ProductCategory.where(name: 'Imported').present?
+            #   Shoppe::ProductCategory.where(name: 'Imported').take
+            #   # Shoppe::ProductCategory.where(name: row['category_name']).present?
+            #   # Shoppe::ProductCategory.where(name: row['category_name']).take
+            # else
+            #   #Shoppe::ProductCategory.create(name: row['category_name'])
+            #   Shoppe::ProductCategory.create(name: 'Imported')
+            # end
           end
-
-          # find_or_create (active record method)
-          # 
 
           product.save!
 
