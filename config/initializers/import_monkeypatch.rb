@@ -146,26 +146,11 @@ module Shoppe
       where(id: product_ids)
     end
 
-    # Imports products from a spreadsheet file
-    # Example:
-    #
-    #   Shoppe:Product.import("path/to/file.csv")
-    #headline;name;item_code;image;icon;price;
-   # abstract;info;status;image1;image2;image3;image4;image5;image6;add_link2;image7;
-   # image8;image9;image10;image11;image12;url;seo.title;seo.keywords;seo.description;
-
-   # ;"Матрас Цветные сны Ферст 90 x 200";"775";"Ferst_kartinka.jpg";"Ferst_ikonka.jpg";"1626300.00";
-   # "Матрас эконом-класса.<br />1) Чехол «Bodet & Horst»( Германия)
-
  # File.extname(file.original_filename)
  # Roo::Excel.new(file.path)
     def self.import(file)
       spreadsheet = open_spreadsheet(file)
       spreadsheet.default_sheet = spreadsheet.sheets.first
-      # binding.pry
-      # spreadsheet.force_encoding("cp1251").encode("utf-8", undef: :replace)
-      # #spreadsheet.encode('utf-8', 'binary', invalid: :replace, undef: :replace, replace: '')
-      # binding.pry
       header = spreadsheet.row(1)
       (2..spreadsheet.last_row).each do |i|
         row = Hash[[header, spreadsheet.row(i)].transpose]
@@ -186,23 +171,9 @@ module Shoppe
           product.description = row['abstract']
           product.short_description = row['info']
           product.price = row['price'].nil? ? 0 : row['price']
-	      # product.permalink = Shoppe::Product.find_or_create_by(permalink: row['url']) || row['url'].parameterize
-	      # binding.pry
-	      # product.permalink = Product.find_or_initialize_by(permalink: row['url'])
-
-
 
           product.product_categories << begin
           	Shoppe::ProductCategory.find_or_initialize_by(name: 'Imported')
-            # if 
-            #   Shoppe::ProductCategory.where(name: 'Imported').present?
-            #   Shoppe::ProductCategory.where(name: 'Imported').take
-            #   # Shoppe::ProductCategory.where(name: row['category_name']).present?
-            #   # Shoppe::ProductCategory.where(name: row['category_name']).take
-            # else
-            #   #Shoppe::ProductCategory.create(name: row['category_name'])
-            #   Shoppe::ProductCategory.create(name: 'Imported')
-            # end
           end
 
           product.save!

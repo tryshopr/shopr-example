@@ -2,38 +2,9 @@
 
 $font: Lato, Arial, sans-serif;
 
-html { font-family: $font; font-size:100%; background:#112326; }
+html { font-family: $font; font-size:100%; background:#fff; }
 body { -webkit-font-smoothing:antialiased}
 a { color:inherit;}
-
-//
-// Demo banner
-//
-div.demo {
-	background:#1476ba;
-	color:#fff;
-	border-bottom:1px solid #0c588e;
-	font-size:0.8em;
-	div.inner {
-		background:image-url('shoppe/logo.svg') no-repeat 0 14px;
-		background-size:24px;
-		padding:15px 0;
-		p.text { margin-left:34px;}
-		ul.links {
-			float:right;
-			li {
-				float:left;
-				margin-left:15px;
-				a {
-					background:rgba(255,255,255,0.2);
-					text-decoration:none;
-					padding:3px 10px;
-					border-radius:4px;
-				}
-			}
-		}
-	}
-}
 
 //
 // The inner container for the page
@@ -41,6 +12,8 @@ div.demo {
 div.inner {
 	width:1000px;
 	margin:auto;
+	padding: 20px;
+    box-shadow: 0px 0px 5px #888888;
 }
 
 div.field_with_error { display:inline;}
@@ -55,25 +28,53 @@ div#flash-alert { background:#a13361; color:#fff; text-align:center; padding:8px
 // Primary header
 //
 header.main {
-	background:image-url('header.jpg') #0a1f20 50% 50%;
+	background:image-url('header.jpg') #fff 50% 50%;
 	background-size:cover;
-	color:#fff;
 	font-size:0.9em;
+
+	.head {
+		padding: 25px 0;
+		overflow:hidden;
+		display: flex;
+		justify-content: space-between;
+		color: #059A5E;
+		.headcontacts {
+			margin-left: auto;
+		}
+		.call {
+			font-size: 20px;
+		}
+	}
+
+
+	h1.logo {
+		float:left;
+		a {
+			display:block;
+			border:4px solid #059A5E;
+			font-size:1.1em; 
+			text-decoration:none;
+			padding:5px 10px;
+		}
+	}
 	
 	//
 	// Navigation
 	//
 	nav.main {
-		padding:45px 0 30px 0;
+		margin: 10px 0;
+		padding: 15px 0;
 		overflow:hidden;
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
 		ul {
 			float:left;
 			overflow:hidden;
 			li { float:left; margin-right:40px;}
-			li a { color:#fff; display:block;	text-decoration:none; border-bottom:3px solid transparent; padding-bottom:3px;}
-			li a:hover { border-color:#fff;}
+			li a { color:#444; display:block;	text-decoration:none; border-bottom:3px solid transparent; padding-bottom:3px;}
+			li a:hover { border-color:#FA4771; color:#FA4771;}
 			li a.noborder:hover { border-color:transparent }
-			li a.active { color:#4FB6BF; border-color:#4FB6BF;}
+			li a.active { color:#FA4771; border-color:#FA4771;}
 			ul {
 				position:absolute;
 				margin-left:-10px;
@@ -92,24 +93,33 @@ header.main {
 			}
 			li:hover ul { display:block;}
 		}
-		h1 {
-			float:right;
-			margin-top:-15px;
-			a {
-				display:block;
-				border:4px solid #fff;
-				color:#fff;
-				font-size:1.1em; 
-				text-decoration:none;
-				padding:5px 10px;
-			}
-		}
 	}
 	
 	// Main header
 	h2 { font-size:3.2em; font-weight:normal; margin-bottom:20px;}
-	// Introduction text
-	p.intro { font-size:1.1em; line-height:1.5; width:65%; margin-bottom:55px;}
+
+	// Introduction
+	section.intro {display: flex; height: 300px;}
+	div.info { font-size:1.1em; line-height:1.5; width:35%; margin-bottom:55px;}
+	div.slider {width:65%;}
+	ul.reasons {
+	display: flex;
+	justify-content: space-around;
+	
+			li {
+				margin-top: 19px;
+    			padding-top: 25px;
+				background-repeat:no-repeat;
+				background-size:20px;
+				background-position: center 0;
+				h4 { margin-bottom:3px; color:#333;}
+				p { font-size:0.85em; color:#777; line-height:1.6;}
+				&:last-child { margin-bottom:0;}
+				&.support { background-image:image-url('support.svg')}
+				&.quality { background-image:image-url('quality.svg')}
+				&.delivery { background-image:image-url('delivery.svg')}
+			}
+	}
 	
 	// Offer/contact bar
 	.bar {
@@ -125,7 +135,7 @@ header.main {
 	// The basic header
 	//
 	&.basic {
-		background:#112326;
+		background:#fff;
 		nav.main { padding-top:15px; padding-bottom:15px;}
 		nav.main h1 { padding-top:15px; margin-bottom:0;}
 		nav.main ul { padding-top:8px;}
@@ -593,19 +603,7 @@ section.content {
 			padding:15px;
 			border-radius:8px;
 			font-size:0.9em;
-			li {
-				padding-left:35px;
-				margin-bottom:25px;
-				background-repeat:no-repeat;
-				background-size:20px;
-				background-position:3px 0;
-				h4 { margin-bottom:3px; color:#333;}
-				p { font-size:0.85em; color:#777; line-height:1.6;}
-				&:last-child { margin-bottom:0;}
-				&.support { background-image:image-url('support.svg')}
-				&.quality { background-image:image-url('quality.svg')}
-				&.delivery { background-image:image-url('delivery.svg')}
-			}
+
 		}
 		
 		.checkout {
@@ -634,6 +632,7 @@ section.content {
 footer.main {
 	color:#53686B;
 	font-size:0.9em;
+	margin: 0 117px 20px;
 	padding:40px 0;
 	overflow:hidden;
 	clear:both;
@@ -693,4 +692,8 @@ div.overlay {
 	left:0;
 	height:4000px;
 	background:rgba(0,0,0,0.3);
+}
+
+nav.sidebar header.logo h1 a {
+	background: none;
 }
