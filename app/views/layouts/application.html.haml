@@ -16,30 +16,31 @@
     %header.main{:class => @full_header ? 'full' : 'basic'}
       .inner
         %div.head
-          %h1.logo= link_to Shoppe.settings.store_name, root_path
+          .logo=link_to '', root_path
           %div.headcontacts
-            %p.call <b>01202 901 101</b>
-            %number 01202 901 101
+            =image_tag "phone.png", class: "phone_icon"
+            %div
+              %p.call <b>(029) 127 55 55</b>
+              %p.small 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
+          %div.search
         / Primary navigation
         %nav.main
           %ul
-            %li= link_to "Home", root_path, :nav_item => :home
+            //%li= link_to "Home", root_path, :nav_item => :home
             - for category in Shoppe::ProductCategory.ordered
               %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-            -# # %li
-            -#   = link_to "Our catalogue", catalogue_path, :nav_item => :catalogue, :class => 'noborder'
-            -#   %ul
-            -#     - for category in Shoppe::ProductCategory.ordered
-            -#       %li= link_to category.name, products_path(category.permalink)
-            %li= link_to "Why shop with us?", page_path(:why), :nav_item => :why
-            %li= link_to "FAQs", page_path(:faqs), :nav_item => :faqs
-            %li= link_to "Get in touch", page_path(:contact), :nav_item => :contact
+            %li= link_to "Акции", page_path(:why), :nav_item => :why
+            %li= link_to "О компании", page_path(:faqs), :nav_item => :faqs
+            //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
         
         - if @full_header
           %section.intro
             %div.info
-              %h1 Нужен матрас срочно?
-              %p Check out our lovely products on this page and then you can buy them through the website with just a few clicks using our supremely simple ordering system.
+              %h2 Нужен матрас срочно?
+              %p Более <b>100 видов</b> матрасов в наличии! Закажи сейчас и мы доставим его вам в течение дня!
+              %p Равным образом новая модель Закажи сейчас и мы доставим его вам в течение дня!
+              = link_to "Матрасы в наличии",  catalogue_path, class: "btn btn-default"
+              %a{:href => "@link.href"} Использователь фильтр
             %div.slider Slider
           %ul.reasons
             %li.support
@@ -53,23 +54,23 @@
             %li.delivery
               %h4 Бесплатная доставка
 
-        - if @full_header
-          .bar
-            %p.call Call us today on <b>01202 901 101</b> if you have any questions.
-            %p.offer <b>This week only!</b> FREE next day shipping on all orders over &pound;30.
+        -# - if @full_header
+          -# .bar
+          -#   %p.call Call us today on <b>01202 901 101</b> if you have any questions.
+          -#   %p.offer <b>This week only!</b> FREE next day shipping on all orders over &pound;30.
     
     
     / Main content section
     %section.content
-      .inner
+      .inner.products
       
         / Sidebar
-        %section.sidebar
-          - if content_for?(:sidebar)
-            = yield :sidebar
-          - else
-            = render 'shared/basket'
-            = render 'shared/reasons'
+        -# %section.sidebar
+        -#   - if content_for?(:sidebar)
+        -#     = yield :sidebar
+        -#   - else
+        -#     = render 'shared/basket'
+        -#     = render 'shared/reasons'
       
         / Primary section
         %section.primary
@@ -103,8 +104,3 @@
       .copyright
         %p &copy; #{Date.today.year} Shoppe. All Rights Reserved.
         %p All third party logos &amp; product images &copy; their respective owners.
-        %p
-          Shoppe is a trading name of aTech Media Limited.<br />
-          Company registration number: 123 123.<br />
-          VAT registration number: GB 123 123 123.
-          
