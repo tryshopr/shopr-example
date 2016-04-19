@@ -19,7 +19,11 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
+  adapter: mysql2
+  encoding: utf8
+  host: mysql2.locum.ru
+  port: 3306
+  database: vegasmat_shopv72
+  username: vegasmat_shopv72
+  password: 'QiDqYnpegL'
   timeout: 5000
