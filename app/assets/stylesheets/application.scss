@@ -28,7 +28,7 @@ nav.sidebar header.logo h1 a {
 // The inner container for the page
 //
 div.inner {
-	width: 90vw;
+	width: 960px;
     margin: 0 auto;
     padding: 10px;
     box-shadow: 0px 0px 5px #888888;
@@ -59,7 +59,8 @@ header.main {
 		display: flex;
 		justify-content: space-between;
 		color: $green;
-		.phone_icon {margin-right: 10px;}
+		.phone_icon {margin: 5px 10px;
+    height: 100%;}
 		.headcontacts {
 			flex-direction: row;
     		display: flex;
@@ -241,7 +242,7 @@ section.content {
 			    border-radius: 3px;
 			    margin: 0 5px 10px;
 			    width: 25%;
-			    height: 350px;
+			    height: 390px;
 			    box-shadow: 0px 3px 5px #DAD5D5;
 				div.img {
 					background-repeat:no-repeat;
@@ -252,13 +253,14 @@ section.content {
 				}
 				h4 {
 			    text-align: center;
-			    font-size:1.2em; }
+			    font-size: 1.1em;
+			    line-height: 2.45em; }
 				h4 a { text-decoration:none; 
 			    color: black; 
 				}
 				h4 a:hover { text-decoration:underline;}
 				p.info {margin:5px 0px 10px;; font-size:0.85em; line-height:2; color:#444; text-align: center;
-				    min-height: 75px;
+				    min-height: 100px;
 				}
 				p.buttons { float:right; margin-top:0;}
 				p.buttons a { font-size:0.75em; font-weight:bold; background:#BEBEBE; color:#fff; text-decoration:none; text-transform:uppercase; padding:3px 6px; border-radius:3px;}

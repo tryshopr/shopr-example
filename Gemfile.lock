@@ -377,7 +377,7 @@ DEPENDENCIES
   hamlit (>= 2.2.3)
   hamlit-rails
   jquery-rails
-  mysql2 (~> 0.4.3)
+  mysql2 (~> 0.4.4)
   pry-byebug
   rails (= 4.2.6)
   redcarpet
@@ -387,7 +387,7 @@ DEPENDENCIES
   sqlite3
   thin
   uglifier (>= 1.3.0)
-  unicorn
+  unicorn (~> 5.1.0)
 
 BUNDLED WITH
    1.11.2

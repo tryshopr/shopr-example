@@ -5,7 +5,7 @@ lock '3.4.1'
 # Project configuration options
 # ------------------------------
 
-set :application,    'widget_shop'
+set :application,    'shopvegas'
 set :login,          'vegasmatras2'
 set :user,           'hosting_vegasmatras2'
 
