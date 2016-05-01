@@ -318,10 +318,23 @@ header.main {
     }
 }
 
+// Helpers //
+
+.arrow-r:after {
+	display: block;
+    position: relative;
+    left: -15px;
+    top: -25px;
+    content: '';
+    height: 1.4rem;
+	width: inherit;
+	background: image-url('right.svg') transparent no-repeat 95% 5px;
+    background-size: 17px;
+}
+
 //
 // Primary content area
 //
-section.content {}
 
 section.primary {
     // width:70%;
@@ -335,9 +348,7 @@ section.primary {
             margin-top: 2px;
         }
         p.browse a {
-            font-size: 0.9rem;
-            background: image-url('right.svg') transparent no-repeat 95% 5px;
-            background-size: 17px;
+            font-size: 1rem;
             text-decoration: underline;
             font-weight: bold;
             padding: 5px 30px 5px 15px;
