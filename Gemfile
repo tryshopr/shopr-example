@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.6'
-gem 'sqlite3'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'sprockets-rails', '>= 2.3.3'
 gem 'hamlit', '>= 2.2.3'
@@ -15,6 +14,7 @@ gem 'shoppe', :git => 'git://github.com/tryshoppe/shoppe.git'
 gem 'thin'
 
 group :development do
+	gem 'sqlite3'
 	gem 'capistrano', '~> 3.1'
 	gem 'capistrano-bundler', '~> 1.1.2'
 	gem 'capistrano-rails', '~> 1.1.1'
