@@ -14,6 +14,8 @@ gem 'redcarpet'
 gem 'faker'
 gem 'shoppe', :git => 'git://github.com/tryshoppe/shoppe.git'
 gem 'thin'
+gem 'better_errors'
+
 
 group :development do
 	gem 'sqlite3'
@@ -24,7 +26,6 @@ group :development do
 	# gem 'capistrano-rbenv', github: "capistrano/rbenv"
 	# Add this if you're using rvm
 	gem 'capistrano-rvm', github: "capistrano/rvm"
-	gem 'better_errors'
 	gem 'pry-byebug'
 end
 

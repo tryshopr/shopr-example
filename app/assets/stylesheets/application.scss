@@ -23,7 +23,6 @@ html {
 body {
     -webkit-font-smoothing: antialiased;
     background: rgba(185, 185, 185, 0.25);
-    ;
 }
 
 h1 {
@@ -45,6 +44,7 @@ h4 {
 
 a {
     color: $blue;
+    line-height: 1.5rem;
 }
 
 p {
@@ -322,12 +322,9 @@ header.main {
 
 .arrow-r:after {
 	display: block;
-    position: relative;
-    left: -15px;
-    top: -25px;
     content: '';
-    height: 1.4rem;
-	width: inherit;
+    margin: -25px 15px 0 0;
+    height: 1.5rem;
 	background: image-url('right.svg') transparent no-repeat 95% 5px;
     background-size: 17px;
 }
@@ -348,10 +345,9 @@ section.primary {
             margin-top: 2px;
         }
         p.browse a {
-            font-size: 1rem;
             text-decoration: underline;
             font-weight: bold;
-            padding: 5px 30px 5px 15px;
+            padding: 5px 45px 5px 15px;
             border-radius: 4px;
         }
         h2 {
@@ -1230,7 +1226,7 @@ section.primary {
     }
     p.info {
         height: 80px;
-        width: 60%;
+        width: 60vw;
     }
     span,
         h3 {
