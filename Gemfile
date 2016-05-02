@@ -1,3 +1,5 @@
+ruby '2.3.0'
+
 source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'bootstrap', '~> 4.0.0.alpha3'
@@ -15,7 +17,7 @@ gem 'thin'
 
 group :development do
 	gem 'sqlite3'
-	gem 'capistrano', '~> 3.1'
+	gem 'capistrano', '~> 3.5.0'
 	gem 'capistrano-bundler', '~> 1.1.2'
 	gem 'capistrano-rails', '~> 1.1.1'
 	# Add this if you're using rbenv
@@ -29,4 +31,5 @@ end
 group :production do
 	gem 'unicorn', '~> 5.1.0'
 	gem "mysql2", '~> 0.4.4'
+	gem 'rails_12factor'
 end
