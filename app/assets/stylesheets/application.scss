@@ -114,7 +114,7 @@ div#flash-alert {
 header.main {
     font-size: 0.9rem;
     .head {
-        padding: 25px 0;
+        padding: 0.9375rem 0 0;
         overflow: hidden;
         display: flex;
         justify-content: space-between;
@@ -150,7 +150,7 @@ header.main {
     // Navigation
     //
     nav.main {
-        margin: 10px 0;
+        margin: 0.9375rem 0 1.875rem;
         padding: 15px 20px 10px;
         overflow: hidden;
         border-top: 1px solid #E6E6E6;
@@ -322,18 +322,18 @@ header.main {
     }
     /**/
     ul.reasons {
-        clear: left;
         display: flex;
         justify-content: space-around;
         background: $green;
-        margin: 0.9375rem 0;
+        margin: 1.875rem 0;
         color: #fff;
         padding: 15px 5px;
         li {
-            padding-top: 60px;
+            padding: 60px 20px 0 0;
             background-repeat: no-repeat;
             background-size: 40px;
             background-position: center 0;
+            border-right: 1px solid #36AB69;
             h4 {
                 margin: 0 0 5px 5px;
                 font-weight: bold;
@@ -346,6 +346,7 @@ header.main {
             }
             &:last-child {
                 margin-bottom: 0;
+            border-right: none;
             }
             &.support {
                 background-image: image-url('icon1.png')
