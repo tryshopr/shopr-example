@@ -4,7 +4,8 @@
       .img{:style => product.default_image ? "background-image:url(#{product.default_image.path})" : ''}
       %h4= link_to product.name, product_path(product.product_category.permalink, product.permalink)
       %p.info= truncate product.short_description, :length => 90
-      %p.price= number_to_currency product.price
+      %p.price.bad= number_to_currency product.price
+      %p.price= number_to_currency product.cost_price
       %p.buttons 
         //= link_to "Info", product_path(product.product_category.permalink, product.permalink)
         - if product.orderable?
