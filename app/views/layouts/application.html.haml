@@ -58,7 +58,7 @@
                   %li.slide-container
                     .slide
                       .slide-info
-                      %img{:src => "http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg"}/
+                      =image_tag "slider/image2.png"
                   %input#img-3{:name => "radio-btn", :type => "radio"}/
                   %li.slide-container
                     .slide
@@ -72,10 +72,10 @@
                         %p Test
                       %img{:src => "http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg"}/
                 %figcaption.controls
-                  %label#img-dot-1.nav-dot{:for => "img-1"} Акция -30%
-                  %label#img-dot-2.nav-dot{:for => "img-2"} Наматрасники - 10%
-                  %label#img-dot-3.nav-dot{:for => "img-3"} Подушка в подарок
-                  %label#img-dot-4.nav-dot{:for => "img-4"} Бесплатная доставка
+                  %label{:for => "img-1"} Акция -30%
+                  %label{:for => "img-2"} Наматрасники - 10%
+                  %label{:for => "img-3"} Подушка в подарок
+                  %label{:for => "img-4"} Бесплатная доставка
             
           .row
             %ul.reasons
@@ -83,9 +83,9 @@
                 %h4 Европейские материалы
               %li.quality
                 %h4 Сертификаты качества
-              %li.delivery
+              %li.garanty
                 %h4 Гарантия 20 лет
-              %li.delivery    
+              %li.dimensions    
                 %h4 Нестандартные размеры
               %li.delivery
                 %h4 Бесплатная доставка

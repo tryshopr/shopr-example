@@ -170,14 +170,13 @@ header.main {
                 padding-bottom: 3px;
                 font-weight: 600;
             }
-            li a:hover {
+            li a:hover, li a:active {
                 color: #FA4771;
                 text-decoration: none;
             }
             li a.noborder:hover {
                 border-color: transparent
             }
-            // li a.active { color:#FA4771; text-decoration:none;}
             ul {
                 position: absolute;
                 margin-left: -10px;
@@ -195,7 +194,7 @@ header.main {
                         width: 200px;
                         border: 0;
                     }
-                    a:hover {
+                    a:hover, a:active {
                         color: #47A4AD;
                         text-decoration: none;
                     }
@@ -309,34 +308,16 @@ header.main {
         width: 100%;
         line-height: 2rem;
         label {
-            margin-right: 10px;
+            margin-right: 15px;
             color: #fff;
             text-decoration: none;
+            opacity: 0.8;
+            &:hover {
+            opacity: 1;
+            }
         }
         @media screen and (max-width: 500px) {
             font-size: 1.2rem;
-        }
-        &.nav-dot {
-            top: -5px;
-            width: 11px;
-            height: 11px;
-            margin: 0 4px;
-            position: relative;
-            border-radius: 100%;
-            display: inline-block;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        .nav-dots .nav-dots .nav-dot:hover {
-            cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        input#img-1:checked ~ .nav-dots label#img-dot-1,
-        input#img-2:checked ~ .nav-dots label#img-dot-2,
-        input#img-3:checked ~ .nav-dots label#img-dot-3,
-        input#img-4:checked ~ .nav-dots label#img-dot-4,
-        input#img-5:checked ~ .nav-dots label#img-dot-5,
-        input#img-6:checked ~ .nav-dots label#img-dot-6 {
-            background: rgba(0, 0, 0, 0.8);
         }
     }
     /**/
@@ -345,14 +326,13 @@ header.main {
         display: flex;
         justify-content: space-around;
         background: $green;
-        margin: 20px 0;
+        margin: 0.9375rem 0;
         color: #fff;
         padding: 15px 5px;
         li {
-            margin-top: 19px;
-            padding-top: 25px;
+            padding-top: 60px;
             background-repeat: no-repeat;
-            background-size: 20px;
+            background-size: 40px;
             background-position: center 0;
             h4 {
                 margin: 0 0 5px 5px;
@@ -368,13 +348,19 @@ header.main {
                 margin-bottom: 0;
             }
             &.support {
-                background-image: image-url('support.svg')
+                background-image: image-url('icon1.png')
             }
             &.quality {
-                background-image: image-url('quality.svg')
+                background-image: image-url('icon2.png')
+            }
+            &.garanty {
+                background-image: image-url('icon3.png')
+            }
+            &.dimensions {
+                background-image: image-url('icon4.png')
             }
             &.delivery {
-                background-image: image-url('delivery.svg')
+                background-image: image-url('icon5.png')
             }
         }
     }
@@ -401,19 +387,19 @@ header.main {
     //
     // The basic header
     //
-    &.basic {
-        nav.main {
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-        nav.main h1 {
-            padding-top: 15px;
-            margin-bottom: 0;
-        }
-        nav.main ul {
-            padding-top: 8px;
-        }
-    }
+    // &.basic {
+    //     nav.main {
+    //         padding-top: 15px;
+    //         padding-bottom: 15px;
+    //     }
+    //     nav.main h1 {
+    //         padding-top: 15px;
+    //         margin-bottom: 0;
+    //     }
+    //     nav.main ul {
+    //         padding-top: 8px;
+    //     }
+    // }
 }
 
 // Helpers //
