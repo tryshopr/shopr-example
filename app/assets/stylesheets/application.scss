@@ -10,6 +10,7 @@ $magento-dark: #AE0358;
 $blue: #339ECE;
 $gray: #dedede;
 $border-radius: 4px;
+$slider-height: 270px;
 // Custom bootstrap variables must be set or import before bootstrap itself.
 @import "bootstrap";
 @import 'bootstrap-custom';
@@ -70,7 +71,7 @@ nav.sidebar header.logo h1 a {
 //
 div.container {
     margin: 0 auto;
-    padding: 15px 35px;
+    padding: 15px;
     box-shadow: 0 1px 30px -13px #888888;
     background: #fff;
     &.last {
@@ -111,7 +112,7 @@ div#flash-alert {
 // Primary header
 //
 header.main {
-    font-size: 0.9em;
+    font-size: 0.9rem;
     .head {
         padding: 25px 0;
         overflow: hidden;
@@ -215,23 +216,26 @@ header.main {
     }
     // Main header
     h2 {
-        font-size: 3.2em;
+        font-size: 3.2rem;
         font-weight: normal;
         margin-bottom: 20px;
     }
     // Introduction
     section.intro {
-        display: flex;
-        justify-content: space-between;
-        height: auto;
+        // height: 300px;
     }
     div.info {
-        border: 4px $green solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 0px 4px $green inset;
         border-radius: $border-radius;
-        padding: 15px 5px;
         text-align: center;
         line-height: 1.5;
-        width: 25%;
+        height: 300px;
+        max-height: 300px;
+        padding: 15px;
         & h2 {
             font-size: 24px;
             font-weight: bold;
@@ -239,15 +243,109 @@ header.main {
             color: $purple;
         }
     }
-    div.slider {
-        width: 73%;
-        background: image-url('header.jpg') $purple 50% 50%;
+    // Slider 2
+    .slider {
+        height: 300px;
+        overflow: hidden;
+        background: $purple 50% 50%;
+        position: relative;
+        input {
+            display: none;
+        }
+        > ul {
+            height: $slider-height;
+            overflow: hidden;
+        }
     }
+    .slide * {
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+    }
+    .slide-container {
+        height: $slider-height;
+        width: 100%;
+        top: 0;
+        right: 0;
+        position: absolute;
+        font-size: 0;
+        animation: 40s slidy infinite;
+    }
+    .slide {
+        display: flex;
+        justify-content: space-between;
+        opacity: 0;
+        transform: scale(0);
+        transition: all .7s ease-in-out;
+        & .slide-info {
+    		display: flex;
+        	flex-direction: column;
+    		justify-content: center;
+            padding: 30px;
+            color: #fff;
+        }
+        & h2 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        & img {
+            height: $slider-height;
+            width: auto;
+        }
+    }
+    input:checked + .slide-container .slide {
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 1s ease-in-out;
+    }
+    figcaption.controls {
+        height: 30px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        width: 100%;
+        line-height: 2rem;
+        label {
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: 1.2rem;
+        }
+        &.nav-dot {
+            top: -5px;
+            width: 11px;
+            height: 11px;
+            margin: 0 4px;
+            position: relative;
+            border-radius: 100%;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .nav-dots .nav-dots .nav-dot:hover {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        input#img-1:checked ~ .nav-dots label#img-dot-1,
+        input#img-2:checked ~ .nav-dots label#img-dot-2,
+        input#img-3:checked ~ .nav-dots label#img-dot-3,
+        input#img-4:checked ~ .nav-dots label#img-dot-4,
+        input#img-5:checked ~ .nav-dots label#img-dot-5,
+        input#img-6:checked ~ .nav-dots label#img-dot-6 {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    }
+    /**/
     ul.reasons {
+        clear: left;
         display: flex;
         justify-content: space-around;
         background: $green;
-        margin: 10px 0;
+        margin: 20px 0;
         color: #fff;
         padding: 15px 5px;
         li {
@@ -319,20 +417,18 @@ header.main {
 }
 
 // Helpers //
-
 .arrow-r:after {
-	display: block;
+    display: block;
     content: '';
     margin: -25px 15px 0 0;
     height: 1.5rem;
-	background: image-url('right.svg') transparent no-repeat 95% 5px;
+    background: image-url('right.svg') transparent no-repeat 95% 5px;
     background-size: 17px;
 }
 
 //
 // Primary content area
 //
-
 section.primary {
     // width:70%;
     // padding-top:40px;
@@ -1226,11 +1322,11 @@ section.primary {
     }
     p.info {
         height: 80px;
-        width: 60vw;
+        width: 60%;
     }
     span,
-        h3 {
-            color: $blue;
+    h3 {
+        color: $blue;
     }
     p.price {
         background: $blue;
@@ -1347,7 +1443,7 @@ footer {
 }
 
 footer.main > .container {
-    width: 60%;
+    width: 60vw;
     color: #53686B;
     background: #D0D1D5;
     font-size: 0.9em;

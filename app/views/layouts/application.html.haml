@@ -15,33 +15,69 @@
     %header.main{:class => @full_header ? 'full' : 'basic'}
       .container
         .row
-          %div.head
-            .logo=link_to '', root_path
-            %div.headcontacts
-              =image_tag "phone.png", class: "phone_icon"
-              %div
-                %p.call <b>(029) 127 55 55</b>
-                %p.small 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
-            %div.search
-          / Primary navigation
-          %nav.main
-            %ul
-              //%li= link_to "Home", root_path, :nav_item => :home
-              - for category in Shoppe::ProductCategory.ordered
-                %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-              %li= link_to "Акции", page_path(:why), :nav_item => :why
-              %li= link_to "О компании", page_path(:faqs), :nav_item => :faqs
-              //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
+          .col-md-12
+            .head
+              .logo=link_to '', root_path
+              .headcontacts
+                =image_tag "phone.png", class: "phone_icon"
+                .div
+                  %p.call <b>(029) 127 55 55</b>
+                  %p.small 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
+              .search
+            / Primary navigation
+            %nav.main
+              %ul
+                //%li= link_to "Home", root_path, :nav_item => :home
+                - for category in Shoppe::ProductCategory.ordered
+                  %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
+                %li= link_to "Акции", page_path(:why), :nav_item => :why
+                %li= link_to "О компании", page_path(:faqs), :nav_item => :faqs
+                //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
           
-          - if @full_header
-            %section.intro
-              %div.info
+        - if @full_header
+          %section.intro.row
+            .col-xl-3.col-lg-4.col-md-5.col-xs-12
+              .info
                 %h2 Нужен матрас срочно?
                 %p Более <b>100 видов</b> матрасов в наличии! Закажи сейчас и мы доставим его вам в течение дня!
                 %p Равным образом новая модель Закажи сейчас и мы доставим его вам в течение дня!
                 = link_to "Матрасы в наличии",  catalogue_path, class: "btn btn-default"
-                %a.arrow-r{:href => "@link.href"} Использователь фильтр
-              %div.slider Slider
+                -# %a.arrow-r{:href => "@link.href"} Использователь фильтр
+
+            .col-xl-9.col-lg-8.col-md-7.col-xs-12
+              .slider
+                %ul.row
+                  %input#img-1{:checked => "checked", :name => "radio-btn", :type => "radio"}/
+                  %li.slide-container
+                    .slide
+                      .slide-info
+                        %h2 -30%
+                        %p С 10 декабря по 21 марта каждую субботу
+                      =image_tag "slider/image1.png"
+                  %input#img-2{:name => "radio-btn", :type => "radio"}/
+                  %li.slide-container
+                    .slide
+                      .slide-info
+                      %img{:src => "http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg"}/
+                  %input#img-3{:name => "radio-btn", :type => "radio"}/
+                  %li.slide-container
+                    .slide
+                      .slide-info
+                      %img{:src => "http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg"}/
+                  %input#img-4{:name => "radio-btn", :type => "radio"}/
+                  %li.slide-container
+                    .slide
+                      .slide-info
+                        %h2 -10%
+                        %p Test
+                      %img{:src => "http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg"}/
+                %figcaption.controls
+                  %label#img-dot-1.nav-dot{:for => "img-1"} Акция -30%
+                  %label#img-dot-2.nav-dot{:for => "img-2"} Наматрасники - 10%
+                  %label#img-dot-3.nav-dot{:for => "img-3"} Подушка в подарок
+                  %label#img-dot-4.nav-dot{:for => "img-4"} Бесплатная доставка
+            
+          .row
             %ul.reasons
               %li.support
                 %h4 Европейские материалы
@@ -60,33 +96,34 @@
             -#   %p.offer <b>This week only!</b> FREE next day shipping on all orders over &pound;30.
     
     / Main content section
-    %section.content
+    .content
       .container
         .row
-          .products.white-off
-        
-          / Sidebar
-          -# %section.sidebar
-          -#   - if content_for?(:sidebar)
-          -#     = yield :sidebar
-          -#   - else
-          -#     = render 'shared/basket'
-          -#     = render 'shared/reasons'
-        
-          / Primary section
-          %section.primary
-            = yield
+          .col-md-12
+            -# .products.white-off
+          
+            / Sidebar
+            -# %section.sidebar
+            -#   - if content_for?(:sidebar)
+            -#     = yield :sidebar
+            -#   - else
+            -#     = render 'shared/basket'
+            -#     = render 'shared/reasons'
+          
+            / Primary section
+            %section.primary
+              = yield
 
       .container.last
         .row
           .col-md-6.col-xs-12
             .specials.green
               =image_tag "box1.png"
-              %div.discount
+              .discount
               %span коллекция
               %h3 Комфорт
               %p.info Матрасы на основе независимых пружинных блоков TFK. Просто комфорт - и ничего более.
-              %div.price 
+              .price 
                 %p.price 
                   %strike от 5 490 000 руб.
                 %p.price.new
@@ -95,11 +132,11 @@
           .col-md-6.col-xs-12
             .specials.purple
               =image_tag "box2.png"
-              %div.discount
+              .discount
               %span коллекция
               %h3 Комфорт
               %p.info Матрасы на основе независимых пружинных блоков TFK. Просто комфорт - и ничего более.
-              %div.price 
+              .price 
                 %p.price 
                   %strike от 5 490 000 руб.
                 %p.price.new
@@ -108,22 +145,22 @@
           .col-md-6.col-xs-12
             .specials
               =image_tag "box3.png"
-              %div.discount
+              .discount
               %span коллекция
               %h3 Комфорт
               %p.info Матрасы на основе независимых пружинных блоков TFK. Просто комфорт - и ничего более.
-              %div.price 
+              .price 
                 %p.price 
                   %strike от 5 490 000 руб.
 
           .col-md-6.col-xs-12
             .specials
               =image_tag "box4.png"
-              %div.discount
+              .discount
               %span коллекция
               %h3 Комфорт
               %p.info Матрасы на основе независимых пружинных блоков TFK. Просто комфорт - и ничего более.
-              %div.price 
+              .price 
                 %p.price 
                   %strike от 5 490 000 руб.
     
