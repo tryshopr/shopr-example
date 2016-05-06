@@ -27,20 +27,20 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
-}
-
-h2 {
     font-size: 1.7rem;
 }
 
-h3 {
+h2 {
     font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
 h4 {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 a {
@@ -53,7 +53,7 @@ p {
 }
 
 p.info {
-    font-size: 0.85em;
+    font-size: 0.85rem;
     line-height: 2;
     color: #444;
 }
@@ -84,7 +84,7 @@ div.field_with_error {
 }
 
 div.white-off {
-    background: #F6F5F6;
+    background: #F9F9F9;
 }
 
 //
@@ -100,11 +100,11 @@ div#flash-notice {
 }
 
 div#flash-alert {
-    background: #a13361;
+    background: $purple;
     color: #fff;
     text-align: center;
-    padding: 8px;
-    font-size: 0.9em;
+    padding: 20px;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -331,13 +331,13 @@ header.main {
         color: #fff;
         padding: 15px 5px;
         li {
-            padding: 60px 20px 0 0;
+            padding: 60px 15px 0 0;
             background-repeat: no-repeat;
             background-size: 40px;
-            background-position: center 0;
+            background-position: center top;
             border-right: 1px solid #36AB69;
             h4 {
-                margin: 0 0 5px 5px;
+                margin-left: 10px;
                 font-weight: bold;
                 text-align: center;
                 text-transform: uppercase;
@@ -492,7 +492,7 @@ section.primary {
             h4 {
                 text-align: center;
                 font-size: 1.1em;
-                line-height: 2.45em;
+                line-height: 1.2rem;
             }
             h4 a {
                 text-decoration: none;
@@ -511,8 +511,7 @@ section.primary {
                 &.bad {
                     text-decoration: line-through;
                     color: #222;
-                font-size:0.9rem;
-
+                    font-size: 0.9rem;
                 }
                 color: $magento;
                 font-size:1.1rem;
@@ -534,7 +533,7 @@ section.primary {
                 }
             }
             p.buttons a {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 font-weight: bold;
                 background: #BEBEBE;
                 color: #fff;
@@ -1025,29 +1024,58 @@ section.primary {
     // product page
     //
     div.product {
-        overflow: hidden;
         .img {
-            float: right;
-            width: 45%;
-            height: 260px;
+            width: 30%;
+            height: auto;
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: top right;
+        }
+        .product-info {
+            min-height: 300px;
+            box-shadow: 0px 0px 10px #DAD5D5;
+            flex-direction: row;
+            display: flex;
+            justify-content: space-between;
         }
         h2 {
-            font-size: 2.0em;
-            color: #216d74;
+            font-size: 1.7rem;
+            float: left;
+            font-weight: bold;
         }
-        p.intro {
+        p {
+        	display: inline-block;
+        }
+        .intro {
+            width: 75%;
+            padding: 15px;
             font-size: 0.8em;
             color: #333;
             line-height: 1.5;
-            margin-top: 8px;
-            width: 50%;
         }
         hr {
-            margin-top: 200px;
             border-color: #C4DDDE;
+        }
+        .stock {
+            float: left;
+            margin: 0 15px;
+            p.yes {
+                color: white;
+                font-size: 1em;
+                background: $green;
+                 // image-url('tick.svg') no-repeat 0 3px;
+                background-size: 13px;
+                padding: 5px 20px;
+                font-weight: 600;
+                border-radius: 15px;
+            }
+            p.no {
+                color: #c04a4a;
+                font-size: 1em;
+                background: image-url('unhappy.svg') no-repeat 0 3px;
+                background-size: 13px;
+                padding-left: 18px;
+                font-weight: 600;
+            }
         }
         table.variants {
             width: 100%;
@@ -1067,26 +1095,6 @@ section.primary {
             td h4 {
                 font-size: 1.2em;
                 color: #216D74;
-            }
-            td p.stock {
-                float: right;
-                margin-top: 10px;
-            }
-            td p.stock.yes {
-                color: #5DBCC4;
-                font-size: 1em;
-                background: image-url('tick.svg') no-repeat 0 3px;
-                background-size: 13px;
-                padding-left: 18px;
-                font-weight: 600
-            }
-            td p.stock.no {
-                color: #c04a4a;
-                font-size: 1em;
-                background: image-url('unhappy.svg') no-repeat 0 3px;
-                background-size: 13px;
-                padding-left: 18px;
-                font-weight: 600;
             }
             td form {
                 input {
@@ -1128,7 +1136,8 @@ section.primary {
         }
         div.optionsBox {
             margin-top: 50px;
-            position: absolute;
+            padding-top: 20px;
+            clear: left;
             width: 370px;
             font-size: 0.8em;
             .top {
@@ -1306,7 +1315,7 @@ section.primary {
 // Specials
 .specials {
     box-shadow: 1px 2px 6px 0px #888888;
-    margin: 0 -15px 0.9375rem 0;
+    margin-bottom: 0.9375rem;
     padding: 0 0.9375rem;
     height: 215px;
     position: relative;

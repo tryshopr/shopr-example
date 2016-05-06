@@ -38,5 +38,11 @@ class ProductsController < ApplicationController
       wants.json { render :json => {:error => 'NotEnoughStock', :available_stock => e.available_stock}}
     end
   end
+
+  def strip_html(str)
+  document = Nokogiri::HTML.parse(str)
+  document.css("br").each { |node| node.replace("\n") }
+  document.text
+  end
   
 end
