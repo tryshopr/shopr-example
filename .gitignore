@@ -21,6 +21,8 @@ Gemfile.lock\
 
 
 /.idea/
+/public/attachment
+
 
 # Compiled source #
 ###################
