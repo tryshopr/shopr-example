@@ -9,9 +9,10 @@ $magento: #FA4B74;
 $magento-dark: #AE0358;
 $blue: #339ECE;
 $gray: #dedede;
-$border-radius: 4px;
+$radius: 4px;
 $slider-height: 270px;
 // Custom bootstrap variables must be set or import before bootstrap itself.
+@import 'products';
 @import "bootstrap";
 @import 'bootstrap-custom';
 @import 'reset';
@@ -535,21 +536,13 @@ section.primary {
             p.buttons a {
                 font-size: 0.8rem;
                 font-weight: bold;
-                background: #BEBEBE;
                 color: #fff;
                 text-decoration: none;
                 text-transform: uppercase;
                 padding: 3px 6px;
                 border-radius: 3px;
             }
-            p.buttons a.add {
-                background: #FFBE60;
-                background-image: -webkit-linear-gradient(top, #FFBE60, #DE610B);
-                background-image: -moz-linear-gradient(top, #FFBE60, #DE610B);
-                background-image: -ms-linear-gradient(top, #FFBE60, #DE610B);
-                background-image: -o-linear-gradient(top, #FFBE60, #DE610B);
-                background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
-            }
+
         }
     }
     //
@@ -1038,9 +1031,9 @@ section.primary {
             justify-content: space-between;
         }
         .product-tabs {
-			margin-top: 10px;
+			margin-top: 20px;
             box-shadow: 0px 0px 10px #DAD5D5;
-            padding: 10px;
+            padding: 15px;
         }
         h2 {
             font-size: 1.7rem;
@@ -1084,11 +1077,12 @@ section.primary {
         }
         table.variants {
             width: 100%;
-            margin: 25px 0;
+            margin: 15px 0;
             font-size: 0.8em;
+            @include border-radius($radius);
             td {
-                border: 1px solid #C4DDDE;
-                background: #f4f9f9;
+                border: 1px solid #E3E3E3;
+                background: #E3E3E3;
                 line-height: 1.5;
                 padding: 10px;
                 vertical-align: middle;
@@ -1103,8 +1097,6 @@ section.primary {
             }
             td form {
                 input {
-                    float: right;
-                    background: #256D73;
                     border: 0;
                     font-family: $font;
                     height: 24px;
@@ -1117,15 +1109,13 @@ section.primary {
                 }
                 select {
                     -webkit-appearance: none;
-                    background: image-url('down-arrow.svg') #DEE9EB no-repeat 24px 11px;
+                    background: image-url('down-arrow.svg') #fff no-repeat 24px 11px;
                     width: 40px;
-                    background-size: 7px;
-                    border: 0;
-                    height: 24px;
+                    background-size: 8px;
+                    height: 25px;
                     font-weight: bold;
                     padding: 4px 10px;
                     font-family: $font;
-                    color: #256D73;
                 }
                 &.no-stock {
                     select {

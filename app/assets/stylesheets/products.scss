@@ -6,3 +6,12 @@
 nav.sidebar header.logo h1 a {
     background: none !important;
 }
+
+a.add, .btn.add {
+    background: #FFBE60;
+    background-image: -webkit-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: -moz-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: -ms-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: -o-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
+}
