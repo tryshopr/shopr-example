@@ -30,7 +30,7 @@
                 //%li= link_to "Home", root_path, :nav_item => :home
                 - for category in Shoppe::ProductCategory.ordered
                   %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-                %li= link_to "Акции", page_path(:why), :nav_item => :why
+                %li= link_to "Акции", page_path(:why), :nav_item => :why, class: 'instock'
                 %li= link_to "О компании", page_path(:faqs), :nav_item => :faqs
                 //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
           
