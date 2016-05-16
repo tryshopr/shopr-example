@@ -15,3 +15,94 @@ a.add, .btn.add {
     background-image: -o-linear-gradient(top, #FFBE60, #DE610B);
     background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
 }
+
+// TABS //
+
+.tabs [id^="tab"]:checked + label {
+    background: linear-gradient(to bottom, $purple, $purple-dark);
+    color: white;
+    span {
+    text-decoration: none;
+    }
+}
+#tab1:checked ~ #tab-content1,
+#tab2:checked ~ #tab-content2,
+#tab3:checked ~ #tab-content3 {
+    display: block;
+}
+
+.tabs {
+    float: none;
+    list-style: none;
+    margin-top: 15px;
+}
+.tabs:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.tabs input[type=radio] {
+    display:none;
+}
+.tabs label {
+    display: block;
+    float: left;
+    color: #3498db;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 2;
+    cursor: pointer;
+    -webkit-transition: all 0.2s; /* Safari 3.1 to 6.0 */
+    transition: all 0.2s;
+}
+.tabs label span {
+    display: none;
+    text-decoration: underline;
+}
+.tabs label i {
+    padding: 5px;
+    margin-right: 0;
+}
+.tabs label:hover {
+    color: #3498db;
+}
+.tab-content {
+    display: none;
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+    box-sizing: border-box;
+    background-color:#ffffff;
+}
+
+.tab-content * {
+    -webkit-animation: scale 0.2s ease-in-out;
+    -moz-animation: scale 0.2s ease-in-out;
+    animation: scale 0.2s ease-in-out;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+    }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+    .tabs i {
+        padding: 5px;
+        margin-right: 10px;
+    }
+    .tabs label span {
+        display: inline-block;
+    }
+}

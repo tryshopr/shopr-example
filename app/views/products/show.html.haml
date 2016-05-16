@@ -30,10 +30,10 @@
           - for variant in @product.variants
             %tr
               %td
-                - if variant.in_stock?
-                  %p.stock.yes In stock
-                - else
-                  %p.stock.no Out of stock
+                -# - if variant.in_stock?
+                -#   %p.stock.yes In stock
+                -# - else
+                -#   %p.stock.no Out of stock
                 %h4= variant.name
                 %p.price= number_to_currency variant.price 
               %td.buy
@@ -50,21 +50,51 @@
             - if @product.data_sheet
               %li.item.datasheet= link_to "Read product datasheet", @product.data_sheet.path
             - unless @product.in_the_box.blank?
+
               %li.item.box
-                = link_to "What's in the box?"
                 %div.in_the_box
-                  %h3 What's in the box?
-                  = markdown @product.in_the_box
-            %li.item.ask= mail_to Shoppe.settings.email_address, "Ask us a question about this", :subject => "Question about the #{@product.name}"
+                  
+                  
+            -# %li.item.ask= mail_to Shoppe.settings.email_address, "Ask us a question about this", :subject => "Question about the #{@product.name}"
   
+  
+  .tabs
+    %input#tab1{:checked => "", :name => "tabs", :type => "radio"}
+      %label{:for => "tab1"}
+        %span Структура
+    / Radio button and lable for #tab-content2
+    %input#tab2{:name => "tabs", :type => "radio"}
+      %label{:for => "tab2"}
+        %span Параметры
+      / Radio button and lable for #tab-content3
+    %input#tab3{:name => "tabs", :type => "radio"}
+      %label{:for => "tab3"}
+        %span Технологии
+    %input#tab4{:name => "tabs", :type => "radio"}
+      %label{:for => "tab4"}
+        %span Отзывы
+
+    / Radio button and lable for #tab-content1
+    #tab-content1.tab-content.product-tabs
+      -# .description
+      -#   %p = markdown @product.description
+      -# %h3 What's in the box?
+      %p= markdown @product.in_the_box
+    #tab-content2.tab-content.product-tabs
+      %h3
+        / Tab title here
+      - unless @attributes.empty?
+        %table.attributes
+          - for attribute in @attributes
+            %tr
+              %th= attribute.key
+              %td= link_to attribute.value, product_filter_path(:key => attribute.key, :value => attribute.value)
+    #tab-content3.tab-content.product-tabs
+      %h3
+        / Tab title here
+      %p
+        / Tab content here
 
 
-  .product-tabs
-    - unless @attributes.empty?
-      %table.attributes
-        - for attribute in @attributes
-          %tr
-            %th= attribute.key
-            %td= link_to attribute.value, product_filter_path(:key => attribute.key, :value => attribute.value)
-    .description
-      = markdown @product.description
+    
+      

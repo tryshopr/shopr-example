@@ -4,7 +4,8 @@ $font: Lato,
 Arial,
 sans-serif;
 $green: #059A5E;
-$purple: #56088B;
+$purple: #B068E2;
+$purple-dark: #56088B;
 $magento: #FA4B74;
 $magento-dark: #AE0358;
 $blue: #339ECE;
@@ -542,7 +543,6 @@ section.primary {
                 padding: 3px 6px;
                 border-radius: 3px;
             }
-
         }
     }
     //
@@ -1029,9 +1029,12 @@ section.primary {
             flex-direction: row;
             display: flex;
             justify-content: space-between;
+            .intro > p {
+                display: inline-block;
+                min-width: 100%;
+            }
         }
         .product-tabs {
-			margin-top: 20px;
             box-shadow: 0px 0px 10px #DAD5D5;
             padding: 15px;
         }
@@ -1039,9 +1042,6 @@ section.primary {
             font-size: 1.7rem;
             float: left;
             font-weight: bold;
-        }
-        p {
-        	display: inline-block;
         }
         .intro {
             width: 75%;
@@ -1060,7 +1060,7 @@ section.primary {
                 color: white;
                 font-size: 1em;
                 background: $green;
-                 // image-url('tick.svg') no-repeat 0 3px;
+                // image-url('tick.svg') no-repeat 0 3px;
                 background-size: 13px;
                 padding: 5px 20px;
                 font-weight: 600;
@@ -1080,6 +1080,10 @@ section.primary {
             margin: 15px 0;
             font-size: 0.8em;
             @include border-radius($radius);
+            //      tr {
+            //      	display: flex;
+            // flex-direction: column;
+            //      }
             td {
                 border: 1px solid #E3E3E3;
                 background: #E3E3E3;
@@ -1268,15 +1272,11 @@ section.primary {
         }
         table.attributes {
             width: 100%;
-            font-size: 0.8em;
-            td,
-            th {
-                border: 1px solid #C4DDDE;
+            tr + tr {
+                border-top: 2px solid $gray;
                 padding: 6px;
             }
             th {
-                background: #f2fbfb;
-                font-weight: normal;
                 text-align: left;
                 width: 30%;
             }
