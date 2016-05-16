@@ -16,6 +16,14 @@ a.add, .btn.add {
     background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
 }
 
+// //
+
+ul.products hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 -10px;
+}
+
 // TABS //
 
 .tabs [id^="tab"]:checked + label {

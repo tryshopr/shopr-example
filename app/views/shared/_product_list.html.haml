@@ -6,6 +6,7 @@
       %p.info= truncate product.short_description, :length => 90
       %p.price.bad= number_to_currency product.price
       %p.price= number_to_currency product.cost_price
+      %hr
       %p.buttons 
         //= link_to "Info", product_path(product.product_category.permalink, product.permalink)
         - if product.orderable?
