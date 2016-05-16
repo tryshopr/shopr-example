@@ -23,10 +23,16 @@ html {
     background: #fff;
 }
 
-body {
+html {
+    height: 100%;
     -webkit-font-smoothing: antialiased;
     background: rgba(185, 185, 185, 0.25);
-    min-height: 100vw;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -237,8 +243,6 @@ header.main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 0px 0px 0px 4px $green inset;
-        border-radius: $border-radius;
         text-align: center;
         line-height: 1.5;
         height: 300px;
@@ -455,7 +459,7 @@ section.primary {
         font-size: 0.9em;
         h2 {
             font-size: 2.0em;
-            color: #216d74;
+            font-weight: 600;
         }
         p {
             margin: 25px 0;
@@ -1085,7 +1089,6 @@ section.primary {
             margin: 15px 0;
             font-size: 0.8em;
             @include border-radius($radius);
-
             td {
                 border: 1px solid #E3E3E3;
                 background: #E3E3E3;
@@ -1379,11 +1382,39 @@ section.primary {
 
 // helpers
 //
+.green-border {
+    box-shadow: 0px 0px 0px 4px $green inset;
+    border-radius: $border-radius;
+}
+
 // Sidebar
 //
 section.sidebar {
-    float: right;
-    width: 25%;
+    padding: 15px;
+    ul#sidebar {
+        margin: 0;
+        position: relative;
+    }
+    ul#sidebar li {
+        list-style: none;
+        & + li {
+            border-top: 1px solid $gray;
+        }
+        a {
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 2rem;
+            color: black;
+        }
+        a.active, a:active {
+            color: $purple-dark;
+        }
+        a.active:after {
+            position: absolute;
+            right: 0;
+            content: '>';
+        }
+    }
     div.basket {
         background: image-url('bag.svg') #DFF0F1 no-repeat 18px 18px;
         background-size: 14px;

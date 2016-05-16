@@ -6,6 +6,7 @@
     = javascript_include_tag :application
     = csrf_meta_tags
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    = favicon_link_tag 'favicon.ico'
     = yield :head
   %body
     = display_flash
@@ -30,14 +31,14 @@
                 //%li= link_to "Home", root_path, :nav_item => :home
                 - for category in Shoppe::ProductCategory.ordered
                   %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-                %li= link_to "Акции", page_path(:why), :nav_item => :why, class: 'instock'
-                %li= link_to "О компании", page_path(:faqs), :nav_item => :faqs
+                %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
+                %li= link_to "О компании", page_path(:about), :nav_item => :about
                 //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
           
         - if @full_header
           %section.intro.row
             .col-xl-3.col-lg-4.col-md-5.col-xs-12
-              .info
+              .info.green-border
                 %h2 Нужен матрас срочно?
                 %p Более <b>100 видов</b> матрасов в наличии! Закажи сейчас и мы доставим его вам в течение дня!
                 %p Равным образом новая модель Закажи сейчас и мы доставим его вам в течение дня!
