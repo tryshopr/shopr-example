@@ -27,7 +27,8 @@ a.add, .btn.add {
 }
 #tab1:checked ~ #tab-content1,
 #tab2:checked ~ #tab-content2,
-#tab3:checked ~ #tab-content3 {
+#tab3:checked ~ #tab-content3,
+#tab4:checked ~ #tab-content4 {
     display: block;
 }
 
@@ -106,4 +107,23 @@ a.add, .btn.add {
     .tabs label span {
         display: inline-block;
     }
+}
+
+.tech-item {
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+	> img {
+		margin-right: 30px;
+	}
+    .tech-item-info {
+    	display: flex;
+    	flex-direction: column;
+    	align-content: center;
+    }
+
+}
+
+.tech-item + .tech-item {
+	border-top: 1px solid $gray;
 }
