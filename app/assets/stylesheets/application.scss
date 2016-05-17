@@ -11,6 +11,7 @@ $magento-dark: #AE0358;
 $blue: #339ECE;
 $gray: #dedede;
 $gray-light: #e3e3e3;
+$gray-lighter: #F7F7F7;
 $radius: 4px;
 $slider-height: 270px;
 $background: #BABABD;
@@ -59,6 +60,10 @@ a {
     line-height: 1.5rem;
 }
 
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
 p {
     font-size: 14px;
 }
@@ -83,10 +88,10 @@ nav.sidebar header.logo h1 a {
 div.container {
     margin: 0 auto;
     padding: 15px;
-    box-shadow: 0 15px 25px 0 #888888;
+    box-shadow: 0 10px 20px 0 #888888;
     background: #fff;
     &.last {
-        box-shadow: 0 1px 20px -13px #888888;
+        box-shadow: 0 15px 20px -13px #888888;
     }
 }
 
@@ -485,7 +490,7 @@ section.primary {
         margin: 20px 0 0;
         overflow: hidden;
         display: flex;
-        flex-basis: 1;
+
         li {
                 position: relative;
 
@@ -497,6 +502,9 @@ section.primary {
             height: 430px;
             border-top: 1px solid #EAEAEA;
             box-shadow: 0px 0px 10px #DAD5D5;
+                    &:hover {
+        background: $gray-lighter;
+    }
             div.img {
                 background-repeat: no-repeat;
                 background-size: contain;
@@ -1323,6 +1331,9 @@ section.primary {
     padding: 0 0.9375rem;
     height: 215px;
     position: relative;
+    &:hover {
+        background: $gray-lighter;
+    }
     img {
         position: absolute;
         right: 0;
