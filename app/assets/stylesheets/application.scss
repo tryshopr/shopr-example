@@ -10,8 +10,10 @@ $magento: #FA4B74;
 $magento-dark: #AE0358;
 $blue: #339ECE;
 $gray: #dedede;
+$gray-light: #e3e3e3;
 $radius: 4px;
 $slider-height: 270px;
+$background: #BABABD;
 // Custom bootstrap variables must be set or import before bootstrap itself.
 @import 'products';
 @import "bootstrap";
@@ -26,7 +28,7 @@ html {
 html {
     height: 100%;
     -webkit-font-smoothing: antialiased;
-    background: rgba(185, 185, 185, 0.25);
+    background: $background;
 }
 
 body {
@@ -81,7 +83,7 @@ nav.sidebar header.logo h1 a {
 div.container {
     margin: 0 auto;
     padding: 15px;
-    box-shadow: 0 1px 30px -13px #888888;
+    box-shadow: 0 15px 25px 0 #888888;
     background: #fff;
     &.last {
         box-shadow: 0 1px 20px -13px #888888;
@@ -1054,7 +1056,7 @@ section.primary {
             line-height: 1.5;
         }
         hr {
-            border-color: #C4DDDE;
+            border-color: $gray;
         }
         .stock {
             float: left;
@@ -1084,19 +1086,24 @@ section.primary {
             font-size: 0.8em;
             @include border-radius($radius);
             td {
-                border: 1px solid #E3E3E3;
-                background: #E3E3E3;
-                line-height: 1.5;
+                border: 1px solid $gray-light;
+                background: $gray;
+                line-height: 1rem;
                 padding: 10px;
                 vertical-align: middle;
             }
             td.buy {
                 width: 170px;
                 background: #fff;
+                font-size: 0.8rem;
             }
             td h4 {
                 font-size: 1.2em;
-                color: #216D74;
+                color: black;
+            }
+            td p {
+                color: $magento;
+                font-weight: 600;
             }
             td form {
                 input {
