@@ -10,7 +10,6 @@ $magento: #FA4B74;
 $magento-dark: #AE0358;
 $blue: #339ECE;
 $gray: #dedede;
-$gray-dark: #A9A9A9;
 $gray-light: #e3e3e3;
 $gray-lighter: #F7F7F7;
 $radius: 4px;
@@ -1568,7 +1567,7 @@ footer.main > .container {
         }
     }
     div.copyright {
-        color: $gray-dark;
+        color: #A9A9A9;
         font-size: 0.7rem;
         line-height: 1.5;
         margin: 5px 0 10px;
