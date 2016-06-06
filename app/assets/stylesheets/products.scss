@@ -457,38 +457,51 @@ div.product {
     ol {
         float: left;
         display: block;
-        padding: 0 0 0 26px;
         list-style: none;
         overflow: hidden;
         counter-reset: numList;
     }
     ol li {
-        margin: 0 20px;
-        min-width: 140px;
-        line-height: 2.5rem;
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        position: relative;
         position: relative;
         font-weight: 600;
     }
     ol li:before {
         counter-increment: numList;
         content: counter(numList);
-        float: left;
-        position: absolute;
-        left: -45px;
-        top: 4px;
+        margin-right: 30px;
+        padding: 6px 7px;
+        line-height: 1rem;
         font-size: 1.3rem;
         text-align: center;
         color: $green;
-        line-height: 1.8rem;
         width: 2rem;
         height: 2rem;
         border: 3px solid $green;
         -moz-border-radius: 999px;
         border-radius: 999px
     }
-    p {
-        line-height: 2.5rem;
+    ol li:not(:last-child):after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top: 1px solid #dedede;
+        clear: both;
+        content: '';
+        display: block;
+        width: 100%;
+    }
+    li > p {
+        line-height: 1.5rem;
         float: left;
+        min-width: 145px;
+    }
+    li > p+p {
+        margin: 0;
+        font-weight: 500;
     }
 }
 
@@ -510,8 +523,6 @@ div.product {
     border-top: 1px solid $gray;
 }
 
-
-
 //
 // Products list
 //
@@ -521,13 +532,11 @@ ul.products {
     overflow: hidden;
     display: flex;
     li {
-        position: relative;
         padding: 10px;
         background: #fff;
         border-radius: 3px;
         margin: 0 5px 10px;
         width: 25%;
-        height: 435px;
         border-top: 1px solid #EAEAEA;
         box-shadow: 0px 0px 10px #DAD5D5;
         &:hover {
@@ -576,12 +585,9 @@ ul.products {
         }
         p.buttons {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: flex-end;
-            height: 50px;
-                position: absolute;
-    bottom: 0;
-    right: 10px;
+            margin: 10px 0;
         }
         p.buttons a {
             font-size: 0.8rem;

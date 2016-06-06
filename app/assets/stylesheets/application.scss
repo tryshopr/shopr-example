@@ -75,10 +75,6 @@ p.info {
     color: #444;
 }
 
-p.small {
-    font-size: 12px;
-}
-
 nav.sidebar header.logo h1 a {
     background: none !important;
 }
@@ -170,7 +166,7 @@ header.main {
 //
 nav.main {
     margin: 0.9375rem 0 1.875rem;
-    padding: 15px 20px 10px;
+    padding: 10px 5px;
     overflow: hidden;
     border-top: 1px solid #E6E6E6;
     border-bottom: 1px solid #E6E6E6;
@@ -186,7 +182,6 @@ nav.main {
             display: block;
             text-decoration: none;
             border-bottom: 3px solid transparent;
-            padding-bottom: 3px;
             font-weight: 600;
         }
         li a:hover,
@@ -1141,7 +1136,7 @@ footer {
 }
 
 footer.main > .container {
-    width: 65vw;
+    width: 75vw;
     color: #53686B;
     background: #D0D1D5;
     font-size: 0.9em;
@@ -1160,14 +1155,13 @@ footer.main > .container {
         line-height: 1.8;
         color: #97AEB2;
         li {
-            margin-right: 7px;
             color: #66676D;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
         }
         li+li:before {
             content: '|';
-            margin-right: 7px;
+            margin: 0 5px;
         }
     }
     div.callUs {
