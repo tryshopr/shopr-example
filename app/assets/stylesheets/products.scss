@@ -130,6 +130,12 @@ span.yellow {
     font-size: 1.35rem;
 }
 
+span.gray {
+    display: block;
+    color: $gray;
+    font-size: 1.35rem;
+}
+
 span.material {
     width: 136px;
     height: 40px;
@@ -535,8 +541,7 @@ ul.products {
         padding: 10px;
         background: #fff;
         border-radius: 3px;
-        margin: 0 5px 10px;
-        width: 25%;
+        margin: 0 5px 5px;
         border-top: 1px solid #EAEAEA;
         box-shadow: 0px 0px 10px #DAD5D5;
         &:hover {
@@ -548,10 +553,13 @@ ul.products {
             background-position: top center;
             margin: -10px -10px 0;
             height: 160px;
+                min-width: 200px;
         }
         h4 {
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
             line-height: 1.2rem;
         }
         h4 a {

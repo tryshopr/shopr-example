@@ -6,14 +6,14 @@ sans-serif;
 $green: #059A5E;
 $purple: #B068E2;
 $purple-dark: #56088B;
-$magento: #DF0572;
-$magento-dark: #AE0358;
+$magento: #fa4771;
+$magento-dark: #CB0869;
 $blue: #339ECE;
 $gray: #dedede;
 $gray-light: #e3e3e3;
 $gray-lighter: #F7F7F7;
 $radius: 4px;
-$slider-height: 270px;
+$slider-height: 340px;
 $background: #BABABD;
 $yellow: #F1C700;
 // Custom bootstrap variables must be set or import before bootstrap itself.
@@ -70,7 +70,7 @@ p {
 }
 
 p.info {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.4rem;
     color: #444;
 }
@@ -84,7 +84,7 @@ nav.sidebar header.logo h1 a {
 //
 div.container {
     margin: 0 auto;
-    padding: 15px;
+    padding: 20px 15px;
     box-shadow: 0 10px 20px 0 #888888;
     background: #fff;
     &.last {
@@ -97,7 +97,7 @@ div.field_with_error {
 }
 
 div.white-off {
-    background: #F9F9F9;
+    background: #F6F5F6;
 }
 
 //
@@ -134,7 +134,8 @@ header.main {
         color: $green;
         .phone_icon {
             margin: 5px 10px;
-            height: 100%;
+            height: 45px;
+            width: 28px;
         }
         .headcontacts {
             flex-direction: row;
@@ -165,17 +166,18 @@ header.main {
 // Navigation
 //
 nav.main {
-    margin: 0.9375rem 0 1.875rem;
+    margin: 0.9375rem 0;
     padding: 10px 5px;
     overflow: hidden;
     border-top: 1px solid #E6E6E6;
     border-bottom: 1px solid #E6E6E6;
     ul {
-        float: left;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
         overflow: hidden;
         li {
-            float: left;
-            margin-right: 30px;
+            margin-right: 10px;
         }
         li a {
             color: #444;
@@ -234,13 +236,6 @@ nav.main {
     }
 }
 
-// Main header
-h2 {
-    font-size: 1.5rem;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
 // Introduction
 section.intro {
     // height: 300px;
@@ -253,20 +248,21 @@ div.info {
     align-items: center;
     text-align: center;
     line-height: 1.5;
-    height: 300px;
-    max-height: 300px;
+    height: 370px;
+    max-height: 370px;
     padding: 15px;
     & h2 {
-        font-size: 24px;
+        font-size: 26px;
         font-weight: bold;
         text-transform: uppercase;
         color: $purple-dark;
+        .slidermargin-bottom: 0;
     }
 }
 
 // Slider 2
 .slider {
-    height: 300px;
+    height: 370px;
     overflow: hidden;
     background: $purple-dark 50% 50%;
     position: relative;
@@ -353,19 +349,30 @@ figcaption.controls {
 
 ul.reasons {
     display: flex;
+    flex-wrap: wrap;
+    border-radius: $border-radius;
     justify-content: space-around;
     background: $green;
     margin: 1.875rem 0;
     color: #fff;
     padding: 15px 5px;
+    li + li:before {
+                    height: 100%;
+            width: 1px;
+            display: block;
+            background: #36AB69;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -8px;
+    }
     li {
-        padding: 60px 15px 0 0;
+        position: relative;
+        padding: 60px 0 0 0;
         background-repeat: no-repeat;
         background-size: 40px;
         background-position: center top;
-        border-right: 1px solid #36AB69;
         h4 {
-            margin-left: 10px;
             font-weight: bold;
             text-align: center;
             text-transform: uppercase;
@@ -379,19 +386,19 @@ ul.reasons {
             border-right: none;
         }
         &.support {
-            background-image: image-url('icon1.png')
+            background-image: image-url('icon1.svg')
         }
         &.quality {
-            background-image: image-url('icon2.png')
+            background-image: image-url('icon2.svg')
         }
         &.garanty {
-            background-image: image-url('icon3.png')
+            background-image: image-url('icon3.svg')
         }
         &.dimensions {
-            background-image: image-url('icon4.png')
+            background-image: image-url('icon4.svg')
         }
         &.delivery {
-            background-image: image-url('icon5.png')
+            background-image: image-url('icon5.svg')
         }
     }
 }
@@ -433,14 +440,20 @@ ul.reasons {
 //         padding-top: 8px;
 //     }
 // }
+.arrow-r {
+    font-weight: bold;
+    text-decoration: underline !important;
+    position: relative;
+}
+
 // Helpers //
 .arrow-r:after {
-    display: block;
+    float: right;
+    margin: -2px 0 0 7px;
+    width: 19px;
     content: '';
-    margin: -25px 15px 0 0;
     height: 1.5rem;
-    background: image-url('right.svg') transparent no-repeat 95% 5px;
-    background-size: 17px;
+    background: image-url('right.png') transparent no-repeat 95% 5px;
 }
 
 //
@@ -460,13 +473,12 @@ section.primary {
         p.browse a {
             text-decoration: underline;
             font-weight: bold;
-            padding: 5px 45px 5px 15px;
-            border-radius: 4px;
         }
         h2 {
             font-weight: bold;
             color: #333;
             margin-bottom: 10px;
+            font-size: 2rem;
         }
     }
 }
@@ -475,10 +487,6 @@ section.primary {
 // Standard content page
 //
 .content a {
-    h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
     p {
         line-height: 1.5;
     }
@@ -492,7 +500,6 @@ section.primary {
         list-style: square;
     }
 }
-
 
 //
 // category page
@@ -1096,12 +1103,6 @@ section.sidebar {
                 }
             }
         }
-    }
-    ul.reasons {
-        background: #F1F1F1;
-        padding: 15px;
-        border-radius: 8px;
-        font-size: 0.9em;
     }
     .checkout {
         background: #efefef;

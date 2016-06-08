@@ -43,7 +43,7 @@
                 %p Более <b>100 видов</b> матрасов в наличии! Закажи сейчас и мы доставим его вам в течение дня!
                 %p Равным образом новая модель Закажи сейчас и мы доставим его вам в течение дня!
                 = link_to "Матрасы в наличии",  catalogue_path, class: "btn btn-lg btn-default"
-                -# %a.arrow-r{:href => "@link.href"} Использователь фильтр
+                %a.arrow-r{:href => catalogue_path} Использователь фильтр
 
             .col-xl-9.col-lg-8.col-md-7.col-xs-12
               .slider
@@ -79,17 +79,18 @@
                   %label{:for => "img-4"} Бесплатная доставка
             
           .row
-            %ul.reasons
-              %li.support
-                %h4 Европейские материалы
-              %li.quality
-                %h4 Сертификаты качества
-              %li.garanty
-                %h4 Гарантия 20 лет
-              %li.dimensions    
-                %h4 Нестандартные размеры
-              %li.delivery
-                %h4 Бесплатная доставка
+            .col-md-12
+              %ul.reasons
+                %li.support
+                  %h4 Европейские материалы
+                %li.quality
+                  %h4 Сертификаты качества
+                %li.garanty
+                  %h4 Гарантия 20 лет
+                %li.dimensions    
+                  %h4 Нестандартные размеры
+                %li.delivery
+                  %h4 Бесплатная доставка
 
           -# - if @full_header
             -# .bar

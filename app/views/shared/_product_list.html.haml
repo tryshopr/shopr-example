@@ -5,10 +5,13 @@
         .img{:style => product.default_image ? "background-image:url(#{product.default_image.path})" : ''}
         %h4= product.name
         %p.info= raw product.short_description.truncate(130)
-        %p.price.bad= number_to_currency product.price
-        %p.price= number_to_currency product.cost_price
+        - if product.cost_price.is_a? Numeric
+          %p.price.bad= number_to_currency product.price
+          %p.price= number_to_currency product.cost_price
+        - else
+          %p.price= number_to_currency product.price
         %hr
         %p.buttons 
-          -# = link_to "Info", product_path(product.product_category.permalink, product.permalink)
+          = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink)
           - if product.orderable?
             = link_to "Купить", buy_product_path(product.product_category.permalink, product.permalink), :class => 'btn add', :method => :post
