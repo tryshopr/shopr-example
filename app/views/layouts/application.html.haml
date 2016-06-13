@@ -14,7 +14,7 @@
     / The main header displayed on all pages
     / Sometimes will be shorted as the page content dictates. 
     %header.main{:class => @full_header ? 'full' : 'basic'}
-      .container
+      .container.first
         .row
           .col-md-12
             .head
@@ -99,7 +99,7 @@
     
     / Main content section
     .content
-      .container.white-off
+      .container.white-off.last
         .row
           .col-md-12
             -# .products.white-off

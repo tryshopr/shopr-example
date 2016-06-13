@@ -84,11 +84,15 @@ nav.sidebar header.logo h1 a {
 //
 div.container {
     margin: 0 auto;
-    padding: 20px 15px;
-    box-shadow: 0 10px 20px 0 #888888;
+    padding: 30px 15px;
     background: #fff;
+    box-shadow: 0 15px 20px -13px #888888;
+    &.first {
+    box-shadow: 0 10px 20px 0 #888888;
+    }
     &.last {
-        box-shadow: 0 15px 20px -13px #888888;
+        position: relative;
+        z-index: 2;
     }
 }
 
@@ -144,7 +148,7 @@ header.main {
         }
         .call {
             font-size: 22px;
-            padding-bottom: 5px;
+            padding-bottom: 3px;
         }
         .search {
             width: 30%;
@@ -351,28 +355,31 @@ ul.reasons {
     display: flex;
     flex-wrap: wrap;
     border-radius: $border-radius;
-    justify-content: space-around;
+    justify-content: space-between;
     background: $green;
-    margin: 1.875rem 0;
+    margin: 1.875rem 0 0;
     color: #fff;
-    padding: 15px 5px;
+    padding: 15px 0;
     li + li:before {
-                    height: 100%;
-            width: 1px;
-            display: block;
-            background: #36AB69;
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -8px;
+        height: 100%;
+        width: 1px;
+        display: block;
+        background: #36AB69;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -15px;
     }
     li {
+        width: 180px;
         position: relative;
         padding: 60px 0 0 0;
         background-repeat: no-repeat;
         background-size: 40px;
         background-position: center top;
         h4 {
+            margin: 0 auto;
+            width: 75%;
             font-weight: bold;
             text-align: center;
             text-transform: uppercase;
@@ -978,7 +985,7 @@ table.orderItems {
 .specials {
     box-shadow: 1px 2px 6px 0px #888888;
     margin-bottom: 0.9375rem;
-    padding: 0 0.9375rem;
+    padding: 0.9375rem;
     height: 215px;
     position: relative;
     &:hover {
@@ -994,14 +1001,11 @@ table.orderItems {
     }
     p.info {
         height: 80px;
-        width: 60%;
+        width: 55%;
     }
     span,
     h3 {
         color: $blue;
-    }
-    p.price {
-        background: $blue;
     }
     div.price {
         display: flex;
@@ -1029,11 +1033,12 @@ table.orderItems {
         }
     }
     p.price {
-        padding: 20px;
+        padding: 10px 20px;
         width: 50%;
         color: #fff;
         font-size: 1rem;
         font-weight: bold;
+        background: $blue;
         &.new {
             z-index: 0;
             color: $magento;
@@ -1137,12 +1142,12 @@ footer {
 }
 
 footer.main > .container {
-    width: 75vw;
+    width: 75%;
     color: #53686B;
     background: #D0D1D5;
-    font-size: 0.9em;
+    font-size: 1rem;
     margin: 0 auto;
-    padding: 10px;
+    padding: 15px 10px;
     overflow: hidden;
     clear: both;
     box-shadow: 0px 3px 5px #888888;
@@ -1157,7 +1162,7 @@ footer.main > .container {
         color: #97AEB2;
         li {
             color: #66676D;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
         }
         li+li:before {
@@ -1212,7 +1217,7 @@ footer.main > .container {
         }
     }
     div.copyright {
-        color: #A9A9A9;
+        color: #999999;
         font-size: 0.7rem;
         line-height: 1.5;
         margin: 5px 0 10px;
