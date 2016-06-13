@@ -368,10 +368,10 @@ ul.reasons {
         content: '';
         position: absolute;
         top: 0;
-        left: -15px;
+        left: 0;
     }
     li {
-        width: 180px;
+        width: 20%;
         position: relative;
         padding: 60px 0 0 0;
         background-repeat: no-repeat;
@@ -475,7 +475,7 @@ section.primary {
     .home {
         p.browse {
             float: right;
-            margin-top: 2px;
+            margin-top: 5px;
         }
         p.browse a {
             text-decoration: underline;
@@ -1142,7 +1142,7 @@ footer {
 }
 
 footer.main > .container {
-    width: 75%;
+    width: 70%;
     color: #53686B;
     background: #D0D1D5;
     font-size: 1rem;

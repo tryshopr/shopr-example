@@ -128,20 +128,24 @@ span.yellow {
     display: block;
     color: $yellow;
     font-size: 1.35rem;
+    margin-left: 25%;
+    float: left;
 }
 
 span.gray {
     display: block;
     color: $gray;
     font-size: 1.35rem;
+    float: left;
 }
 
 span.material {
+    clear: left;
     width: 136px;
     height: 40px;
     display: block;
     background-repeat: no-repeat !important;
-    margin: 10px 0;
+    margin: 10px auto;
 }
 
 span.j130 {
@@ -538,6 +542,9 @@ ul.products {
     overflow: hidden;
     display: flex;
     li {
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
         width: 25%;
         padding: 10px;
         background: #fff;
@@ -574,11 +581,6 @@ ul.products {
             margin: 5px 0px 10px;
             text-align: center;
             min-height: 115px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
         }
         p.price {
             text-align: center;
