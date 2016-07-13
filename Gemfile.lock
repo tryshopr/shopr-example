@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@bitbucket.org:craft37/shoppe_fork.git
-  revision: a075182e130bdf34e0b01d04b9ccfe803b7e6782
+  revision: bc2787a6637513f203c7027704dc7038525db17c
   specs:
     shoppe (1.1.2)
       awesome_nested_set (~> 3.0.2)
@@ -27,7 +27,7 @@ GIT
       nifty-utils (>= 1.0, < 1.1)
       rails (>= 4.0.0, < 5.0)
       ransack (>= 1.2.0, < 1.6.3)
-      roo (>= 1.13.0, < 2.4.0)
+      roo (>= 1.13.0, <= 2.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -68,6 +68,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    airbrake (5.4.1)
+      airbrake-ruby (~> 1.4)
+    airbrake-ruby (1.4.4)
     airbrussh (1.0.2)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
@@ -280,7 +283,7 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     pkg-config (1.1.7)
-    polyamorous (1.3.0)
+    polyamorous (1.3.1)
       activerecord (>= 3.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -328,7 +331,7 @@ GEM
       i18n
       polyamorous (~> 1.1)
     redcarpet (3.3.4)
-    roo (2.3.2)
+    roo (2.4.0)
       nokogiri (~> 1)
       rubyzip (~> 1.1, < 2.0.0)
     rubyzip (1.2.0)
@@ -372,6 +375,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake (~> 5.4)
   better_errors
   bootstrap (~> 4.0.0.alpha3)
   capistrano (~> 3.5.0)
