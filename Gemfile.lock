@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@bitbucket.org:craft37/shoppe_fork.git
-  revision: 34f2994b3857d43e8750f923a9b712764ae54630
+  revision: dd46ced30d6eb2f300849194859b0374a585ad69
   specs:
     shoppe (1.1.2)
       awesome_nested_set (~> 3.0.2)
