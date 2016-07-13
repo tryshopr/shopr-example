@@ -7,8 +7,8 @@ GIT
       sshkit (~> 1.2)
 
 GIT
-  remote: git://github.com/tryshoppe/shoppe.git
-  revision: 809d939f9dc875ffcb1417846a933e34bd706548
+  remote: git@bitbucket.org:craft37/shoppe_fork.git
+  revision: 128ecbaaa8c2158e122ef8e97ea46726ce45ae69
   specs:
     shoppe (1.1.2)
       awesome_nested_set (~> 3.0.2)
