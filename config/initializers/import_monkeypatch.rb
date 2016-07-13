@@ -1,3 +1,4 @@
+require 'csv'
 require 'roo'
 require 'globalize'
 
@@ -189,7 +190,10 @@ module Shoppe
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
       # when '.csv' then Roo::CSV.new(file.path, csv_options: {col_sep: ";"})
-      when '.csv' then Roo::CSV.new(file.path, csv_options: {col_sep: ";", encoding: "windows-1251:utf-8"})
+      # when '.csv' then Roo::CSV.new(file.path, csv_options: {col_sep: ";", encoding: "windows-1251:utf-8"})
+      when '.csv'
+       # CSV.parse(csv.read.gsub /\r/, '')
+       Roo::CSV.new(file.path, csv_options: {col_sep: ";", encoding: Encoding::UTF_8})
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
       else fail I18n.t('shoppe.imports.errors.unknown_format', filename: File.original_filename)
