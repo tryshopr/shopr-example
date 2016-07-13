@@ -13,7 +13,6 @@ gem 'redcarpet'
 gem 'faker'
 # gem 'shoppe', :git => 'git://github.com/tryshoppe/shoppe.git'
 gem "shoppe", git: "git@bitbucket.org:craft37/shoppe_fork.git"
-gem 'airbrake', '~> 5.4'
 gem 'thin'
 
 group :development do
