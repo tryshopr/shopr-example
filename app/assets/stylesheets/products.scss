@@ -15,12 +15,7 @@ a.add,
     background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
 }
 
-// //
-ul.products hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 0 -10px;
-}
+
 
 // TABS //
 .tabs [id^="tab"]:checked + label {
@@ -541,6 +536,7 @@ ul.products {
     margin: 20px 0 0;
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     li {
         display: flex;
     flex-direction: column;
@@ -610,4 +606,10 @@ ul.products {
             border-radius: 3px;
         }
     }
+}
+
+ul.products hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 -10px;
 }

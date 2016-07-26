@@ -111,6 +111,25 @@
           %p Защитная конструкция из упругого пенного материала по периметру матраса, предотвращающая его проседание и потерю формы.
     #tab-content4.tab-content.product-tabs
       %h3
+      %form
+        %fieldset.form-group
+          %label{:for => "exampleInputPassword1"} Name
+          %input#exampleInputPassword1.form-control{:placeholder => "Name", :type => "password"}/
+        %fieldset.form-group
+          %label{:for => "exampleSelect1"} Example select
+          %select#exampleSelect1.form-control
+            %option 1
+            %option 2
+            %option 3
+            %option 4
+            %option 5
+        %fieldset.form-group
+          %label{:for => "exampleTextarea"} Ваш отзыв об этой модели:
+          %textarea#exampleTextarea.form-control{:rows => "3"}
+        %fieldset.form-group
+          %label{:for => "exampleTextarea"} Подытожьте ваш отзыв. Итог будет использоваться в качестве заголовка:
+          %textarea#exampleTextarea.form-control{:rows => "1"}
+        %button.btn.btn-primary{:type => "submit"} Submit
 
 
       
