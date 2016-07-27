@@ -9,4 +9,10 @@ jQuery ->
     .removeClass('uneditable-input')
     .removeAttr('disabled', 'disabled')
     .val('');
+    $('.add-comment').removeAttr('disabled')
+    $(@).hide()
     $(xhr.responseText).hide().insertAfter($(this)).show('slow')
+
+  $('.add-comment').on 'click', (e)->
+    $form = $('.comment-form').show('slow')
+    $(e.target).attr('disabled', 'disabled')

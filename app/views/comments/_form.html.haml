@@ -1,4 +1,4 @@
-.comment-form
+.comment-form.hidden
   = simple_form_for [:product, @new_comment], remote: true do |f|
     %fieldset.form-group
       = f.input :commenter, label: 'Имя:', input_html: {id: 'exampleInputPassword1', class: 'form-control'}, placeholder: 'Введите имя', type: 'password'

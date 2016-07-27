@@ -1,27 +1,18 @@
 jQuery ->
-  $("select#product_variants").on "change", (e) ->
-    quantity = $(@).val()
-    $productRow = $(@).closest('.variants').find('.details')
+  $("select#product_variants").on "change", (e)->
+    qweqw(e)
+
+  qweqw = (e)->
+    $target = $(e.target)
+    variant = $target.val()
+    $productRow = $target.closest('.variants').find('.details')
     url = $productRow.data('url')
     $.ajax
       url:        url
       method:     'GET'
       dataType:   'html'
-      data:       { variant: $("select#product_variants").val() }
+      data:       { variant: variant }
       success: (result)->
         $('.variants').replaceWith(result)
-        changeVariant()
-
-  changeVariant = ->
-    $("select#product_variants").on "change", (e) ->
-      quantity = $(@).val()
-      $productRow = $(@).closest('.variants').find('.details')
-      url = $productRow.data('url')
-      $.ajax
-        url:        url
-        method:     'GET'
-        dataType:   'html'
-        data:       { variant: $("select#product_variants").val() }
-        success: (result)->
-          $('.variants').replaceWith(result)
-          changeVariant()
+        $("select#product_variants").on "change", (e)->
+          qweqw(e)
