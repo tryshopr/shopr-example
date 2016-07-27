@@ -9,18 +9,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @comment = Comment.find(params[:id])
-    if @comment.destroy
-      render json: @comment, status: :ok
-    else
-      render js: "alert('error deleting comment');"
-    end
-  end
-
   private
 
   def safe_params
-    params[:comment].permit(:title, :commenter, :comment, :commentable_id, :commentable_type)
+    params[:comment].permit(:title, :commenter, :comment, :commentable_id, :commentable_type, :rating)
   end
 end

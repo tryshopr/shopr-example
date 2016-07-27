@@ -1,0 +1,15 @@
+.rating {
+
+  .star-gold {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background: image-url('star.png') 0 -2px no-repeat;
+  }
+  .star-gray {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background: image-url('star.png') 0 -15px no-repeat;
+  }
+}

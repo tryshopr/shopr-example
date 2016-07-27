@@ -1,7 +1,10 @@
-%div.comment{ id: "comment-#{comment.id}" }
-  %hr
-  %h4
-    = comment.commenter
-    %small= comment.updated_at
-  %p= comment.title
-  %p= comment.comment
+- unless comment.new_record?
+  .comment{ id: "comment-#{comment.id}" }
+    %hr
+    %h4
+      %b
+        = comment.commenter
+    %small= timestamp(comment.created_at)
+    %h3= comment.title
+    .rating= rating_stars(comment.rating)
+    %p= comment.comment

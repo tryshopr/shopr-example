@@ -26,20 +26,7 @@
         -#     = submit_tag 'Add to basket', :disabled => !@product.in_stock?
 
       - if @product.has_variants?
-        %table.variants
-          - for variant in @product.variants
-            %tr
-              %td
-                -# - if variant.in_stock?
-                -#   %p.stock.yes In stock
-                -# - else
-                -#   %p.stock.no Out of stock
-                %h4= variant.name
-                %p.price= number_to_currency variant.price 
-              %td.buy
-                = form_tag buy_product_path(@product.product_category.permalink, @product.permalink, :variant => variant.id), :class => (variant.in_stock? ? 'in-stock' : 'no-stock') do
-                  = select_tag 'quantity', options_for_select([1,2,3,4,5,6,7,8,9]), :disabled => !variant.in_stock?
-                  = submit_tag 'Купить', :class => 'btn add', :disabled => !variant.in_stock?
+        = render partial: 'variants', locals: { product: @product, variant: @product.variants.first }
       -# - else
       -#   %hr
 
@@ -71,7 +58,7 @@
         %span Технологии
     %input#tab4{:name => "tabs", :type => "radio"}
       %label{:for => "tab4"}
-        %span Отзывы
+        %span= "Отзывы #{('(' + @product.comments.count.to_s + ')')}"
 
     / Radio button and lable for #tab-content1
     #tab-content1.tab-content.product-tabs
@@ -111,29 +98,5 @@
           %p Защитная конструкция из упругого пенного материала по периметру матраса, предотвращающая его проседание и потерю формы.
     #tab-content4.tab-content.product-tabs
       %h3
-      %form
-        %fieldset.form-group
-          %label{:for => "exampleInputPassword1"} Name
-          %input#exampleInputPassword1.form-control{:placeholder => "Name", :type => "password"}/
-        %fieldset.form-group
-          %label{:for => "exampleSelect1"} Example select
-          %select#exampleSelect1.form-control
-            %option 1
-            %option 2
-            %option 3
-            %option 4
-            %option 5
-        %fieldset.form-group
-          %label{:for => "exampleTextarea"} Ваш отзыв об этой модели:
-          %textarea#exampleTextarea.form-control{:rows => "3"}
-        %fieldset.form-group
-          %label{:for => "exampleTextarea"} Подытожьте ваш отзыв. Итог будет использоваться в качестве заголовка:
-          %textarea#exampleTextarea.form-control{:rows => "1"}
-        %button.btn.btn-primary{:type => "submit"} Submit
-
-
-      
-
-
-    
-      
+      = render partial: 'comments/form', locals: {comment: @new_comment, product: @product}
+      = render partial: 'comments/comment', collection: @comments, as: :comment

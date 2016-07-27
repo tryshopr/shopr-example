@@ -23,10 +23,15 @@ class ProductsController < ApplicationController
   
   def show
     @attributes = @product.product_attributes.public.to_a
-    @new_comment = @product.comments.new
     @comments = @product.comments
+    @new_comment = @product.comments.build
   end
-  
+
+  def change_variant
+    variant = @product.variants.find(params[:variant])
+    render partial: "products/variants", locals: { product: @product, variant: variant }, layout: false, status: 200
+  end
+
   def add_to_basket
     product_to_order = params[:variant] ? @product.variants.find(params[:variant].to_i) : @product
     current_order.order_items.add_item(product_to_order, params[:quantity].blank? ? 1 : params[:quantity].to_i)

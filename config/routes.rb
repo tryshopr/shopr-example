@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'products/filter' => 'products#filter', :as => 'product_filter'
   get 'products/:category_id' => 'products#index', :as => 'products'
   get 'products/:category_id/:product_id' => 'products#show', :as => 'product'
+  get 'products/:category_id/:product_id/change_variant' => 'products#change_variant', as: 'change_variant'
   post 'products/:category_id/:product_id/buy' => 'products#add_to_basket', :as => 'buy_product'
   
   #

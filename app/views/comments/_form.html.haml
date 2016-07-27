@@ -1,8 +1,33 @@
 .comment-form
   = simple_form_for [:product, @new_comment], remote: true do |f|
-    = f.input :commenter, label: false
-    = f.input :title, label: false
-    = f.input :comment, label: false
-    = f.input :commentable_id, as: :hidden, value: comment.commentable_id
-    = f.input :commentable_type, as: :hidden, value: comment.commentable_type
-    = f.button :submit, class: "btn btn-primary", disable_with: "Submitting…"
+    %fieldset.form-group
+      = f.input :commenter, label: 'Имя:', input_html: {id: 'exampleInputPassword1', class: 'form-control'}, placeholder: 'Введите имя', type: 'password'
+    %fieldset.form-group
+      = f.input :rating, as: :select, collection: 1..5, label: 'Оценка:', include_blank: false, input_html: {id: 'exampleSelect1', class: 'form-control'}
+    %fieldset.form-group
+      = f.input :comment, label: 'Ваш отзыв об этой модели:', input_html: {id: 'exampleTextarea', class: 'form-control'}
+    %fieldset.form-group
+      = f.input :title, label: 'Подытожьте ваш отзыв. Итог будет использоваться в качестве заголовка:', input_html: {id: 'exampleTextarea', class: 'form-control'}
+      = f.input :commentable_id, as: :hidden, value: comment.commentable_id
+      = f.input :commentable_type, as: :hidden, value: comment.commentable_type
+    = f.button :submit, 'Отправить Отзыв', class: "btn btn-primary", disable_with: "Добавление"
+
+-#%form
+-#  %fieldset.form-group
+-#    %label{for: "exampleInputPassword1"} Name
+-#    %input#exampleInputPassword1.form-control{placeholder: "Name", type: "password"}/
+-#  %fieldset.form-group
+-#    %label{for: "exampleSelect1"} Example select
+-#    %select#exampleSelect1.form-control
+-#      %option 1
+-#      %option 2
+-#      %option 3
+-#      %option 4
+-#      %option 5
+-#  %fieldset.form-group
+-#    %label{for: "exampleTextarea"} Ваш отзыв об этой модели:
+-#    %textarea#exampleTextarea.form-control{rows: "3"}
+-#  %fieldset.form-group
+-#    %label{for: "exampleTextarea"} Подытожьте ваш отзыв. Итог будет использоваться в качестве заголовка:
+-#    %textarea#exampleTextarea.form-control{rows: "1"}
+-#  %button.btn.btn-primary{type: "submit"} Отправить Отзыв
