@@ -1,26 +1,10 @@
-/*vars*/
-
-$font: Lato,
-Arial,
-sans-serif;
-$green: #059A5E;
-$purple: #B068E2;
-$purple-dark: #56088B;
-$magento: #fa4771;
-$magento-dark: #CB0869;
-$blue: #339ECE;
-$gray: #dedede;
-$gray-light: #e3e3e3;
-$gray-lighter: #F7F7F7;
-$radius: 4px;
-$slider-height: 340px;
-$background: #BABABD;
-$yellow: #F1C700;
+@import "variables";
 // Custom bootstrap variables must be set or import before bootstrap itself.
 @import "bootstrap";
 @import 'bootstrap-custom';
 @import 'products';
 @import 'reset';
+
 html {
     font-family: $font;
     font-size: 100%;
