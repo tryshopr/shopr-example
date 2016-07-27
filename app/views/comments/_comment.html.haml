@@ -1,0 +1,7 @@
+%div.comment{ id: "comment-#{comment.id}" }
+  %hr
+  %h4
+    = comment.commenter
+    %small= comment.updated_at
+  %p= comment.title
+  %p= comment.comment

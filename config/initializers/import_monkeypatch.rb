@@ -22,6 +22,9 @@ module Shoppe
     # @return [Shoppe::ProductCategory]
     has_many :product_categories, class_name: 'Shoppe::ProductCategory', through: :product_categorizations
 
+    # Product reviews
+    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'Shoppe::Comment'
+
     # The product's tax rate
     #
     # @return [Shoppe::TaxRate]

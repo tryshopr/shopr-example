@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Shoppe admin interface
   #
   mount Shoppe::Engine => "/shoppe"
-  
+
   #
   # Product browising
   #
@@ -40,10 +40,14 @@ Rails.application.routes.draw do
   # Static pages
   #
   get ':action', :controller => 'pages', :as => 'page'
-  
+
+  resources :products do
+    resources :comments
+  end
+
   # 
   # Homepage
   #
   root :to => 'pages#home'
-  
+
 end

@@ -111,6 +111,9 @@
           %p Защитная конструкция из упругого пенного материала по периметру матраса, предотвращающая его проседание и потерю формы.
     #tab-content4.tab-content.product-tabs
       %h3
+      = render partial: 'comments/form', locals: {comment: @new_comment, product: @product}
+      = render partial: 'comments/comment', collection: @comments, as: :comment
+
 
 
       

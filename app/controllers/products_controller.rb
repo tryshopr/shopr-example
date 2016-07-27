@@ -16,13 +16,15 @@ class ProductsController < ApplicationController
   def filter
     @products = Shoppe::Product.active.with_attributes(params[:key].to_s, params[:value].to_s)
   end
-  
+
   def categories
     @product_categories = Shoppe::ProductCategory.ordered
   end
   
   def show
     @attributes = @product.product_attributes.public.to_a
+    @new_comment = @product.comments.new
+    @comments = @product.comments
   end
   
   def add_to_basket
@@ -40,9 +42,9 @@ class ProductsController < ApplicationController
   end
 
   def strip_html(str)
-  document = Nokogiri::HTML.parse(str)
-  document.css("br").each { |node| node.replace("\n") }
-  document.text
+    document = Nokogiri::HTML.parse(str)
+    document.css("br").each { |node| node.replace("\n") }
+    document.text
   end
   
 end
