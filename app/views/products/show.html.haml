@@ -4,8 +4,10 @@
   .product-info
     - if @product.default_image
       .img{:style => "background-image:url(#{@product.default_image.path})"}
-    -# - if @product.extra
-    -#   .img{:style => "background-image:url(#{@product.extra.path})"}
+
+    - if @product.attachments
+      - @product.attachments.each do |attachment|
+        .img{:style => "background-image:url(#{attachment.path})"}
 
     .intro
       %h2= @product.name
