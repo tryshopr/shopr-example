@@ -16,3 +16,6 @@ jQuery ->
         $('.variants').replaceWith(result)
         $("select#product_variants").on "change", (e)->
           qweqw(e)
+
+  $('.to-review-anchor').on 'click', ->
+    $('#reviews').click()

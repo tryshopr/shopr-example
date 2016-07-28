@@ -43,7 +43,9 @@
         - else
           %p.no Нет в наличии
           -# %p.time Sorry - we don't have any stock of this product at the moment. #{link_to "Let me know when you do"}.
-      .rating= rating_stars(average_rating(@product)) + '(' + @product.comments.count.to_s + ')'
+      .rating= rating_stars(average_rating(@product))
+      %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
+      %span.to-review-anchor= link_to 'Оставить отзыв', '#tabs'
       %p= raw @product.short_description
       .optionsBox
       .top
@@ -71,7 +73,7 @@
             -# %li.item.ask= mail_to Shoppe.settings.email_address, "Ask us a question about this", :subject => "Question about the #{@product.name}"
   
   
-  .tabs
+  .tabs#tabs
     %input#tab1{:checked => "", :name => "tabs", :type => "radio"}
       %label{:for => "tab1"}
         %span Структура
@@ -85,7 +87,7 @@
         %span Технологии
     %input#tab4{:name => "tabs", :type => "radio"}
       %label{:for => "tab4"}
-        %span= "Отзывы #{('(' + @product.comments.count.to_s + ')')}"
+        %span#reviews= "Отзывы #{('(' + @product.comments.count.to_s + ')')}"
 
     / Radio button and lable for #tab-content1
     #tab-content1.tab-content.product-tabs

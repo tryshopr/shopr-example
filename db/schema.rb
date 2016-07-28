@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726131509) do
+ActiveRecord::Schema.define(version: 20160727192844) do
 
   create_table "nifty_attachments", force: :cascade do |t|
     t.integer  "parent_id"
@@ -65,10 +65,11 @@ ActiveRecord::Schema.define(version: 20160726131509) do
 
   create_table "shoppe_comments", force: :cascade do |t|
     t.text     "comment"
-    t.integer  "commentable_id",   null: false
-    t.string   "commentable_type", null: false
+    t.integer  "commentable_id",               null: false
+    t.string   "commentable_type",             null: false
     t.string   "title"
     t.string   "commenter"
+    t.integer  "rating",           default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
