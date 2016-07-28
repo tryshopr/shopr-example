@@ -11,6 +11,8 @@
 
     .intro
       %h2= @product.name
+      .rating= rating_stars(average_rating(@product)) + '(' + @product.comments.count.to_s + ')'
+
       .stock
         - if @product.in_stock?
           %p.yes В наличии
