@@ -7,8 +7,8 @@
       - if @product.default_image
         -# # .img{:style => "background-image:url(#{@product.default_image.path})"}
         / Lets show the 1st image by default on page load
-        %input{id: '0', name: "slide_switch", type: "radio"}
-        %label{for: '0'}
+        %input{id: "0", :checked => "checked", name: "slide_switch", type: "radio"}
+        %label{for: "0"}
           %img{src: "#{@product.default_image.path}"}
         %img{src: "#{@product.default_image.path}"}
       - if @extra_attachments.present?

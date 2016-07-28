@@ -1,16 +1,27 @@
 .comment-form.hidden
   = simple_form_for [:product, @new_comment], remote: true do |f|
     %fieldset.form-group
-      = f.input :commenter, label: 'Имя:', input_html: {id: 'exampleInputPassword1', class: 'form-control'}, placeholder: 'Введите имя', type: 'password'
+      = f.input :commenter,  :required => "true", label: 'Имя:', input_html: {id: 'exampleInputPassword1', class: 'form-control'}, placeholder: 'Введите имя', type: 'password'
     %fieldset.form-group
-      = f.input :rating, as: :select, collection: 1..5, label: 'Оценка:', include_blank: false, input_html: {id: 'exampleSelect1', class: 'form-control'}
+      = f.input :rating,  :required => "true", as: :select, collection: 1..5, label: 'Оценка:', include_blank: false, input_html: {id: 'exampleSelect1', class: 'form-control'}
     %fieldset.form-group
-      = f.input :comment, label: 'Ваш отзыв об этой модели:', input_html: {id: 'exampleTextarea', class: 'form-control'}
+      = f.input :comment, :required => "true", label: 'Ваш отзыв об этой модели:', input_html: {id: 'exampleTextarea', class: 'form-control'}
     %fieldset.form-group
-      = f.input :title, label: 'Подытожьте ваш отзыв. Итог будет использоваться в качестве заголовка:', input_html: {id: 'exampleTextarea', class: 'form-control'}
+      = f.input :title,  :required => "true", label: 'Подытожьте ваш отзыв. Итог будет использоваться в качестве заголовка:', input_html: {id: 'exampleTextarea', class: 'form-control'}
       = f.input :commentable_id, as: :hidden, value: comment.commentable_id
       = f.input :commentable_type, as: :hidden, value: comment.commentable_type
     = f.button :submit, 'Отправить Отзыв', class: "btn btn-primary", disable_with: "Добавление"
+
+- unless comment.new_record?
+  .comment{ id: "comment-#{comment.id}" }
+    %hr
+    %h4
+      %b
+        = comment.commenter
+    %small= timestamp(comment.created_at)
+    %h3= comment.title
+    .rating= rating_stars(comment.rating)
+    %p= comment.comment
 
 -#%form
 -#  %fieldset.form-group
