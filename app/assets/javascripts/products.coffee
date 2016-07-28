@@ -19,3 +19,7 @@ jQuery ->
 
   $('.to-review-anchor').on 'click', ->
     $('#reviews').click()
+
+  $('.to-review-btn-anchor').on 'click', ->
+    $('#reviews').click()
+    $('.btn.add-comment').click()

@@ -1,5 +1,3 @@
-%script{:src => "http://thecodeplayer.com/uploads/js/prefixfree.js", :type => "text/javascript"}
-
 - active_nav_item :catalogue
 - @page_title = @product.name + " - " + @product.product_category.name
 .product
@@ -45,7 +43,7 @@
           -# %p.time Sorry - we don't have any stock of this product at the moment. #{link_to "Let me know when you do"}.
       .rating= rating_stars(average_rating(@product))
       %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
-      %span.to-review-anchor= link_to 'Оставить отзыв', '#tabs'
+      %span.to-review-btn-anchor= link_to 'Оставить отзыв', '#tabs'
       %p= raw @product.short_description
       .optionsBox
       .top
