@@ -11,9 +11,8 @@
         %label{for: '0'}
           %img{src: "#{@product.default_image.path}"}
         %img{src: "#{@product.default_image.path}"}
-    
-      - if @product.attachments
-        - @product.attachments.each do |attachment|
+      - if @extra_attachments.present?
+        - @extra_attachments.each do |attachment|
           -# .img{:style => "background-image:url(#{attachment.path})"}
           %input{id: "#{attachment.id}",name: "slide_switch", type: "radio"}
           %label{for: "#{attachment.id}"}

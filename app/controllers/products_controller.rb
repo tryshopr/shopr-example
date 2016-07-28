@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
     @attributes = @product.product_attributes.public.to_a
     @comments = @product.comments
     @new_comment = @product.comments.build
+    @extra_attachments = @product.default_image.present? ? @product.attachments.where.not(id: @product.default_image.id) : @product.attachments
   end
 
   def change_variant
