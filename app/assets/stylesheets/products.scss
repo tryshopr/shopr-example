@@ -17,6 +17,72 @@ a.add,
     background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
 }
 
+// Attached images slider //
+
+/*Time for the CSS*/
+
+.product-slider {
+  width: 40%;
+  /*Instead of height we will use padding*/
+  padding-top: 100px;
+
+  > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+  }
+  input[name='slide_switch'] {
+    display: none;
+  }
+  label {
+    /*Lets add some spacing for the thumbnails*/
+    margin: 18px 0 0 18px;
+    border: 2px solid #ECECEC;
+    float: left;
+    cursor: pointer;
+    transition: all 0.5s;
+    /*Default style = low opacity*/
+    opacity: 0.6;
+    img {
+      display: block;
+    }
+  }
+  input[name='slide_switch'] {
+    &:checked {
+      + label {
+        border-color: #ECECEC;
+        opacity: 1;
+      }
+      + label + img {
+        opacity: 1;
+        transform: scale(1);
+            max-width: 30%;
+      }
+    }
+    ~ img {
+      opacity: 0;
+      transform: scale(1.1);
+      width: 30%;
+    }
+  }
+}
+
+/*Last thing remaining is to add transitions*/
+
+/*Time to add the click effects*/
+
+/*Clicking any thumbnail now should change its opacity(style)*/
+/*Time to work on the main images*/
+
+/*That hides all main images at a 110% size
+On click the images will be displayed at normal size to complete the effect
+*/
+
+/*Clicking on any thumbnail now should activate the image related to it*/
+
+/*We are done :)*/
+
 
 
 // TABS //
@@ -121,20 +187,20 @@ a.add,
     }
 }
 
-span.yellow {
-    display: block;
-    color: $yellow;
-    font-size: 1.35rem;
-    margin-left: 25%;
-    float: left;
-}
+// span.yellow {
+//     display: block;
+//     color: $yellow;
+//     font-size: 1.35rem;
+//     margin-left: 25%;
+//     float: left;
+// }
 
-span.gray {
-    display: block;
-    color: $gray;
-    font-size: 1.35rem;
-    float: left;
-}
+// span.gray {
+//     display: block;
+//     color: $gray;
+//     font-size: 1.35rem;
+//     float: left;
+// }
 
 span.material {
     clear: left;
@@ -614,4 +680,23 @@ ul.products hr {
     border: 0;
     border-top: 1px solid #ccc;
     margin: 0 -10px;
+}
+
+/* Comments */
+
+.rating {
+
+  clear: both;
+  .star-gold {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background: image-url('star-gold.svg') 0 0 no-repeat;
+  }
+  .star-gray {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background: image-url('star-gray.svg') 0 0 no-repeat;
+  }
 }

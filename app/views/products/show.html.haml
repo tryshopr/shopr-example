@@ -2,17 +2,38 @@
 - @page_title = @product.name + " - " + @product.product_category.name
 .product
   .product-info
-    - if @product.default_image
-      .img{:style => "background-image:url(#{@product.default_image.path})"}
 
-    - if @product.attachments
-      - @product.attachments.each do |attachment|
-        .img{:style => "background-image:url(#{attachment.path})"}
+    .product-slider
+      - if @product.default_image
+        -# # .img{:style => "background-image:url(#{@product.default_image.path})"}
+        / Lets show the 1st image by default on page load
+        %input#id1{:checked => "checked", :name => "slide_switch", :type => "radio"}
+        %label{:for => "id1"}
+          %img{:src => "#{@product.default_image.path}"}
+        %img{:src => "#{@product.default_image.path}"}
+    
+      - if @product.attachments
+        - @product.attachments.each do |attachment|
+          -# .img{:style => "background-image:url(#{attachment.path})"}
+          %input{:id => "{x}",:name => "slide_switch", :type => "radio"}
+          %label{:for => "id2"}
+            %img{:src => "#{attachment.path}", :width => "100"}
+          %img{:src => "#{attachment.path}"}
+          -# %input#id3{:name => "slide_switch", :type => "radio"}
+          -# %label{:for => "id3"}
+          -#   %img{:src => "http://thecodeplayer.com/uploads/media/00kih8g.jpg", :width => "100"}
+          -# %img{:src => "http://thecodeplayer.com/uploads/media/00kih8g.jpg"}
+          -# %input#id4{:name => "slide_switch", :type => "radio"}
+          -# %label{:for => "id4"}
+          -#   %img{:src => "http://thecodeplayer.com/uploads/media/2rT2vdx.jpg", :width => "100"}
+          -# %img{:src => "http://thecodeplayer.com/uploads/media/2rT2vdx.jpg"}
+          -# %input#id5{:name => "slide_switch", :type => "radio"}
+          -# %label{:for => "id5"}
+          -#   %img{:src => "http://thecodeplayer.com/uploads/media/8k3N3EL.jpg", :width => "100"}
+          -# %img{:src => "http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"}
 
     .intro
       %h2= @product.name
-      .rating= rating_stars(average_rating(@product)) + '(' + @product.comments.count.to_s + ')'
-
       .stock
         - if @product.in_stock?
           %p.yes В наличии
@@ -20,6 +41,7 @@
         - else
           %p.no Нет в наличии
           -# %p.time Sorry - we don't have any stock of this product at the moment. #{link_to "Let me know when you do"}.
+      .rating= rating_stars(average_rating(@product)) + '(' + @product.comments.count.to_s + ')'
       %p= raw @product.short_description
       .optionsBox
       .top
