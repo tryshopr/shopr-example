@@ -1,3 +1,5 @@
+%script{:src => "http://thecodeplayer.com/uploads/js/prefixfree.js", :type => "text/javascript"}
+
 - active_nav_item :catalogue
 - @page_title = @product.name + " - " + @product.product_category.name
 .product
@@ -7,18 +9,18 @@
       - if @product.default_image
         -# # .img{:style => "background-image:url(#{@product.default_image.path})"}
         / Lets show the 1st image by default on page load
-        %input#id1{:checked => "checked", :name => "slide_switch", :type => "radio"}
-        %label{:for => "id1"}
-          %img{:src => "#{@product.default_image.path}"}
-        %img{:src => "#{@product.default_image.path}"}
+        %input{id: '0', name: "slide_switch", type: "radio"}
+        %label{for: '0'}
+          %img{src: "#{@product.default_image.path}"}
+        %img{src: "#{@product.default_image.path}"}
     
       - if @product.attachments
         - @product.attachments.each do |attachment|
           -# .img{:style => "background-image:url(#{attachment.path})"}
-          %input{:id => "{x}",:name => "slide_switch", :type => "radio"}
-          %label{:for => "id2"}
-            %img{:src => "#{attachment.path}", :width => "100"}
-          %img{:src => "#{attachment.path}"}
+          %input{id: "#{attachment.id}",name: "slide_switch", type: "radio"}
+          %label{for: "#{attachment.id}"}
+            %img{src: "#{attachment.path}", width: "100"}
+          %img{src: "#{attachment.path}"}
           -# %input#id3{:name => "slide_switch", :type => "radio"}
           -# %label{:for => "id3"}
           -#   %img{:src => "http://thecodeplayer.com/uploads/media/00kih8g.jpg", :width => "100"}
