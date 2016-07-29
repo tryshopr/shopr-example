@@ -173,7 +173,7 @@ module Shoppe
           product.sku = row['item_code']
           product.description = row['abstract']
           product.short_description = row['info']
-          product.price = row['price'].nil? ? 0 : row['price']
+          product.price = row['price'].nil? ? 0 : row['price'].to_i
 
           product.product_categories << begin
           	Shoppe::ProductCategory.find_or_initialize_by(name: 'Imported')

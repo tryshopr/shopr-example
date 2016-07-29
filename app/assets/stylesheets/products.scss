@@ -216,7 +216,7 @@ span.material {
     height: 40px;
     display: block;
     background-repeat: no-repeat !important;
-    margin: 10px auto;
+    margin: 10px 0;
 }
 
 span.j130 {
@@ -651,14 +651,16 @@ ul.products {
         }
         p.info {
             margin: 5px 0px 10px;
-            text-align: center;
-            min-height: 110px;
+            min-height: 117px;
+            flex-direction: column;
+    display: flex;
+    align-items: center;
         }
         .pricebox {
             display: flex;
     justify-content: center;
     flex-direction: column;
-                min-height: 56px;
+                min-height: 57px;
         }
         p.price {
             text-align: center;

@@ -5,7 +5,7 @@
         .img{:style => product.default_image ? "background-image:url(#{product.default_image.path})" : ''}
         %h4= product.name
         .rating.text-xs-center= rating_stars(average_rating(product))
-        %p.info= raw product.short_description.truncate(130)
+        %p.info.text-xs-center= raw product.short_description.truncate(130)
         .pricebox
           - if product.cost_price.is_a? Numeric
             %p.price.bad= number_to_currency product.price

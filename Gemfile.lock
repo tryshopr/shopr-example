@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@bitbucket.org:craft37/shoppe_fork.git
-  revision: 9d4d59903dae1fe4edc710e358fe910e9eb0b039
+  revision: 615f24f3310de59172726426e6b552670b00f931
   branch: master
   specs:
     shoppe (1.1.2)
@@ -365,7 +365,7 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.0)
+    uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     unicorn (5.1.0)
       kgio (~> 2.6)
