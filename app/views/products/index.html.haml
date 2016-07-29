@@ -1,10 +1,21 @@
 - active_nav_item :catalogue
 - @page_title = @product_category.name
-.category
-  %h2= @product_category.name
-  - unless @product_category.description.blank?
-    %p.intro= @product_category.description
-  - if @products.empty?
-    %p.noProducts There are no products in this category
-  - else
-    = render 'shared/product_list', :products => @products
+.content
+	.row
+		.col-md-12
+			=image_tag "categories-banner.png", :class => "categories-banner"
+	.row
+		.col-md-3
+			%section.sidebar.green-border
+				- if content_for?(:sidebar)
+					= yield :sidebar
+				- else
+					= render 'shared/category_sidebar'
+		.category.col-md-9
+			%h2= @product_category.name
+			- unless @product_category.description.blank?
+				%p.intro= @product_category.description
+			- if @products.empty?
+				%p.noProducts There are no products in this category
+			- else
+				= render 'shared/product_list', :products => @products

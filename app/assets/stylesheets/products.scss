@@ -5,7 +5,9 @@ nav.sidebar header.logo h1 a {
     background: none !important;
 }
 
-.hidden { display: none }
+.hidden {
+    display: none
+}
 
 a.add,
 .btn.add {
@@ -22,76 +24,80 @@ a.add,
 /*Time for the CSS*/
 
 .product-slider {
-  width: 375px;
-  border-right: 2px solid #ECECEC;
-
-  /*Instead of height we will use padding*/
-  padding: 200px 10px 10px 10px;
-
-  > img {
-    position: absolute;
-    left: 15px;
-    top: 0;
-    transition: all 0.5s;
-  }
-  input[name='slide_switch'] {
-    display: none;
-  }
-  label {
-    /*Lets add some spacing for the thumbnails*/
-    border: 2px solid #ECECEC;
-    background: #fff;
-    float: left;
-    cursor: pointer;
-    transition: all 0.5s;
-    /*Default style = low opacity*/
-    opacity: 0.6;
-    width: 30%;
-    height: 100px;
-    img {
-      display: block;
+    width: 375px;
+    border-right: 2px solid #ECECEC;
+    /*Instead of height we will use padding*/
+    padding: 200px 10px 10px 10px;
+    > img {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        transition: all 0.5s;
     }
-  }
-  label+label {margin-left: 5px;}
-  input[name='slide_switch'] {
-    &:checked {
-      + label {
-        border-color: #ECECEC;
-        opacity: 1;
-
-
-      }
-      + label + img {
-        opacity: 1;
-        object-fit: cover;
-        max-width: 30%;
-      }
+    input[name='slide_switch'] {
+        display: none;
     }
-    ~ img {
-      height: auto;
-      max-height: 185px;
-      opacity: 0;
-      width: 375px;
+    label {
+        /*Lets add some spacing for the thumbnails*/
+        border: 2px solid #ECECEC;
+        background: #fff;
+        float: left;
+        cursor: pointer;
+        transition: all 0.5s;
+        /*Default style = low opacity*/
+        opacity: 0.6;
+        width: 30%;
+        height: 100px;
+        img {
+            display: block;
+        }
     }
-  }
+    label+label {
+        margin-left: 5px;
+    }
+    input[name='slide_switch'] {
+        &:checked {
+            + label {
+                border-color: #ECECEC;
+                opacity: 1;
+            }
+            + label + img {
+                opacity: 1;
+                object-fit: cover;
+                max-width: 30%;
+            }
+        }
+        ~ img {
+            height: auto;
+            max-height: 185px;
+            opacity: 0;
+            width: 375px;
+        }
+    }
 }
+
 
 /*Last thing remaining is to add transitions*/
 
+
 /*Time to add the click effects*/
 
+
 /*Clicking any thumbnail now should change its opacity(style)*/
+
+
 /*Time to work on the main images*/
+
 
 /*That hides all main images at a 110% size
 On click the images will be displayed at normal size to complete the effect
 */
 
+
 /*Clicking on any thumbnail now should activate the image related to it*/
 
+
 /*We are done :)*/
-
-
 
 // TABS //
 .tabs [id^="tab"]:checked + label {
@@ -301,11 +307,16 @@ div.product {
     table.variants {
         width: 100%;
         margin: 15px 0;
-        font-size: 0.8em;
+        font-size: 0.8rem;
         @include border-radius($radius);
+        tr:first-child {
+            background: $gray;
+        }
+        select {
+            padding: 0.1rem;
+        }
         td {
             border: 1px solid $gray-light;
-            background: $gray;
             line-height: 1rem;
             padding: 10px;
             vertical-align: middle;
@@ -320,7 +331,6 @@ div.product {
             color: black;
         }
         td p {
-            color: $magento;
             font-weight: 600;
         }
         td form {
@@ -615,8 +625,8 @@ ul.products {
     flex-wrap: wrap;
     li {
         display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+        flex-direction: column;
+        justify-content: space-between;
         width: 24%;
         padding: 10px;
         background: #fff;
@@ -633,7 +643,7 @@ ul.products {
             background-position: top center;
             margin: -10px -10px 0;
             height: 160px;
-                min-width: 200px;
+            min-width: 200px;
         }
         h4 {
             text-align: center;
@@ -653,26 +663,20 @@ ul.products {
             margin: 5px 0px 10px;
             min-height: 117px;
             flex-direction: column;
-    display: flex;
-    align-items: center;
+            display: flex;
+            align-items: center;
         }
         .pricebox {
             display: flex;
-    justify-content: center;
-    flex-direction: column;
-                min-height: 57px;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 57px;
         }
-        p.price {
-            text-align: center;
-            margin-bottom: 5px;
+        .price {
+    text-align: center;
             &.bad {
-                text-decoration: line-through;
-                color: #222;
                 font-size: 0.9rem;
             }
-            color: $magento;
-            font-size:1.1rem;
-            font-weight:bold;
         }
         p.buttons {
             display: flex;
@@ -692,27 +696,38 @@ ul.products {
     }
 }
 
+.price {
+    margin-bottom: 5px;
+    &.bad {
+        text-decoration: line-through;
+        color: #222;
+    }
+    color: $magento;
+    font-size:1.1rem;
+    font-weight:bold;
+}
+
 ul.products hr {
     border: 0;
     border-top: 1px solid #ccc;
     margin: 0 -10px;
 }
 
+
 /* Comments */
 
 .rating {
-
-  clear: both;
-  .star-gold {
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    background: image-url('star-gold.svg') 0 0 no-repeat;
-  }
-  .star-gray {
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    background: image-url('star-gray.svg') 0 0 no-repeat;
-  }
+    clear: both;
+    .star-gold {
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background: image-url('star-gold.svg') 0 0 no-repeat;
+    }
+    .star-gray {
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background: image-url('star-gray.svg') 0 0 no-repeat;
+    }
 }

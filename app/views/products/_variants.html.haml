@@ -1,15 +1,18 @@
 %table.variants
   %tr
+    %td{:width => "200px"} Вариант товара
     %td
       = select_tag 'product_variants', options_for_select(product.variants.collect{ |v| [v.name, v.id] }, variant.id)
-  %tr.details{data: {url: change_variant_path(product.product_category.permalink, product.permalink)}}
     %td
-      -# - if variant.in_stock?
-      -#   %p.stock.yes In stock
-      -# - else
-      -#   %p.stock.no Out of stock
-      -#%h4= variant.name
-      %p.price= number_to_currency variant.price
+  %tr.details{data: {url: change_variant_path(product.product_category.permalink, product.permalink)}}
+    %td{:width => "100px"} Цена
+    %td
+      - if product.cost_price.is_a? Numeric
+        %p.price.bad= number_to_currency variant.price
+        %p.price= number_to_currency variant.cost_price
+      - else
+        %p.price= number_to_currency variant.price
+
     %td.buy
       = form_tag buy_product_path(product.product_category.permalink, product.permalink, :variant => variant.id), :class => (variant.in_stock? ? 'in-stock' : 'no-stock') do
         = select_tag 'quantity', options_for_select([1,2,3,4,5,6,7,8,9]), :disabled => !variant.in_stock?

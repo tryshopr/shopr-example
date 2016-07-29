@@ -68,7 +68,7 @@ nav.sidebar header.logo h1 a {
 //
 div.container {
     margin: 0 auto;
-    padding: 30px 15px;
+    padding: 25px;
     background: #fff;
     box-shadow: 0 15px 20px -13px #888888;
     &.first {
@@ -96,7 +96,7 @@ div#flash-notice {
     color: #fff;
     text-align: center;
     padding: 8px;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     font-weight: bold;
 }
 
@@ -369,7 +369,7 @@ ul.reasons {
             text-transform: uppercase;
         }
         p {
-            font-size: 0.85em;
+            font-size: 0.85rem;
             line-height: 1.6;
         }
         &:last-child {
@@ -501,16 +501,12 @@ section.primary {
 //
 div.category {
     h2 {
-        font-size: 2.0em;
-        color: #216d74;
+        font-size: 2.0rem;
     }
     p.intro {
         margin-top: 5px;
         line-height: 1.8;
-        font-size: 0.9em;
-    }
-    ul.products {
-        margin-top: 45px;
+        font-size: 0.9rem;
     }
     p.noProducts {
         margin-top: 130px;
@@ -519,12 +515,16 @@ div.category {
     }
 }
 
+img.categories-banner {
+    width: 100%;
+}
+
 //
 // order status page
 //
 div.status {
     h2 {
-        font-size: 2.0em;
+        font-size: 2.0rem;
         color: #216d74;
     }
     p.intro {
@@ -533,7 +533,7 @@ div.status {
     }
     .details {
         overflow: hidden;
-        font-size: 0.9em;
+        font-size: 0.9rem;
         .left {
             width: 55%;
             float: left
@@ -578,7 +578,7 @@ div.status {
         background-size: 8px;
         margin: 45px 0;
         overflow: hidden;
-        font-size: 0.8em;
+        font-size: 0.8rem;
         ul {
             li {
                 width: 25%;
@@ -594,7 +594,7 @@ div.status {
             }
             li p {
                 margin-top: 5px;
-                font-size: 0.85em;
+                font-size: 0.85rem;
                 color: #999;
             }
             li a {
@@ -637,7 +637,9 @@ div.categories {
         overflow: hidden;
         li {
             overflow: hidden;
-            margin-bottom: 30px;
+            float: left;
+    width: 50%;
+    margin-bottom: 15px;
             div.img {
                 width: 120px;
                 height: 120px;
@@ -648,7 +650,7 @@ div.categories {
             }
             div.space {
                 h4 {
-                    font-size: 1.3em;
+                    font-size: 1.3rem;
                     color: #333;
                 }
                 h4 a {
@@ -659,7 +661,7 @@ div.categories {
                 }
                 p {
                     line-height: 1.7;
-                    font-size: 0.9em;
+                    font-size: 0.9rem;
                     margin-top: 10px;
                 }
                 margin-left:150px;
@@ -679,10 +681,10 @@ div.checkout {
         background: image-url('secure.svg') no-repeat 0 1px;
         background-size: 12px;
         padding-left: 18px;
-        font-size: 0.8em;
+        font-size: 0.8rem;
     }
     h2 {
-        font-size: 2.0em;
+        font-size: 2.0rem;
         color: #216d74;
     }
     p.intro {
@@ -694,7 +696,7 @@ div.checkout {
         margin-top: 0;
     }
     h3 {
-        font-size: 1.3em;
+        font-size: 1.3rem;
         font-weight: normal;
         color: #333;
         margin-bottom: 25px;
@@ -726,7 +728,7 @@ div.checkout {
             border: 0;
             padding: 8px 22px 8px 54px;
             color: #fff;
-            font-size: 1.1em;
+            font-size: 1.1rem;
             font-family: $font;
             font-weight: bold;
             border-radius: 4px;
@@ -745,13 +747,13 @@ div.checkout {
         }
     }
     div.customer {
-        font-size: 0.8em;
+        font-size: 0.8rem;
         overflow: hidden;
         fieldset {
             width: 50%;
             float: left;
             legend {
-                font-size: 1.2em;
+                font-size: 1.2rem;
                 font-weight: bold;
             }
             dl.delivery {
@@ -769,10 +771,10 @@ div.checkout {
             dd {
                 margin: 10px 0;
                 input[type=text] {
-                    font-size: 1.3em;
+                    font-size: 1.3rem;
                     font-family: $font;
                     padding: 5px;
-                    font-size: 1.2em;
+                    font-size: 1.2rem;
                     width: 96%;
                     border: 1px solid #ccc;
                     background: #f8f8f8;
@@ -800,7 +802,7 @@ div.checkout {
                     -webkit-appearance: none;
                     background: image-url('down-arrow-black.svg') #f8f8f8 no-repeat 97% 12px;
                     width: 100%;
-                    font-size: 1.2em;
+                    font-size: 1.2rem;
                     background-size: 11px;
                     border: 0;
                     padding: 5px;
@@ -823,9 +825,9 @@ div.checkout {
     }
     fieldset.payment {
         border: 1px solid #ccc;
-        font-size: 0.9em;
+        font-size: 0.9rem;
         h3 {
-            font-size: 0.9em;
+            font-size: 0.9rem;
             color: #333;
             background: #FFFEED;
             padding: 15px;
@@ -856,7 +858,7 @@ div.checkout {
                     width: 300px;
                     font-family: $font;
                     padding: 5px;
-                    font-size: 1.3em;
+                    font-size: 1.3rem;
                     border: 1px solid #ccc;
                     background: #f8f8f8;
                     border-radius: 4px;
@@ -875,14 +877,14 @@ div.checkout {
                 }
                 span {
                     color: #999;
-                    font-size: 0.9em;
+                    font-size: 0.9rem;
                     margin-left: 15px;
                 }
                 select {
                     -webkit-appearance: none;
                     background: image-url('down-arrow-black.svg') #efefef no-repeat 39px 15px;
                     width: 60px;
-                    font-size: 1.3em;
+                    font-size: 1.3rem;
                     background-size: 11px;
                     border: 0;
                     padding: 6px 10px;
@@ -909,7 +911,7 @@ div.checkout {
 //
 table.orderItems {
     width: 100%;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     margin: 25px 0;
     thead td {
         border: 0;
@@ -985,7 +987,7 @@ table.orderItems {
         top: 0;
     }
     span {
-        font-size: 0.85em;
+        font-size: 0.85rem;
     }
     p.info {
         height: 80px;
@@ -1027,6 +1029,7 @@ table.orderItems {
         font-size: 1rem;
         font-weight: bold;
         background: $blue;
+        margin: 0;
         &.new {
             z-index: 0;
             color: $magento;
@@ -1074,7 +1077,7 @@ section.sidebar {
         background: image-url('bag.svg') #DFF0F1 no-repeat 18px 18px;
         background-size: 14px;
         color: #216D74;
-        font-size: 0.8em;
+        font-size: 0.8rem;
         line-height: 1.6;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
@@ -1103,12 +1106,12 @@ section.sidebar {
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         h2 {
-            font-size: 1.4em;
+            font-size: 1.4rem;
             color: #216D74;
             margin-top: 25px;
         }
         dl {
-            font-size: 0.8em;
+            font-size: 0.8rem;
             margin: 30px 0;
             line-height: 1.5;
             dt {
@@ -1162,7 +1165,7 @@ footer.main > .container {
         // width:40%;
         p.number {
             color: #fff;
-            font-size: 2.2em;
+            font-size: 2.2rem;
             font-weight: bold;
             margin: 2px 0;
         }
