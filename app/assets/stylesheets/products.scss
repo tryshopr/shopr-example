@@ -22,13 +22,15 @@ a.add,
 /*Time for the CSS*/
 
 .product-slider {
-  width: 40%;
+  width: 375px;
+  border-right: 2px solid #ECECEC;
+
   /*Instead of height we will use padding*/
-  margin-top: 200px;
+  padding: 200px 10px 10px 10px;
 
   > img {
     position: absolute;
-    left: 0;
+    left: 15px;
     top: 0;
     transition: all 0.5s;
   }
@@ -37,33 +39,39 @@ a.add,
   }
   label {
     /*Lets add some spacing for the thumbnails*/
-    margin: 18px 0 0 18px;
     border: 2px solid #ECECEC;
+    background: #fff;
     float: left;
     cursor: pointer;
     transition: all 0.5s;
     /*Default style = low opacity*/
     opacity: 0.6;
+    width: 30%;
+    height: 100px;
     img {
       display: block;
     }
   }
+  label+label {margin-left: 5px;}
   input[name='slide_switch'] {
     &:checked {
       + label {
         border-color: #ECECEC;
         opacity: 1;
+
+
       }
       + label + img {
         opacity: 1;
-        transform: scale(1);
-            max-width: 30%;
+        object-fit: cover;
+        max-width: 30%;
       }
     }
     ~ img {
+      height: auto;
+      max-height: 185px;
       opacity: 0;
-      transform: scale(1.1);
-      width: 30%;
+      width: 375px;
     }
   }
 }
@@ -187,20 +195,20 @@ On click the images will be displayed at normal size to complete the effect
     }
 }
 
-// span.yellow {
-//     display: block;
-//     color: $yellow;
-//     font-size: 1.35rem;
-//     margin-left: 25%;
-//     float: left;
-// }
+span.yellow {
+    display: none;
+    color: $yellow;
+    font-size: 1.35rem;
+    margin-left: 25%;
+    float: left;
+}
 
-// span.gray {
-//     display: block;
-//     color: $gray;
-//     font-size: 1.35rem;
-//     float: left;
-// }
+span.gray {
+    display: none;
+    color: $gray;
+    font-size: 1.35rem;
+    float: left;
+}
 
 span.material {
     clear: left;
@@ -609,7 +617,7 @@ ul.products {
         display: flex;
     flex-direction: column;
     justify-content: space-between;
-        width: 25%;
+        width: 24%;
         padding: 10px;
         background: #fff;
         border-radius: 3px;
@@ -644,7 +652,13 @@ ul.products {
         p.info {
             margin: 5px 0px 10px;
             text-align: center;
-            min-height: 115px;
+            min-height: 110px;
+        }
+        .pricebox {
+            display: flex;
+    justify-content: center;
+    flex-direction: column;
+                min-height: 56px;
         }
         p.price {
             text-align: center;
