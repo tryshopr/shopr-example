@@ -2,8 +2,11 @@
 #= require jquery_ujs
 #= require comments
 #= require products
+#= require parsley.min
 
 $ ->
+
+  $('.comment-form form').parsley();
 
   $('form.disableable').on 'submit', ->
     $('input[type=submit]').addClass('disabled').prop('disabled', true)
