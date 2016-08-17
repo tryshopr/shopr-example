@@ -2,11 +2,10 @@
 // Custom bootstrap variables must be set or import before bootstrap itself.
 @import "bootstrap";
 @import 'bootstrap-custom';
-@import 'products';
 @import 'reset';
+@import 'fonts';
 
 html {
-    font-family: $font;
     font-size: 100%;
     background: #fff;
 }
@@ -21,6 +20,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: $font;
 }
 
 h1 {
@@ -72,7 +72,7 @@ div.container {
     background: #fff;
     box-shadow: 0 15px 20px -13px #888888;
     &.first {
-    box-shadow: 0 10px 20px 0 #888888;
+        box-shadow: 0 10px 20px 0 #888888;
     }
     &.last {
         position: relative;
@@ -115,7 +115,7 @@ div#flash-alert {
 header.main {
     font-size: 0.9rem;
     .head {
-        padding: 0.9375rem 0 0;
+        padding-bottom: 26px;
         overflow: hidden;
         display: flex;
         justify-content: space-between;
@@ -131,7 +131,8 @@ header.main {
             font-weight: 600;
         }
         .call {
-            font-size: 22px;
+            font-size: 28px;
+            line-height: 2rem;
             padding-bottom: 3px;
         }
         .search {
@@ -154,7 +155,6 @@ header.main {
 // Navigation
 //
 nav.main {
-    margin: 0.9375rem 0;
     padding: 10px 5px;
     overflow: hidden;
     border-top: 1px solid #E6E6E6;
@@ -501,12 +501,13 @@ section.primary {
 //
 div.category {
     h2 {
-        font-size: 2.0rem;
+        font-size: 32px;
     }
     p.intro {
         margin-top: 5px;
         line-height: 1.8;
         font-size: 0.9rem;
+font-size: 14px;
     }
     p.noProducts {
         margin-top: 130px;
@@ -638,8 +639,8 @@ div.categories {
         li {
             overflow: hidden;
             float: left;
-    width: 50%;
-    margin-bottom: 15px;
+            width: 50%;
+            margin-bottom: 15px;
             div.img {
                 width: 120px;
                 height: 120px;
@@ -1038,7 +1039,7 @@ table.orderItems {
     }
 }
 
-// helpers
+// Helpers
 //
 .green-border {
     box-shadow: 0px 0px 0px 4px $green inset;
@@ -1048,11 +1049,22 @@ table.orderItems {
 // Sidebar
 //
 section.sidebar {
-    padding: 15px;
+    min-width: 221px;
+        padding: 25px;
+        background-color: #ffffff;
+    h3 {
+        font-size: 18px;
+        color: #00995b;
+    }
     ul#sidebar {
         margin: 0;
         position: relative;
     }
+    ul#sidebar.params {
+        margin: 0;
+        position: relative;
+    }
+
     ul#sidebar li {
         list-style: none;
         & + li {
@@ -1064,10 +1076,10 @@ section.sidebar {
             color: black;
         }
         a.active,
-        a:active {
+        a:hover {
             color: $purple-dark;
         }
-        a.active:after {
+        a.active:after, a:hover:after{
             position: absolute;
             right: 0;
             content: '❯';
@@ -1228,4 +1240,740 @@ div.overlay {
 
 nav.sidebar header.logo h1 a {
     background: none;
+}
+
+/* Products */
+
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+nav.sidebar header.logo h1 a {
+    background: none !important;
+}
+
+.hidden {
+    display: none
+}
+
+a.add,
+.btn.add {
+    background: #FFBE60;
+    background-image: -webkit-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: -moz-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: -ms-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: -o-linear-gradient(top, #FFBE60, #DE610B);
+    background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
+}
+
+// Attached images slider //
+
+/*Time for the CSS*/
+
+.product-slider {
+    width: 375px;
+    border-right: 2px solid #ECECEC;
+    /*Instead of height we will use padding*/
+    padding: 200px 10px 10px 10px;
+    > img {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        transition: all 0.5s;
+    }
+    input[name='slide_switch'] {
+        display: none;
+    }
+    label {
+        /*Lets add some spacing for the thumbnails*/
+        border: 2px solid #ECECEC;
+        background: #fff;
+        float: left;
+        cursor: pointer;
+        transition: all 0.5s;
+        /*Default style = low opacity*/
+        opacity: 0.6;
+        width: 30%;
+        height: 100px;
+        img {
+            display: block;
+        }
+    }
+    label+label {
+        margin-left: 5px;
+    }
+    input[name='slide_switch'] {
+        &:checked {
+            + label {
+                border-color: #ECECEC;
+                opacity: 1;
+            }
+            + label + img {
+                opacity: 1;
+                object-fit: cover;
+                max-width: 30%;
+            }
+        }
+        ~ img {
+            height: auto;
+            max-height: 185px;
+            opacity: 0;
+            width: 375px;
+        }
+    }
+}
+
+
+/*Last thing remaining is to add transitions*/
+
+
+/*Time to add the click effects*/
+
+
+/*Clicking any thumbnail now should change its opacity(style)*/
+
+
+/*Time to work on the main images*/
+
+
+/*That hides all main images at a 110% size
+On click the images will be displayed at normal size to complete the effect
+*/
+
+
+/*Clicking on any thumbnail now should activate the image related to it*/
+
+
+/*We are done :)*/
+
+// TABS //
+.tabs [id^="tab"]:checked + label {
+    background: linear-gradient(to bottom, $purple, $purple-dark);
+    color: white;
+    span {
+        text-decoration: none;
+    }
+}
+
+#tab1:checked ~ #tab-content1,
+#tab2:checked ~ #tab-content2,
+#tab3:checked ~ #tab-content3,
+#tab4:checked ~ #tab-content4 {
+    display: block;
+}
+
+.tabs {
+    float: none;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.tabs:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.tabs input[type=radio] {
+    display: none;
+}
+
+.tabs label {
+    display: block;
+    float: left;
+    color: #3498db;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 2;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    /* Safari 3.1 to 6.0 */
+    transition: all 0.2s;
+}
+
+.tabs label span {
+    display: none;
+    text-decoration: underline;
+}
+
+.tabs label i {
+    padding: 5px;
+    margin-right: 0;
+}
+
+.tabs label:hover {
+    color: #3498db;
+}
+
+.tab-content {
+    display: none;
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    min-height: 150px;
+}
+
+.tab-content * {
+    -webkit-animation: scale 0.2s ease-in-out;
+    -moz-animation: scale 0.2s ease-in-out;
+    animation: scale 0.2s ease-in-out;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.01);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .tabs i {
+        padding: 5px;
+        margin-right: 10px;
+    }
+    .tabs label span {
+        display: inline-block;
+    }
+}
+
+span.yellow {
+    display: none;
+    color: $yellow;
+    font-size: 1.35rem;
+    margin-left: 25%;
+    float: left;
+}
+
+span.gray {
+    display: none;
+    color: $gray;
+    font-size: 1.35rem;
+    float: left;
+}
+
+span.material {
+    clear: left;
+    width: 136px;
+    height: 40px;
+    display: block;
+    background-repeat: no-repeat !important;
+    margin: 10px 0;
+}
+
+span.j130 {
+    background: image-url('mat130j.png');
+}
+
+span.s130 {
+    background: image-url('mat130s.png');
+}
+
+span.j150 {
+    background: image-url('mat150j.png');
+}
+
+span.s150 {
+    background: image-url('mat150s.png');
+}
+
+//
+// product page
+//
+div.product {
+    .img {
+        width: 30%;
+        height: auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .product-info {
+        min-height: 300px;
+        box-shadow: 0px 0px 10px #DAD5D5;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        .intro > p {
+            display: inline-block;
+            min-width: 100%;
+        }
+    }
+    .product-tabs {
+        box-shadow: 0px 0px 10px #DAD5D5;
+        padding: 15px;
+    }
+    h2 {
+        font-size: 1.7rem;
+        float: left;
+        font-weight: bold;
+    }
+    .intro {
+        width: 75%;
+        padding: 15px;
+        font-size: 0.8em;
+        color: #333;
+        line-height: 1.5;
+    }
+    hr {
+        clear: both;
+        border-color: $gray;
+    }
+    .stock {
+        float: left;
+        margin: 0 15px 15px;
+        p.yes {
+            color: white;
+            font-size: 1em;
+            background: $green;
+            // image-url('tick.svg') no-repeat 0 3px;
+            background-size: 13px;
+            padding: 5px 20px;
+            font-weight: 600;
+            border-radius: 15px;
+        }
+        p.no {
+            color: #c04a4a;
+            font-size: 1em;
+            background: image-url('unhappy.svg') no-repeat 0 3px;
+            background-size: 13px;
+            padding-left: 18px;
+            font-weight: 600;
+        }
+    }
+    table.variants {
+        width: 100%;
+        margin: 15px 0;
+        font-size: 0.8rem;
+        @include border-radius($radius);
+        tr:first-child {
+            background: $gray;
+        }
+        select {
+            padding: 0.1rem;
+        }
+        td {
+            border: 1px solid $gray-light;
+            line-height: 1rem;
+            padding: 10px;
+            vertical-align: middle;
+        }
+        td.buy {
+            width: 170px;
+            background: #fff;
+            font-size: 0.8rem;
+        }
+        td h4 {
+            font-size: 1.2em;
+            color: black;
+        }
+        td p {
+            font-weight: 600;
+        }
+        td form {
+            input {
+                border: 0;
+                font-family: $font;
+                height: 24px;
+                padding: 4px 12px;
+                color: #fff;
+                border-radius: 4px;
+                font-weight: bold;
+                font-size: 0.9em;
+                margin-left: 4px;
+            }
+            select {
+                -webkit-appearance: none;
+                background: image-url('down-arrow.svg') #fff no-repeat 24px 11px;
+                width: 40px;
+                background-size: 8px;
+                height: 25px;
+                font-weight: bold;
+                padding: 4px 10px;
+                font-family: $font;
+            }
+            &.no-stock {
+                select {
+                    background-color: #efefef;
+                    background-image: image-url('down-arrow-grey.svg');
+                    color: #ccc;
+                }
+                input {
+                    background: #ddd
+                }
+            }
+        }
+    }
+    div.optionsBox {
+        margin-top: 50px;
+        padding-top: 20px;
+        clear: left;
+        width: 370px;
+        font-size: 0.8em;
+        .top {
+            overflow: hidden;
+            p.price {
+                width: 45%;
+                float: left;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+            form {
+                margin-left: 50%;
+                input {
+                    float: right;
+                    background: #256D73;
+                    border: 0;
+                    font-family: $font;
+                    height: 24px;
+                    padding: 4px 12px;
+                    color: #fff;
+                    border-radius: 4px;
+                    font-weight: bold;
+                    font-size: 0.9em;
+                    margin-left: 4px;
+                }
+                select {
+                    -webkit-appearance: none;
+                    background: image-url('down-arrow.svg') #DEE9EB no-repeat 24px 11px;
+                    width: 40px;
+                    background-size: 7px;
+                    border: 0;
+                    height: 24px;
+                    font-weight: bold;
+                    padding: 4px 10px;
+                    font-family: $font;
+                    color: #256D73;
+                }
+                &.no-stock {
+                    select {
+                        background-color: #efefef;
+                        background-image: image-url('down-arrow-grey.svg');
+                        color: #ccc;
+                    }
+                    input {
+                        background: #ddd
+                    }
+                }
+            }
+        }
+        .bottom {
+            overflow: hidden;
+            margin-top: 15px;
+            .stock {
+                float: left;
+                width: 45%;
+                p.yes {
+                    color: #5DBCC4;
+                    font-size: 1.1em;
+                    background: image-url('tick.svg') no-repeat 0 3px;
+                    background-size: 13px;
+                    padding-left: 18px;
+                }
+                p.no {
+                    color: #c04a4a;
+                    font-size: 1.1em;
+                    background: image-url('unhappy.svg') no-repeat 0 3px;
+                    background-size: 13px;
+                    padding-left: 18px;
+                }
+                p.time {
+                    margin-top: 5px;
+                    color: #888;
+                    b {
+                        color: #333;
+                    }
+                    font-size:0.9em;
+                    line-height:1.5;
+                }
+            }
+            div.links {
+                margin-left: 50%;
+                font-size: 0.9em;
+                line-height: 2.0;
+                ul li.item {
+                    background: image-url('datasheet.svg') no-repeat 0 3px;
+                    background-size: 16px;
+                    padding-left: 22px;
+                }
+                ul li.item.box {
+                    background-image: image-url('box.svg');
+                    background-size: 14px;
+                    background-position: 0 4px;
+                }
+                ul li.item.ask {
+                    background-image: image-url('question.svg');
+                    background-size: 14px;
+                    background-position: 0 5px;
+                }
+                ul li.item a {
+                    text-decoration: none;
+                }
+                ul li.item a:hover {
+                    text-decoration: underline;
+                    color: #256D73;
+                }
+                div.in_the_box {
+                    display: none;
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.98);
+                    margin-left: -35px;
+                    z-index: 100;
+                    width: 300px;
+                    padding: 15px 25px;
+                    border-radius: 6px;
+                    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+                    h3 {
+                        font-size: 1.3em;
+                        border-bottom: 1px solid #333;
+                        margin-bottom: 15px;
+                        background: image-url('box.svg') no-repeat 0 8px;
+                        background-size: 16px;
+                        padding-left: 26px;
+                    }
+                    ul {
+                        li {
+                            list-style: square;
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    table.attributes {
+        width: 100%;
+        tr {
+            line-height: 2.5rem;
+        }
+        tr + tr {
+            border-top: 2px solid $gray;
+            padding: 6px;
+        }
+        th {
+            text-align: left;
+            width: 30%;
+        }
+    }
+    div.description {
+        font-size: 0.9em;
+        line-height: 1.7;
+        p,
+        ul,
+        ol,
+        blockquote,
+        pre {
+            margin: 15px 0;
+        }
+        ul,
+        ol {
+            margin-left: 25px;
+        }
+        ul li {
+            list-style: disc;
+        }
+        pre {
+            background: #f7f7f7;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+    }
+}
+
+//tab-contents
+.tab-content {
+    ol {
+        float: left;
+        display: block;
+        list-style: none;
+        overflow: hidden;
+        counter-reset: numList;
+    }
+    ol li {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        position: relative;
+        position: relative;
+        font-weight: 600;
+    }
+    ol li:before {
+        counter-increment: numList;
+        content: counter(numList);
+        margin-right: 30px;
+        padding: 6px 7px;
+        line-height: 1rem;
+        font-size: 1.3rem;
+        text-align: center;
+        color: $green;
+        width: 2rem;
+        height: 2rem;
+        border: 3px solid $green;
+        -moz-border-radius: 999px;
+        border-radius: 999px
+    }
+    ol li:not(:last-child):after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-top: 1px solid #dedede;
+        clear: both;
+        content: '';
+        display: block;
+        width: 100%;
+    }
+    li > p {
+        line-height: 1.5rem;
+        float: left;
+        min-width: 145px;
+    }
+    li > p+p {
+        margin: 0;
+        font-weight: 500;
+    }
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    > img {
+        margin-right: 30px;
+    }
+    .tech-item-info {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+}
+
+.tech-item + .tech-item {
+    border-top: 1px solid $gray;
+}
+
+//
+// Products list
+//
+ul.products {
+    font-size: 0.9em;
+    margin: 20px 0 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 231px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 3px;
+        margin: 0 5px 5px;
+        border-top: 1px solid #EAEAEA;
+        box-shadow: 0px 0px 10px #DAD5D5;
+        &:hover {
+            background: $gray-lighter;
+        }
+        div.img {
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: top center;
+            margin: -10px -10px 0;
+            height: 160px;
+            min-width: 200px;
+        }
+        h4 {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            line-height: 1.2rem;
+        }
+        h4 a {
+            text-decoration: none;
+            color: black;
+        }
+        h4 a:hover {
+            text-decoration: underline;
+        }
+        p.info {
+            margin: 5px 0px 10px;
+            min-height: 117px;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+        }
+        .pricebox {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 57px;
+        }
+        .price {
+    text-align: center;
+            &.bad {
+                font-size: 0.9rem;
+            }
+        }
+        p.buttons {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin: 10px 0;
+        }
+        p.buttons a {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 3px 6px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.price {
+    margin-bottom: 5px;
+    &.bad {
+        text-decoration: line-through;
+        color: #222;
+    }
+    color: $magento;
+    font-size:1.1rem;
+    font-weight:bold;
+}
+
+ul.products hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 -10px;
+}
+
+
+/* Comments */
+
+.rating {
+    clear: both;
+    .star-gold {
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background: image-url('star-gold.svg') 0 0 no-repeat;
+    }
+    .star-gray {
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        background: image-url('star-gray.svg') 0 0 no-repeat;
+    }
 }

@@ -1,19 +1,19 @@
-- active_nav_item:=current_page?(link_path)
 - @page_title = 'Каталог'
 .content
-  .row
-    .col-md-12
-      =image_tag "categories-banner.png", :class => "categories-banner"
-  .row
-    .col-md-2
-      -# Sidebar
-      %section.sidebar.green-border
-        = render 'shared/category_sidebar'
-    .categories.col-md-9
-      %ul
-        - for category in @product_categories
-          %li
-            %div.img{:style => category.image ? "background-image:url(#{category.image.path})" : 'background-color:#efefef'}
-            .space
-              %h4= link_to category.name, products_path(category.permalink)
-              %p= category.description
+  .container
+    .row
+      .col-md-12
+        =image_tag "categories-banner.png", :class => "categories-banner"
+  .container
+    .row
+      .col-md-3
+        -# Sidebar
+          = render 'shared/category_sidebar'
+      .categories.col-md-8
+        %ul
+          - for category in @product_categories
+            %li
+              %div.img{:style => category.image ? "background-image:url(#{category.image.path})" : 'background-color:#efefef'}
+              .space
+                %h4= link_to category.name, products_path(category.permalink)
+                %p= category.description
