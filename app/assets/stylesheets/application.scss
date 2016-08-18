@@ -4,7 +4,6 @@
 @import 'bootstrap-custom';
 @import 'reset';
 @import 'fonts';
-
 html {
     font-size: 100%;
     background: #fff;
@@ -225,9 +224,7 @@ nav.main {
 }
 
 // Introduction
-section.intro {
-    // height: 300px;
-}
+section.intro {}
 
 div.info {
     display: flex;
@@ -355,7 +352,7 @@ ul.reasons {
         left: 0;
     }
     li {
-        width: 20%;
+        min-width: 18%;
         position: relative;
         padding: 60px 0 0 0;
         background-repeat: no-repeat;
@@ -502,12 +499,16 @@ section.primary {
 div.category {
     h2 {
         font-size: 32px;
+        font-weight: 600;
+        line-height: 40px;
+        font-family: Open Sans, Arial;
     }
     p.intro {
+        font-size: 14px;
+color: #000000;
+text-align: left;
+line-height: 18px;
         margin-top: 5px;
-        line-height: 1.8;
-        font-size: 0.9rem;
-font-size: 14px;
     }
     p.noProducts {
         margin-top: 130px;
@@ -1049,27 +1050,16 @@ table.orderItems {
 // Sidebar
 //
 section.sidebar {
-    min-width: 221px;
-        padding: 25px;
-        background-color: #ffffff;
-    h3 {
-        font-size: 18px;
-        color: #00995b;
-    }
+    max-width: 221px;
+    padding: 1px;
     ul#sidebar {
-        margin: 0;
+        padding: 15px 25px;
+        margin: 3px 3px 0;
+        background-color: #fff;
         position: relative;
     }
-    ul#sidebar.params {
-        margin: 0;
-        position: relative;
-    }
-
     ul#sidebar li {
         list-style: none;
-        & + li {
-            border-top: 1px solid $gray;
-        }
         a {
             font-weight: 600;
             line-height: 2rem;
@@ -1079,11 +1069,47 @@ section.sidebar {
         a:hover {
             color: $purple-dark;
         }
-        a.active:after, a:hover:after{
+        a.active:after,
+        a:hover:after {
             position: absolute;
-            right: 0;
+            right: 25px;
             content: '❯';
         }
+    }
+    ul#sidebar-params {
+        padding: 30px 25px;
+        border-top: 1px solid $gray;
+        margin: 0 3px;
+        a {
+            font-size: 14px;
+        font-weight: 500;
+            color: #000000;
+            text-align: left;
+            line-height: 16px;
+        }
+        span {
+            font-size: 13px;
+        font-weight: bold;
+            color: #00995b;
+            text-align: left;
+            line-height: 16px;
+        }
+        ul {
+            margin-bottom: 15px;
+        }
+    }
+    h3 {
+        font-size: 18px;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        color: #00995b;
+        text-transform: uppercase;
+    }
+    h4 {
+        font-size: 14px;
+        color: #090909;
+        font-weight: bold;
+        text-transform: uppercase;
     }
     div.basket {
         background: image-url('bag.svg') #DFF0F1 no-repeat 18px 18px;
@@ -1241,6 +1267,7 @@ div.overlay {
 nav.sidebar header.logo h1 a {
     background: none;
 }
+
 
 /* Products */
 
@@ -1869,17 +1896,21 @@ ul.products {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     li {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 231px;
+        width: 29%;
         padding: 10px;
         background: #fff;
         border-radius: 3px;
-        margin: 0 5px 5px;
         border-top: 1px solid #EAEAEA;
         box-shadow: 0px 0px 10px #DAD5D5;
+    margin-bottom: 25px;
+        & + li {
+        margin-left: 15px;
+        }
         &:hover {
             background: $gray-lighter;
         }
@@ -1919,7 +1950,7 @@ ul.products {
             min-height: 57px;
         }
         .price {
-    text-align: center;
+            text-align: center;
             &.bad {
                 font-size: 0.9rem;
             }

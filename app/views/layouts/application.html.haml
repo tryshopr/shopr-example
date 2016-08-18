@@ -35,62 +35,62 @@
                 %li= link_to "О компании", page_path(:about), :nav_item => :about
                 //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
           
-        - if @full_header
-          %section.intro.row
-            .col-xl-3.col-lg-4.col-md-5.col-xs-12
-              .info.green-border
-                %h2 Нужен матрас срочно?
-                %p Более <b>100 видов</b> матрасов в наличии! Закажи сейчас и мы доставим его вам в течение дня!
-                %p Равным образом новая модель Закажи сейчас и мы доставим его вам в течение дня!
-                = link_to "Матрасы в наличии",  catalogue_path, class: "btn btn-lg btn-default"
-                %a.arrow-r{:href => catalogue_path} Использователь фильтр
+    - if @full_header
+      .container
+        %section.intro.row
+          .col-xl-3.col-lg-4.col-md-5.col-xs-12
+            .info.green-border
+              %h2 Нужен матрас срочно?
+              %p Более <b>100 видов</b> матрасов в наличии! Закажи сейчас и мы доставим его вам в течение дня!
+              %p Равным образом новая модель Закажи сейчас и мы доставим его вам в течение дня!
+              = link_to "Матрасы в наличии",  catalogue_path, class: "btn btn-lg btn-default"
+              %a.arrow-r{:href => catalogue_path} Использователь фильтр
 
-            .col-xl-9.col-lg-8.col-md-7.col-xs-12
-              .slider
-                %ul.row
-                  %input#img-1{:checked => "checked", :name => "radio-btn", :type => "radio"}/
-                  %li.slide-container
-                    .slide
-                      .slide-info
-                        %h2 -30%
-                        %p С 10 декабря по 21 марта каждую субботу
-                      =image_tag "slider/image1.png"
-                  %input#img-2{:name => "radio-btn", :type => "radio"}/
-                  %li.slide-container
-                    .slide
-                      .slide-info
-                      =image_tag "slider/image2.png"
-                  %input#img-3{:name => "radio-btn", :type => "radio"}/
-                  %li.slide-container
-                    .slide
-                      .slide-info
-                      %img{:src => "http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg"}/
-                  %input#img-4{:name => "radio-btn", :type => "radio"}/
-                  %li.slide-container
-                    .slide
-                      .slide-info
-                        %h2 -10%
-                        %p Test
-                      %img{:src => "http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg"}/
-                %figcaption.controls
-                  %label{:for => "img-1"} Акция -30%
-                  %label{:for => "img-2"} Наматрасники - 10%
-                  %label{:for => "img-3"} Подушка в подарок
-                  %label{:for => "img-4"} Бесплатная доставка
+          .col-xl-9.col-lg-8.col-md-7.col-xs-12
+            .slider
+              %ul.row
+                %input#img-1{:checked => "checked", :name => "radio-btn", :type => "radio"}/
+                %li.slide-container
+                  .slide
+                    .slide-info
+                      %h2 -30%
+                      %p С 10 декабря по 21 марта каждую субботу
+                    =image_tag "slider/image1.png"
+                %input#img-2{:name => "radio-btn", :type => "radio"}/
+                %li.slide-container
+                  .slide
+                    .slide-info
+                    =image_tag "slider/image2.png"
+                %input#img-3{:name => "radio-btn", :type => "radio"}/
+                %li.slide-container
+                  .slide
+                    .slide-info
+                    %img{:src => "http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg"}/
+                %input#img-4{:name => "radio-btn", :type => "radio"}/
+                %li.slide-container
+                  .slide
+                    .slide-info
+                      %h2 -10%
+                      %p Test
+                    %img{:src => "http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg"}/
+              %figcaption.controls
+                %label{:for => "img-1"} Акция -30%
+                %label{:for => "img-2"} Наматрасники - 10%
+                %label{:for => "img-3"} Подушка в подарок
+                %label{:for => "img-4"} Бесплатная доставка
             
-          .row
-            .col-md-12
-              %ul.reasons
-                %li.support
-                  %h4 Европейские материалы
-                %li.quality
-                  %h4 Сертификаты качества
-                %li.garanty
-                  %h4 Гарантия 20 лет
-                %li.dimensions    
-                  %h4 Нестандартные размеры
-                %li.delivery
-                  %h4 Бесплатная доставка
+          .col-md-12
+            %ul.reasons
+              %li.support
+                %h4 Европейские материалы
+              %li.quality
+                %h4 Сертификаты качества
+              %li.garanty
+                %h4 Гарантия 20 лет
+              %li.dimensions    
+                %h4 Нестандартные размеры
+              %li.delivery
+                %h4 Бесплатная доставка
 
           -# - if @full_header
             -# .bar
