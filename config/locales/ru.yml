@@ -1,0 +1,10 @@
+ru:
+  shoppe:
+    comments:
+      destroy_notice:
+        Отзыв успешно удален
+      comments:
+        Отзывы
+
+    products:
+      comments: Отзывы
