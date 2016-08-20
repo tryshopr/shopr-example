@@ -1591,7 +1591,8 @@ div.product {
             background: $gray;
         }
         select {
-            padding: 0.1rem;
+                padding: 0.2rem;
+    background: #fff;
         }
         td {
             line-height: 1rem;
@@ -1905,25 +1906,23 @@ ul.products {
         flex-direction: column;
         justify-content: space-between;
         width: 29%;
-        padding: 10px;
         background: #fff;
         border-radius: 3px;
         border-top: 1px solid #EAEAEA;
         box-shadow: 0px 0px 10px #DAD5D5;
     margin-bottom: 25px;
-        & + li {
-        margin-left: 15px;
-        }
         &:hover {
             background: $gray-lighter;
         }
         div.img {
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
             background-position: top center;
-            margin: -10px -10px 0;
             height: 160px;
-            min-width: 200px;
+                width: 100%;
+        }
+        a {
+        padding: 10px 10px 0;
         }
         h4 {
             text-align: center;
@@ -1962,7 +1961,7 @@ ul.products {
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
-            margin: 10px 0;
+        padding: 10px;
         }
         p.buttons a {
             font-size: 0.8rem;

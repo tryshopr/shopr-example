@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git@bitbucket.org:craft37/shoppe_fork.git
-  revision: 615f24f3310de59172726426e6b552670b00f931
+  revision: 4fbc439f227acc7af1ebd3abc2fc54d945f01bea
   branch: master
   specs:
     shoppe (1.1.2)
@@ -237,7 +237,7 @@ GEM
       activerecord (>= 4.2.0, < 4.3)
     haml (4.0.7)
       tilt
-    hamlit (2.6.0)
+    hamlit (2.6.1)
       temple (~> 0.7.6)
       thor
       tilt
@@ -365,7 +365,7 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.1)
+    uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
     unicorn (5.1.0)
       kgio (~> 2.6)
@@ -376,6 +376,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   better_errors
   bootstrap (~> 4.0.0.alpha3)
   capistrano (~> 3.5.0)

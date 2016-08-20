@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'autoprefixer-rails'
 gem 'sprockets-rails', '>= 2.3.3'
 gem 'hamlit', '>= 2.2.3'
 gem 'hamlit-rails'

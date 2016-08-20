@@ -3,6 +3,7 @@
 #= require comments
 #= require products
 #= require parsley.min
+#= require bootstrap-sprockets
 
 $ ->
 

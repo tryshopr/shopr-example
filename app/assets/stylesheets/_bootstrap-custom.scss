@@ -28,3 +28,22 @@
 .btn:hover {
 	color: #fff;
 }
+
+.modal-backdrop {
+  z-index: 1;
+}
+
+// Products cards
+
+
+.card-img-top {
+  width: 100%;
+}
+
+h4.card-title {
+  text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.2rem;
+}
