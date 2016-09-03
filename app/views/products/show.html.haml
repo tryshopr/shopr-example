@@ -29,22 +29,13 @@
         - else
           %p.no Нет в наличии
           -# %p.time Sorry - we don't have any stock of this product at the moment. #{link_to "Let me know when you do"}.
-      .rating= rating_stars(average_rating(@product))
-      %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
-      %span.to-review-btn-anchor= link_to 'Оставить отзыв', '#tabs'
+      .rating
+        = rating_stars(average_rating(@product))
+        %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
+        %span.to-review-btn-anchor= link_to 'Оставить отзыв', '#tabs'
       %p= raw @product.short_description
-      .optionsBox
-      .top
-        -# %p.price= number_to_currency @product.price
-        -# = form_tag buy_product_path(@product.product_category.permalink, @product.permalink), :class => (@product.in_stock? ? 'in-stock' : 'no-stock') do
-        -#   %p
-        -#     = select_tag 'quantity', options_for_select([1,2,3,4,5,6,7,8,9]), :disabled => !@product.in_stock?
-        -#     = submit_tag 'Add to basket', :disabled => !@product.in_stock?
-
       - if @product.has_variants?
         = render partial: 'variants', locals: { product: @product, variant: @product.variants.first }
-      -# - else
-      -#   %hr
       .bottom
         .links
           %ul

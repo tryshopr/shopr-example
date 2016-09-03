@@ -100,6 +100,18 @@
     / Main content section
     .content
       .container.white-off.last
+        -# Breadcrumbs
+        -if current_page?(root_path)
+        -else
+          .breadcrumb
+            =link_to('Главная', root_path) << ' ›'
+            -if defined? @product_category
+              =link_to(@product_category.name, products_path(@product_category.permalink) )
+            -else
+              =link_to(@page_title, request.fullpath)
+            -if defined? @product
+              ›
+              %span= @product.name
         .row
           .col-md-12
             -# .products.white-off

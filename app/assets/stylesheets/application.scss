@@ -1570,12 +1570,13 @@ div.product {
             border-radius: 15px;
         }
         p.no {
-            color: #c04a4a;
+            color: black;
             font-size: 1em;
-            background: image-url('unhappy.svg') no-repeat 0 3px;
+            background: $gray;
             background-size: 13px;
-            padding-left: 18px;
+            padding: 5px 20px;
             font-weight: 600;
+            border-radius: 15px;
         }
     }
     table.variants {
@@ -1596,7 +1597,8 @@ div.product {
         }
         td {
             line-height: 1rem;
-            padding: 10px;
+                font-weight: 600;
+            padding: 15px 10px;
             vertical-align: middle;
         }
         td.buy {
@@ -1645,11 +1647,6 @@ div.product {
         }
     }
     div.optionsBox {
-        margin-top: 50px;
-        padding-top: 20px;
-        clear: left;
-        width: 370px;
-        font-size: 0.8em;
         .top {
             overflow: hidden;
             p.price {
