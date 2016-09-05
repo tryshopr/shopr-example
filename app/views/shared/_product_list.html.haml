@@ -22,7 +22,8 @@
             %p Размер (см х см):
           .btn-box
             - if product.has_variants?
-              = select_tag 'product_cat_variants', options_for_select(product.variants.collect{ |v| [v.name, v.id] })
+              -# -locals: { product: @product, variant: @product.variants.first }
+              = select_tag 'product_variants', options_for_select(product.variants.collect{ |v| [v.name, v.id] })
             - if product.orderable?
               -# = link_to "Купить", buy_product_path(product.product_category.permalink, product.permalink), :class => 'btn add', :method => :post
               %button.btn.btn-primary.add{"data-target" => "#buyModal", "data-toggle" => "modal", :type => "button"}
