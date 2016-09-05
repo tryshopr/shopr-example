@@ -25,16 +25,16 @@
                   %p.call <b>(029) 127 55 55</b>
                   %p.small 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
               .search
-            / Primary navigation
-            %nav.main
-              %ul
-                //%li= link_to "Home", root_path, :nav_item => :home
-                - for category in Shoppe::ProductCategory.ordered
-                  %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-                %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
-                %li= link_to "О компании", page_path(:about), :nav_item => :about
-                //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
-          
+      / Primary navigation
+      .container.p-a-0
+        %nav.main
+          %ul
+            //%li= link_to "Home", root_path, :nav_item => :home
+            - for category in Shoppe::ProductCategory.ordered
+              %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
+            %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
+            %li= link_to "О компании", page_path(:about), :nav_item => :about
+            //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
     - if @full_header
       .container
         %section.intro.row

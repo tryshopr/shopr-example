@@ -5,13 +5,13 @@
     .col-md-12
       =image_tag "categories-banner.png", :class => "categories-banner"
   .row.m-t-1
-    .col-md-3
+    .col-md-3.col-xs-12
       = render 'shared/category_sidebar'
-    .category.col-md-9
+    .category.col-md-9.col-xs-12
       %h2= @product_category.name
       - unless @product_category.description.blank?
         %p.intro= @product_category.description
       - if @products.empty?
-        %p.noProducts There are no products in this category
+        %p.noProducts Товаров в данной категории не найдено
       - else
         = render 'shared/product_list', :products => @products

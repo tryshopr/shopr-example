@@ -1,39 +1,27 @@
--# .ard-deck-wrapper
--#   .card-deck
--#     - for product in products
--#       .card
--#         =link_to product_path(product.product_category.permalink, product.permalink), :class => 'card-block' do
--#           %img.card-img-top{:src => product.default_image ? "#{product.default_image.path}" : ''}
--#             %h4.card-title= product.name
--#             .rating.text-xs-center= rating_stars(average_rating(product))
--#             %p.card-text.text-xs-center= raw product.short_description.truncate(130)
--#         .card-footer
--#           %p.buttons 
--#             = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink)
--#             - if product.orderable?
--#               = link_to "Купить", buy_product_path(product.product_category.permalink, product.permalink), :class => 'btn add', :method => :post
-
-
-%ul.products
-  - for product in products
-    %li
-      .img{:style => product.default_image ? "background-image:url(#{product.default_image.path})" : ''}
-      =link_to product_path(product.product_category.permalink, product.permalink) do
-        %h4= product.name
-        .rating.text-xs-center= rating_stars(average_rating(product))
-        %p.info.text-xs-center= raw product.short_description.truncate(130)
-        .pricebox
-          - if product.cost_price.is_a? Numeric
-            %p.price.bad= number_to_currency product.cost_price
-            %p.price= number_to_currency product.price
-          - else
-            %p.price= number_to_currency product.price
-        %hr
-        %p.buttons 
-          = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink)
+.ard-deck-wrapper
+  .card-deck
+    - for product in products
+      .card
+        .card-header
+          %img.card-img-top{:src => product.default_image ? "#{product.default_image.path}" : ''}
+        = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card-block' do
+          %h4.card-title= product.name
+          .rating.text-xs-center= rating_stars(average_rating(product))
+          %p.card-text.text-xs-center= raw product.short_description.truncate(130)
+          .pricebox
+            - if product.cost_price.is_a?(Numeric) && product.has_variants?
+              %p.price до #{number_to_currency product.price}
+            -else
+              - if product.cost_price.is_a? Numeric
+                %p.price.bad= number_to_currency product.cost_price
+                %p.price= number_to_currency product.price
+              - else
+                %p.price= number_to_currency product.price
+        .card-footer
+          - if product.has_variants?
+            = select_tag 'product_cat_variants', options_for_select(product.variants.collect{ |v| [v.name, v.id] })
           - if product.orderable?
             -# = link_to "Купить", buy_product_path(product.product_category.permalink, product.permalink), :class => 'btn add', :method => :post
-            / Button trigger modal
             %button.btn.btn-primary.add{"data-target" => "#buyModal", "data-toggle" => "modal", :type => "button"}
               Купить
             / Modal
@@ -50,4 +38,5 @@
                   .modal-footer
                     %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Закрыть
                     -# %button.btn.btn-primary{:type => "button"} Перейти
-
+          - else
+            = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink), :class => 'btn add'

@@ -44,7 +44,7 @@ a {
     line-height: 1.5rem;
 }
 
-a:-webkit-any-link {
+a:focus, a:hover {
     text-decoration: none;
 }
 
@@ -52,14 +52,24 @@ p {
     font-size: 14px;
 }
 
+img[src='Error.src']{
+    display: none;
+}
+
 p.info {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.4rem;
     color: #444;
 }
 
 nav.sidebar header.logo h1 a {
     background: none !important;
+}
+
+select {
+    background-color: #ffffff;
+border: 1px solid #cccccc;
+border-radius: 2px;
 }
 
 //
@@ -72,8 +82,10 @@ div.container {
     box-shadow: 0 15px 20px -13px #888888;
     &.first {
         box-shadow: 0 10px 20px 0 #888888;
+        padding-bottom: 0;
     }
     &.last {
+        padding: 12px 25px 25px;
         position: relative;
         z-index: 2;
     }
@@ -154,7 +166,8 @@ header.main {
 // Navigation
 //
 nav.main {
-    padding: 10px 5px;
+    padding: 10px 20px;
+    width: 100%;
     overflow: hidden;
     border-top: 1px solid #E6E6E6;
     border-bottom: 1px solid #E6E6E6;
@@ -352,7 +365,7 @@ ul.reasons {
         left: 0;
     }
     li {
-        min-width: 18%;
+        width: 20%;
         position: relative;
         padding: 60px 0 0 0;
         background-repeat: no-repeat;
@@ -505,9 +518,9 @@ div.category {
     }
     p.intro {
         font-size: 14px;
-color: #000000;
-text-align: left;
-line-height: 18px;
+        color: #000000;
+        text-align: left;
+        line-height: 18px;
         margin-top: 5px;
     }
     p.noProducts {
@@ -1045,16 +1058,15 @@ table.orderItems {
 .green-border {
     box-shadow: 0px 0px 0px 4px $green inset;
     border-radius: $border-radius;
+    padding: 3px;
 }
 
 // Sidebar
 //
 section.sidebar {
-    max-width: 221px;
-    padding: 1px;
     ul#sidebar {
         padding: 15px 25px;
-        margin: 3px 3px 0;
+        margin: 1px;
         background-color: #fff;
         position: relative;
     }
@@ -1076,20 +1088,28 @@ section.sidebar {
             content: '❯';
         }
     }
+    ul.sidebar-categories {
+        li+li:before {
+            content: '';
+            height: 1px;
+            background: $gray;
+            display: block;
+        }
+    }
     ul#sidebar-params {
         padding: 30px 25px;
         border-top: 1px solid $gray;
-        margin: 0 3px;
+        margin: 0 1px;
         a {
             font-size: 14px;
-        font-weight: 500;
+            font-weight: 500;
             color: #000000;
             text-align: left;
             line-height: 16px;
         }
         span {
             font-size: 13px;
-        font-weight: bold;
+            font-weight: bold;
             color: #00995b;
             text-align: left;
             line-height: 16px;
@@ -1293,31 +1313,40 @@ a.add,
 }
 
 // Attached images slider //
-
-/*Time for the CSS*/
-
-.product-slider {
+.product-slider-box {
     width: 375px;
-    border-right: 2px solid #ECECEC;
-    /*Instead of height we will use padding*/
-    padding: 200px 10px 10px 10px;
+    padding: 300px 15px 15px;
+    border-right: 2px $gray solid ;
+    .small {
+        color: $gray;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    hr {
+    margin: 1rem -15px;
+    height: 2px;
+    border-top: 2px solid #ccc;
+    border-color: #ECECEC;
+    }
+}
+.product-slider {
+    display: flex;
+    justify-content: space-between;
+
     > img {
         position: absolute;
-        left: 15px;
+        left: 0;
         top: 0;
-        transition: all 0.5s;
+        transition: all 0.25s;
     }
     input[name='slide_switch'] {
         display: none;
     }
     label {
-        /*Lets add some spacing for the thumbnails*/
         border: 2px solid #ECECEC;
         background: #fff;
-        float: left;
         cursor: pointer;
-        transition: all 0.5s;
-        /*Default style = low opacity*/
+        transition: all 0.25s;
         opacity: 0.6;
         width: 30%;
         height: 100px;
@@ -1325,52 +1354,25 @@ a.add,
             display: block;
         }
     }
-    label+label {
-        margin-left: 5px;
-    }
     input[name='slide_switch'] {
         &:checked {
             + label {
-                border-color: #ECECEC;
+                border-color: $green;
                 opacity: 1;
             }
             + label + img {
                 opacity: 1;
-                object-fit: cover;
-                max-width: 342px;
+                object-fit: contain;
             }
         }
         ~ img {
             height: auto;
-            max-height: 185px;
+            max-height: 290px;
             opacity: 0;
-            width: 375px;
+            width: 100%;
         }
     }
 }
-
-
-/*Last thing remaining is to add transitions*/
-
-
-/*Time to add the click effects*/
-
-
-/*Clicking any thumbnail now should change its opacity(style)*/
-
-
-/*Time to work on the main images*/
-
-
-/*That hides all main images at a 110% size
-On click the images will be displayed at normal size to complete the effect
-*/
-
-
-/*Clicking on any thumbnail now should activate the image related to it*/
-
-
-/*We are done :)*/
 
 // TABS //
 .tabs [id^="tab"]:checked + label {
@@ -1391,7 +1393,7 @@ On click the images will be displayed at normal size to complete the effect
 .tabs {
     float: none;
     list-style: none;
-    margin-top: 15px;
+    margin-top: 2rem;
 }
 
 .tabs:after {
@@ -1437,7 +1439,6 @@ On click the images will be displayed at normal size to complete the effect
     display: none;
     width: 100%;
     float: left;
-    margin-top: 15px;
     box-sizing: border-box;
     background-color: #ffffff;
     min-height: 150px;
@@ -1495,7 +1496,6 @@ span.material {
     height: 40px;
     display: block;
     background-repeat: no-repeat !important;
-    margin: 10px 0;
 }
 
 span.j130 {
@@ -1531,9 +1531,13 @@ div.product {
         display: flex;
         background: #fff;
         justify-content: space-between;
+        margin: 0;
         .intro > p {
             display: inline-block;
             min-width: 100%;
+        }
+        span.material {
+            margin: 5px 0;
         }
     }
     .product-tabs {
@@ -1592,12 +1596,12 @@ div.product {
             background: $gray;
         }
         select {
-                padding: 0.2rem;
-    background: #fff;
+            padding: 0.2rem;
+            background: #fff;
         }
         td {
             line-height: 1rem;
-                font-weight: 600;
+            font-weight: 600;
             padding: 15px 10px;
             vertical-align: middle;
         }
@@ -1626,13 +1630,16 @@ div.product {
             }
             select {
                 -webkit-appearance: none;
-                background: image-url('down-arrow.svg') #fff no-repeat 24px 11px;
+                background: image-url('down-arrow.svg') #fff no-repeat 25px 15px;
                 width: 40px;
-                background-size: 8px;
-                height: 25px;
+                background-size: 9px;
+                height: 36px;
                 font-weight: bold;
-                padding: 4px 10px;
+                padding: 10px;
                 font-family: $font;
+            }
+            .btn {
+                float: right;
             }
             &.no-stock {
                 select {
@@ -1891,103 +1898,18 @@ div.product {
 //
 // Products list
 //
-ul.products {
-    font-size: 0.9em;
-    margin: 20px 0 0;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 29%;
-        background: #fff;
-        border-radius: 3px;
-        border-top: 1px solid #EAEAEA;
-        box-shadow: 0px 0px 10px #DAD5D5;
-    margin-bottom: 25px;
-        &:hover {
-            background: $gray-lighter;
-        }
-        div.img {
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top center;
-            height: 160px;
-                width: 100%;
-        }
-        a {
-        padding: 10px 10px 0;
-        }
-        h4 {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #333;
-            line-height: 1.2rem;
-        }
-        h4 a {
-            text-decoration: none;
-            color: black;
-        }
-        h4 a:hover {
-            text-decoration: underline;
-        }
-        p.info {
-            margin: 5px 0px 10px;
-            min-height: 117px;
-            flex-direction: column;
-            display: flex;
-            align-items: center;
-        }
-        .pricebox {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            min-height: 57px;
-        }
-        .price {
-            text-align: center;
-            &.bad {
-                font-size: 0.9rem;
-            }
-        }
-        p.buttons {
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-        padding: 10px;
-        }
-        p.buttons a {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 3px 6px;
-            border-radius: 3px;
-        }
-    }
-}
 
-.price {
-    margin-bottom: 5px;
-    &.bad {
-        text-decoration: line-through;
-        color: #222;
-    }
-    color: $magento;
-    font-size:1.1rem;
+    .price {
+            color: $magento;
     font-weight:bold;
-}
+        font-size: 1.1rem;
+        &.bad {
+                    text-decoration: line-through;
+        color: #222;
+            font-size: 0.9rem;
+        }
+    }
 
-ul.products hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 0 -10px;
-}
 
 
 /* Comments */
@@ -1996,14 +1918,14 @@ ul.products hr {
     clear: both;
     .star-gold {
         display: inline-block;
-        height: 16px;
-        width: 16px;
+        height: 14px;
+        width: 14px;
         background: image-url('star-gold.svg') 0 0 no-repeat;
     }
     .star-gray {
         display: inline-block;
-        height: 16px;
-        width: 16px;
+        height: 14px;
+        width: 14px;
         background: image-url('star-gray.svg') 0 0 no-repeat;
     }
 }

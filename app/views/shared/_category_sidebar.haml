@@ -1,5 +1,5 @@
 %section.sidebar.green-border
-  %ul#sidebar
+  %ul#sidebar.sidebar-categories
     - for category in Shoppe::ProductCategory.ordered
       %li= link_to category.name, products_path(category.permalink), :nav_item => :category
   %ul#sidebar-params

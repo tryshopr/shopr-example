@@ -1,26 +1,26 @@
 - active_nav_item :catalogue
 - @page_title = @product.name + " - " + @product.product_category.name
 .product
-  .product-info
-
-    .product-slider
-      - if @product.default_image
-        -# # .img{:style => "background-image:url(#{@product.default_image.path})"}
-        / Lets show the 1st image by default on page load
-        %input{id: "0", :checked => "checked", name: "slide_switch", type: "radio"}
-        %label{for: "0"}
+  .product-info.row
+    .product-slider-box.col-xs-4
+      %hr
+      .product-slider
+        - if @product.default_image
+          -# # .img{:style => "background-image:url(#{@product.default_image.path})"}
+          / Lets show the 1st image by default on page load
+          %input{id: "0", :checked => "checked", name: "slide_switch", type: "radio"}
+          %label{for: "0"}
+            %img{src: "#{@product.default_image.path}"}
           %img{src: "#{@product.default_image.path}"}
-        %img{src: "#{@product.default_image.path}"}
-      - if @extra_attachments.present?
-        - @extra_attachments.each do |attachment|
-          %input{id: "#{attachment.id}",name: "slide_switch", type: "radio"}
-          %label{for: "#{attachment.id}"}
-            %img{src: "#{attachment.path}", width: "100"}
-          %img{src: "#{attachment.path}"}
+        - if @extra_attachments.present?
+          - @extra_attachments.each do |attachment|
+            %input{id: "#{attachment.id}",name: "slide_switch", type: "radio"}
+            %label{for: "#{attachment.id}"}
+              %img{src: "#{attachment.path}", width: "100"}
+            %img{src: "#{attachment.path}"}
+      %p.small На иллюстрациях представлены прототипы. Внешний вид поставляемых товаров и их компонентов может отличаться от иллюстраций с сохранением декларируемых потребительских свойств.
 
-      %p.small.inline-flex На иллюстрациях представлены прототипы. Внешний вид поставляемых товаров и их компонентов может отличаться от иллюстраций с сохранением декларируемых потребительских свойств.
-
-    .intro
+    .intro.col-xs-8
       %h2= @product.name
       .stock
         - if @product.in_stock?
@@ -34,6 +34,7 @@
         %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
         %span.to-review-btn-anchor= link_to 'Оставить отзыв', '#tabs'
       %p= raw @product.short_description
+      %p= raw @product.description
       - if @product.has_variants?
         = render partial: 'variants', locals: { product: @product, variant: @product.variants.first }
       .bottom
