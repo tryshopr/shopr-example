@@ -428,20 +428,9 @@ ul.reasons {
 //
 // The basic header
 //
-// &.basic {
-//     nav.main {
-//         padding-top: 15px;
-//         padding-bottom: 15px;
-//     }
-//     nav.main h1 {
-//         padding-top: 15px;
-//         margin-bottom: 0;
-//     }
-//     nav.main ul {
-//         padding-top: 8px;
-//     }
-// }
+
 .arrow-r {
+    font-size: 0.9rem;
     font-weight: bold;
     text-decoration: underline !important;
     position: relative;
@@ -1496,6 +1485,7 @@ span.material {
     height: 40px;
     display: block;
     background-repeat: no-repeat !important;
+    margin-bottom: 5px;
 }
 
 span.j130 {
