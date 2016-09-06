@@ -6,30 +6,6 @@ GIT
       capistrano (~> 3.0)
       sshkit (~> 1.2)
 
-GIT
-  remote: git@bitbucket.org:craft37/shoppe_fork.git
-  revision: 4fbc439f227acc7af1ebd3abc2fc54d945f01bea
-  branch: master
-  specs:
-    shoppe (1.1.2)
-      awesome_nested_set (~> 3.0.2)
-      bcrypt (>= 3.1.2, < 3.2)
-      carrierwave (~> 0.10.0)
-      dynamic_form (~> 1.1, >= 1.1.4)
-      fog (~> 1.36.0)
-      globalize
-      haml (>= 4.0, < 5.0)
-      jquery-rails (>= 3, < 4.1)
-      kaminari (>= 0.14.1, < 0.17)
-      mini_magick (~> 4.2.7)
-      net-ssh (~> 3.0.1)
-      nifty-dialog (>= 1.0.7, < 1.1)
-      nifty-key-value-store (>= 1.0.1, < 2.0.0)
-      nifty-utils (>= 1.0, < 1.1)
-      rails (>= 4.0.0, < 5.0)
-      ransack (>= 1.2.0, < 1.6.3)
-      roo (>= 1.13.0, <= 2.4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -332,9 +308,11 @@ GEM
       i18n
       polyamorous (~> 1.1)
     redcarpet (3.3.4)
-    roo (2.4.0)
-      nokogiri (~> 1)
-      rubyzip (~> 1.1, < 2.0.0)
+    roo (1.13.2)
+      nokogiri
+      rubyzip
+      spreadsheet (> 0.6.4)
+    ruby-ole (1.2.12)
     rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -343,10 +321,30 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    shoppe (1.1.2)
+      awesome_nested_set (~> 3.0.2)
+      bcrypt (>= 3.1.2, < 3.2)
+      carrierwave (~> 0.10.0)
+      dynamic_form (~> 1.1, >= 1.1.4)
+      fog (~> 1.36.0)
+      globalize
+      haml (>= 4.0, < 5.0)
+      jquery-rails (>= 3, < 4.1)
+      kaminari (>= 0.14.1, < 0.17)
+      mini_magick (~> 4.2.7)
+      net-ssh (~> 3.0.1)
+      nifty-dialog (>= 1.0.7, < 1.1)
+      nifty-key-value-store (>= 1.0.1, < 2.0.0)
+      nifty-utils (>= 1.0, < 1.1)
+      rails (>= 4.0.0, < 5.0)
+      ransack (>= 1.2.0, < 1.6.3)
+      roo (>= 1.13.0, < 1.14)
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
     slop (3.6.0)
+    spreadsheet (1.1.3)
+      ruby-ole (>= 1.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -398,7 +396,7 @@ DEPENDENCIES
   rails-i18n
   redcarpet
   sass-rails (~> 5.0.4)
-  shoppe!
+  shoppe
   simple_form
   sprockets-rails (>= 2.3.3)
   sqlite3

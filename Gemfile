@@ -16,7 +16,7 @@ gem 'simple_form'
 # gem 'shoppe', :git => 'git://github.com/tryshoppe/shoppe.git'
 # gem "shoppe", git: "https://idej@bitbucket.org/craft37/shoppe_fork.git"
 # gem "shoppe", path: '../shoppe_fork'
-gem "shoppe", git: "git@bitbucket.org:craft37/shoppe_fork.git", :branch => "master"
+gem "shoppe"
 
 gem 'thin'
 

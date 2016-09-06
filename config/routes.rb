@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   #
   mount Shoppe::Engine => "/shoppe"
 
+  Shoppe::Engine.routes.draw do
+
+  resources :products do
+    resources :comments
+  end
+
+  end
+
   #
   # Product browising
   #
@@ -42,13 +50,13 @@ Rails.application.routes.draw do
   #
   get ':action', :controller => 'pages', :as => 'page'
 
-  resources :products do
-    resources :comments
-  end
-
   # 
   # Homepage
   #
   root :to => 'pages#home'
+
+  resources :products do
+    resources :comments
+  end
 
 end

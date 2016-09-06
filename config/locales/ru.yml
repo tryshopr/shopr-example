@@ -1,0 +1,24 @@
+ru:
+  shoppe:
+    comments:
+      create_notice:
+        Отзыв успешно добавлен
+      error_notice:
+        Ошибка, отзыв не добавлен
+      destroy_notice:
+        Отзыв успешно удален
+      comments:
+        Отзывы
+
+    products:
+      comments: Отзывы
+
+    variants:
+      cost_price: Цена со скидкой
+
+  activerecord:
+    attributes:
+      shoppe/delivery_service_price:
+        cost_price: Цена со скидкой
+      shoppe/product:
+        cost_price: Цена со скидкой

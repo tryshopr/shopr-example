@@ -4,8 +4,10 @@ class CommentsController < ApplicationController
     @comment = Shoppe::Comment.new(safe_params)
     if @comment.save
       render partial: "comments/comment", locals: { comment: @comment }, layout: false, status: :created
+      flash.now[:notice] = "t('shoppe.comments.create_notice'"
     else
-      render :js => "alert('error saving comment');"
+      # render :js => "alert('error saving comment');"
+      flash.now[:error] = "t('shoppe.comments.error_notice'"
     end
   end
 
