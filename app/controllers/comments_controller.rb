@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class CommentsController < Shoppe::ApplicationController
 	def create
     # Not implemented: check to see whether the user has permission to create a comment on this object
     @comment = Shoppe::Comment.new(safe_params)

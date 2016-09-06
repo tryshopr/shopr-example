@@ -42,13 +42,17 @@ Rails.application.routes.draw do
   #
   get ':action', :controller => 'pages', :as => 'page'
 
-  resources :products do
-    resources :comments
-  end
-
   # 
   # Homepage
   #
   root :to => 'pages#home'
+
+end
+
+Shoppe::Engine.routes.draw do
+
+  resources :products do
+    resources :comments
+  end
 
 end

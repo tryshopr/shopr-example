@@ -1,0 +1,8 @@
+- @page_title = t('shoppe.comments.comments')
+= content_for :header do
+  %h2.products= t('shoppe.comments.comments')
+
+- if @comments.present?
+  = render partial: 'comment', collection: @comments, as: :comment, locals: { product: @product }
+- else
+  = 'Для данного товара нет отзывов'

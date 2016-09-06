@@ -8,4 +8,4 @@
     %h3= comment.title
     .rating= rating_stars(comment.rating)
     %p= comment.comment
-    -# .delete-link= link_to 'Удалить', product_comment_path(@product, comment), method: :delete, data: {confirm: 'Вы уверены?'}
+    .delete-link= link_to 'Удалить', product_comment_path(@product, comment), method: :delete, data: {confirm: 'Вы уверены?'}

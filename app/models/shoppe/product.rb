@@ -12,6 +12,9 @@ module Shoppe
     # Attachments for this product
     has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Shoppe::Attachment'
 
+    # Product reviews
+    has_many :comments, dependent: :destroy, as: :commentable
+
     # The product's categorizations
     #
     # @return [Shoppe::ProductCategorization]
@@ -137,6 +140,11 @@ module Shoppe
       attachments.for('data_sheet')
     end
 
+    def show
+      @product = Product.find(params[:id])
+      @comment = @product.comments.new
+    end
+
     # Search for products which include the given attributes and return an active record
     # scope of these products. Chainable with other scopes and with_attributes methods.
     # For example:
@@ -192,7 +200,7 @@ module Shoppe
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
       when '.csv'
-      Roo::CSV.new(file.path, csv_options: {col_sep: ";"})
+      Roo::Csv.new(file.path,csv_options: {col_sep: ";",encoding: Encoding::Windows_F1251})
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
       else fail I18n.t('shoppe.imports.errors.unknown_format', filename: File.original_filename)
