@@ -30,12 +30,12 @@
         %nav.main
           %ul
             //%li= link_to "Home", root_path, :nav_item => :home
-            - for category in Shoppe::ProductCategory.ordered
+            - for category in Shoppe::ProductCategory.without_parent.ordered
               %li
                 = link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-                %ul
-                  - for category in Shoppe::ProductCategory.ordered
-                    %li= link_to category.name, products_path(category.permalink)
+                -#%ul
+                  -# - for category in Shoppe::ProductCategory.parents.ordered
+                    -# %li= link_to category.name, products_path(category.permalink)
             %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
             %li= link_to "О компании", page_path(:about), :nav_item => :about
             //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
