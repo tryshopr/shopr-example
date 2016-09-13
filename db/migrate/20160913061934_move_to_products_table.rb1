@@ -1,0 +1,20 @@
+class MoveToProductsTable < ActiveRecord::Migration
+	def change
+		Shoppe::Product.find_each do |product|
+			name = 'SELECT DISTINCT name FROM ShoppeProductTranslation'
+			
+			product.update_attributes!(
+				name: name
+			)
+		end
+    # ShoppeProductTranslation.find_each do |t|
+    #    t.shoppe_products.create!(
+    #    :product_id => t.shoppe_product_id,
+    #    :name => t.name,
+    #    :permalink => t.permalink,
+    #    :description => t.description,
+    #    :short_description => t.short_description
+    #    )
+    #  end
+  end
+end

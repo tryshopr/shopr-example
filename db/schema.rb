@@ -460,32 +460,32 @@ ActiveRecord::Schema.define(version: 20160727192844) do
   add_index "shoppe_product_categorizations", ["product_category_id"], name: "categorization_by_product_category_id"
   add_index "shoppe_product_categorizations", ["product_id"], name: "categorization_by_product_id"
 
-  create_table "shoppe_product_category_translations", force: :cascade do |t|
-    t.integer  "shoppe_product_category_id", null: false
-    t.string   "locale",                     null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "description"
-  end
+  # create_table "shoppe_product_category_translations", force: :cascade do |t|
+  #   t.integer  "shoppe_product_category_id", null: false
+  #   t.string   "locale",                     null: false
+  #   t.datetime "created_at",                 null: false
+  #   t.datetime "updated_at",                 null: false
+  #   t.string   "name"
+  #   t.string   "permalink"
+  #   t.text     "description"
+  # end
 
-  add_index "shoppe_product_category_translations", ["locale"], name: "index_shoppe_product_category_translations_on_locale"
-  add_index "shoppe_product_category_translations", ["shoppe_product_category_id"], name: "index_75826cc72f93d014e54dc08b8202892841c670b4"
+  # add_index "shoppe_product_category_translations", ["locale"], name: "index_shoppe_product_category_translations_on_locale"
+  # add_index "shoppe_product_category_translations", ["shoppe_product_category_id"], name: "index_75826cc72f93d014e54dc08b8202892841c670b4"
 
-  create_table "shoppe_product_translations", force: :cascade do |t|
-    t.integer  "shoppe_product_id", null: false
-    t.string   "locale",            null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "description"
-    t.text     "short_description"
-  end
+  # create_table "shoppe_product_translations", force: :cascade do |t|
+  #   t.integer  "shoppe_product_id", null: false
+  #   t.string   "locale",            null: false
+  #   t.datetime "created_at",        null: false
+  #   t.datetime "updated_at",        null: false
+  #   t.string   "name"
+  #   t.string   "permalink"
+  #   t.text     "description"
+  #   t.text     "short_description"
+  # end
 
-  add_index "shoppe_product_translations", ["locale"], name: "index_shoppe_product_translations_on_locale"
-  add_index "shoppe_product_translations", ["shoppe_product_id"], name: "index_shoppe_product_translations_on_shoppe_product_id"
+  # add_index "shoppe_product_translations", ["locale"], name: "index_shoppe_product_translations_on_locale"
+  # add_index "shoppe_product_translations", ["shoppe_product_id"], name: "index_shoppe_product_translations_on_shoppe_product_id"
 
   create_table "shoppe_products", force: :cascade do |t|
     t.integer  "parent_id"

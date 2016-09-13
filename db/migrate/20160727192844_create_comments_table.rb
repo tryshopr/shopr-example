@@ -1,5 +1,5 @@
 class CreateCommentsTable < ActiveRecord::Migration
-   def up
+  def up
     create_table :shoppe_comments do |t|
      t.text :comment
      t.integer :commentable_id, null: false

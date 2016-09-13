@@ -1,5 +1,4 @@
 require 'roo'
-require 'globalize'
 
 module Shoppe
   class Product < ActiveRecord::Base
@@ -64,7 +63,7 @@ module Shoppe
     scope :featured, -> { where(featured: true) }
 
     # Localisations
-    translates :name, :permalink, :description, :short_description
+    # translates :name, :permalink, :description, :short_description
     scope :ordered, -> { order(:name) }
 
     def attachments=(attrs)
