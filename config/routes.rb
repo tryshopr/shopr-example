@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   get 'products/:category_id/:product_id' => 'products#show', :as => 'product'
   get 'products/:category_id/:product_id/change_variant' => 'products#change_variant', as: 'change_variant'
   post 'products/:category_id/:product_id/buy' => 'products#add_to_basket', :as => 'buy_product'
+
+  resources :products do
+    resources :comments
+  end
   
   #
   # Order status
@@ -58,11 +62,5 @@ Rails.application.routes.draw do
   # Homepage
   #
   root :to => 'pages#home'
-
-  # resources :users
-
-  resources :products do
-    resources :comments
-  end
 
 end
