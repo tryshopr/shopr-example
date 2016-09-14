@@ -21,7 +21,7 @@ gem 'thin'
 
 group :development do
 	gem 'sqlite3'
-	gem 'capistrano', '~> 3.5.0'
+	gem 'capistrano', '~> 3.6.1'
 	gem 'capistrano-bundler', '~> 1.1.2'
 	gem 'capistrano-rails', '~> 1.1.1'
 	# Add this if you're using rbenv

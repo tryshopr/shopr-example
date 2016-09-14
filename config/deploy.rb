@@ -1,6 +1,6 @@
 # encoding: utf-8
 # config valid only for Capistrano 3
-lock '3.5.0'
+lock '3.6.1'
 
 # Project configuration options
 # ------------------------------
