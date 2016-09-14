@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
 
+  # Shopr admin interface
   #
-  # Shoppe admin interface
-  #
-  mount Shoppe::Engine => "/shoppe"
+  mount Shopr::Engine => "/shopr"
 
-  Shoppe::Engine.routes.draw do
+  Shopr::Engine.routes.draw do
+
+  # Else
 
   resources :products do
     resources :comments
   end
 
-  resources :product_categories
+  # resources :product_categories
+  # resources :products
 
   end
 
@@ -52,7 +54,7 @@ Rails.application.routes.draw do
   #
   get ':action', :controller => 'pages', :as => 'page'
 
-  # 
+  #
   # Homepage
   #
   root :to => 'pages#home'

@@ -1,6 +1,6 @@
 require 'awesome_nested_set'
 
-module Shoppe
+module Shopr
   class ProductCategory < ActiveRecord::Base
     # Allow the nesting of product categories
     # :restrict_with_exception relies on a fix to the awesome_nested_set gem
@@ -9,14 +9,14 @@ module Shoppe
     acts_as_nested_set  dependent: :restrict_with_exception,
                         after_move: :set_ancestral_permalink
 
-    self.table_name = 'shoppe_product_categories'
+    self.table_name = 'shopr_product_categories'
 
     # Attachments for this product category
-    has_many :attachments, as: :parent, dependent: :destroy, class_name: 'Shoppe::Attachment'
+    has_many :attachments, as: :parent, dependent: :destroy, class_name: 'shopr::Attachment'
 
     # All products within this category
-    has_many :product_categorizations, dependent: :restrict_with_exception, class_name: 'Shoppe::ProductCategorization', inverse_of: :product_category
-    has_many :products, class_name: 'Shoppe::Product', through: :product_categorizations
+    has_many :product_categorizations, dependent: :restrict_with_exception, class_name: 'Shopr::ProductCategorization', inverse_of: :product_category
+    has_many :products, class_name: 'Shopr::Product', through: :product_categorizations
 
     # Validations
     validates :name, presence: true
@@ -25,14 +25,9 @@ module Shoppe
     # Root (no parent) product categories only
     scope :without_parent, -> { where(parent_id: nil) }
 
-    # Parents product categories only
-    # scope :parents, ->{ where(id: where.not(parent_id:nil).ids) }
-
     # No descendants
     scope :except_descendants, ->(record) { where.not(id: (Array.new(record.descendants) << record).flatten) }
 
-    # translates :name, :permalink, :description
-    # scope :ordered, -> { includes(:translations).order(:name) }
     scope :ordered, -> { order(:name) }
 
     # Set the permalink on callback

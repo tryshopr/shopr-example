@@ -1,44 +1,44 @@
 require 'roo'
 
-module Shoppe
+module Shopr
   class Product < ActiveRecord::Base
-    self.table_name = 'shoppe_products'
+    self.table_name = 'shopr_products'
 
     # Add dependencies for products
-    require_dependency 'shoppe/product/product_attributes'
-    require_dependency 'shoppe/product/variants'
+    require_dependency 'shopr/product/product_attributes'
+    require_dependency 'shopr/product/variants'
 
     # Attachments for this product
-    has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Shoppe::Attachment'
+    has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'shopr::Attachment'
 
     # Product reviews
-    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'Shoppe::Comment'
+    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'shopr::Comment'
 
     # The product's categorizations
     #
-    # @return [Shoppe::ProductCategorization]
-    has_many :product_categorizations, dependent: :destroy, class_name: 'Shoppe::ProductCategorization', inverse_of: :product
+    # @return [Shopr::ProductCategorization]
+    has_many :product_categorizations, dependent: :destroy, class_name: 'Shopr::ProductCategorization', inverse_of: :product
     # The product's categories
     #
-    # @return [Shoppe::ProductCategory]
-    has_many :product_categories, class_name: 'Shoppe::ProductCategory', through: :product_categorizations
+    # @return [Shopr::ProductCategory]
+    has_many :product_categories, class_name: 'Shopr::ProductCategory', through: :product_categorizations
 
     # Product reviews
-    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'Shoppe::Comment'
+    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'shopr::Comment'
 
     # The product's tax rate
     #
-    # @return [Shoppe::TaxRate]
-    belongs_to :tax_rate, class_name: 'Shoppe::TaxRate'
+    # @return [shopr::TaxRate]
+    belongs_to :tax_rate, class_name: 'shopr::TaxRate'
 
     # Ordered items which are associated with this product
-    has_many :order_items, dependent: :restrict_with_exception, class_name: 'Shoppe::OrderItem', as: :ordered_item
+    has_many :order_items, dependent: :restrict_with_exception, class_name: 'shopr::OrderItem', as: :ordered_item
 
     # Orders which have ordered this product
-    has_many :orders, through: :order_items, class_name: 'Shoppe::Order'
+    has_many :orders, through: :order_items, class_name: 'shopr::Order'
 
     # Stock level adjustments for this product
-    has_many :stock_level_adjustments, dependent: :destroy, class_name: 'Shoppe::StockLevelAdjustment', as: :item
+    has_many :stock_level_adjustments, dependent: :destroy, class_name: 'shopr::StockLevelAdjustment', as: :item
 
     # Validations
     with_options if: proc { |p| p.parent.nil? } do |product|
@@ -113,7 +113,7 @@ module Shoppe
 
     # Return the first product category
     #
-    # @return [Shoppe::ProductCategory]
+    # @return [Shopr::ProductCategory]
     def product_category
       product_categories.first
     rescue
@@ -143,11 +143,11 @@ module Shoppe
     # scope of these products. Chainable with other scopes and with_attributes methods.
     # For example:
     #
-    #   Shoppe::Product.active.with_attribute('Manufacturer', 'Apple').with_attribute('Model', ['Macbook', 'iPhone'])
+    #   Shopr::Product.active.with_attribute('Manufacturer', 'Apple').with_attribute('Model', ['Macbook', 'iPhone'])
     #
     # @return [Enumerable]
     def self.with_attributes(key, values)
-      product_ids = Shoppe::ProductAttribute.searchable.where(key: key, value: values).pluck(:product_id).uniq
+      product_ids = Shopr::ProductAttribute.searchable.where(key: key, value: values).pluck(:product_id).uniq
       where(id: product_ids)
     end
 
@@ -166,11 +166,11 @@ module Shoppe
           # Dont import products with the same name but update quantities
           qty = row['qty'].to_i
           if qty > 0
-            product.stock_level_adjustments.create!(description: I18n.t('shoppe.import'), adjustment: qty)
+            product.stock_level_adjustments.create!(description: I18n.t('shopr.import'), adjustment: qty)
           end
         else
-          # product = Shoppe::Product.find_or_initialize_by(permalink: row['url'])
-          product = Shoppe::Product.find_or_initialize_by(permalink: row['url'], name: row['name'])
+          # product = Shopr::Product.find_or_initialize_by(permalink: row['url'])
+          product = Shopr::Product.find_or_initialize_by(permalink: row['url'], name: row['name'])
           product.name = row['name']
           product.sku = row['item_code']
           product.description = row['abstract']
@@ -178,14 +178,14 @@ module Shoppe
           product.price = row['price'].nil? ? 0 : row['price'].to_i
 
           product.product_categories << begin
-            Shoppe::ProductCategory.find_or_initialize_by(name: 'Imported')
+            Shopr::ProductCategory.find_or_initialize_by(name: 'Imported')
           end
 
           product.save!
 
           qty = row['qty'].to_i
           if qty > 0
-            product.stock_level_adjustments.create!(description: I18n.t('shoppe.import'), adjustment: qty)
+            product.stock_level_adjustments.create!(description: I18n.t('shopr.import'), adjustment: qty)
           end
         end
       end
@@ -197,7 +197,7 @@ module Shoppe
       Roo::Csv.new(file.path,csv_options: {col_sep: ";",encoding: Encoding::Windows_F1251})
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
-      else fail I18n.t('shoppe.imports.errors.unknown_format', filename: File.original_filename)
+      else fail I18n.t('shopr.imports.errors.unknown_format', filename: File.original_filename)
       end
     end
 

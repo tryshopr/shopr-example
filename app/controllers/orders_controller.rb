@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_filter(:except => :status) { redirect_to root_path unless has_order? }
   
   def status
-    @order = Shoppe::Order.find_by_token!(params[:token])
+    @order = shopr::Order.find_by_token!(params[:token])
   end
   
   def destroy
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
         end
       end
     end    
-  rescue Shoppe::Errors::NotEnoughStock => e
+  rescue shopr::Errors::NotEnoughStock => e
     respond_to do |wants|
       wants.html { redirect_to request.referer, :alert => "Unfortunately, we don't have enough stock. We only have #{e.available_stock} items available at the moment. Please get in touch though, we're always receiving new stock." }
       wants.json { render :json => {:status => 'error', :message => "Unfortunateley, we don't have enough stock to add more items."} }
@@ -74,7 +74,7 @@ class OrdersController < ApplicationController
   end
   
   def checkout
-    @order = Shoppe::Order.find(current_order.id)
+    @order = shopr::Order.find(current_order.id)
     
     
     if request.patch?
@@ -100,7 +100,7 @@ class OrdersController < ApplicationController
   end
   
   def payment
-    @order = Shoppe::Order.find(current_order.id)
+    @order = shopr::Order.find(current_order.id)
     if request.patch?
       redirect_to checkout_confirmation_path
     end
@@ -120,10 +120,10 @@ class OrdersController < ApplicationController
         current_order.payments.create(:method => "Credit Card", :amount => current_order.total, :reference => rand(10000) + 10000, :refundable => true)
         session[:order_id] = nil
         redirect_to root_path, :notice => "Order has been placed!"
-      rescue Shoppe::Errors::PaymentDeclined => e
+      rescue shopr::Errors::PaymentDeclined => e
         flash[:alert] = "Payment was declined by the bank. #{e.message}"
         redirect_to checkout_path
-      rescue Shoppe::Errors::InsufficientStockToFulfil
+      rescue shopr::Errors::InsufficientStockToFulfil
         flash[:alert] = "We're terribly sorry but while you were checking out we ran out of stock of some of the items in your basket. Your basket has been updated with the maximum we can currently supply. If you wish to continue just use the button below."
         redirect_to checkout_path
       end

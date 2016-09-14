@@ -1,4 +1,4 @@
-module Shoppe
+module Shopr
   module CommentsHelper
     def rating_stars(rating)
       gold_star = "<div class='star-gold'></div>"

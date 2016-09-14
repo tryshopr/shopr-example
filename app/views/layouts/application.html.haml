@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title #{@page_title} - #{Shoppe.settings.store_name}
+    %title #{@page_title} - #{Shopr.settings.store_name}
     = stylesheet_link_tag :application
     = javascript_include_tag :application
     = csrf_meta_tags
@@ -30,11 +30,11 @@
         %nav.main
           %ul
             //%li= link_to "Home", root_path, :nav_item => :home
-            - for category in Shoppe::ProductCategory.without_parent.ordered
+            - for category in Shopr::ProductCategory.without_parent.ordered
               %li
                 = link_to category.name, products_path(category.permalink), :nav_item => :catalogue
                 -#%ul
-                  -# - for category in Shoppe::ProductCategory.parents.ordered
+                  -# - for category in Shopr::ProductCategory.parents.ordered
                     -# %li= link_to category.name, products_path(category.permalink)
             %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
             %li= link_to "О компании", page_path(:about), :nav_item => :about
@@ -192,7 +192,7 @@
       .container.text-xs-center      
         / Useful footer links (policies etc...)
         %ul.links
-          - for category in Shoppe::ProductCategory.ordered
+          - for category in Shopr::ProductCategory.ordered
             %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
           %li= link_to "Акции", page_path(:faqs)
           %li= link_to "О компании", page_path(:cookies)

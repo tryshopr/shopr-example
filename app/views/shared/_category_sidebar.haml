@@ -1,14 +1,14 @@
 %section.sidebar.green-border
   %ul#sidebar.sidebar-categories
-    - for category in Shoppe::ProductCategory.ordered
+    - for category in Shopr::ProductCategory.ordered
       %li= link_to category.name, products_path(category.permalink), :nav_item => :category
   %ul#sidebar-params
     %h3.attributes Параметры
-    - Shoppe::ProductAttribute.grouped_hash.each do |attribute, values|
+    - Shopr::ProductAttribute.grouped_hash.each do |attribute, values|
       %ul
         %li
           %h4= attribute
         - values.each do |values|
           %a= link_to values, product_filter_path(key: attribute, value: values)
-          %span='('+Shoppe::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
+          %span='('+Shopr::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
           .clearfix

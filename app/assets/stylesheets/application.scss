@@ -580,7 +580,7 @@ div.status {
         }
     }
     .status-bar {
-        background: image-url('shoppe/square.svg') repeat-x 0 15px;
+        background: image-url('shopr/square.svg') repeat-x 0 15px;
         background-size: 8px;
         margin: 45px 0;
         overflow: hidden;
@@ -590,7 +590,7 @@ div.status {
                 width: 25%;
                 float: left;
                 text-align: center;
-                background: image-url('shoppe/statuses/shipped.svg') no-repeat center 0;
+                background: image-url('shopr/statuses/shipped.svg') no-repeat center 0;
                 background-size: 36px;
                 padding-top: 42px;
                 z-index: 10;
@@ -607,25 +607,25 @@ div.status {
                 color: inherit;
             }
             li.payment {
-                background-image: image-url('shoppe/statuses/paid.svg')
+                background-image: image-url('shopr/statuses/paid.svg')
             }
             li.payment h4 {
                 color: #3DB3E2;
             }
             li.received {
-                background-image: image-url('shoppe/statuses/received.svg')
+                background-image: image-url('shopr/statuses/received.svg')
             }
             li.received h4 {
                 color: #909091;
             }
             li.accepted {
-                background-image: image-url('shoppe/statuses/accepted.svg')
+                background-image: image-url('shopr/statuses/accepted.svg')
             }
             li.accepted h4 {
                 color: #89BD2F;
             }
             li.rejected {
-                background-image: image-url('shoppe/statuses/rejected.svg')
+                background-image: image-url('shopr/statuses/rejected.svg')
             }
             li.rejected h4 {
                 color: #E33127

@@ -1,6 +1,6 @@
 class CreateCommentsTable < ActiveRecord::Migration
   def up
-    create_table :shoppe_comments do |t|
+    create_table :shopr_comments do |t|
      t.text :comment
      t.integer :commentable_id, null: false
      t.string :commentable_type, null: false
@@ -12,7 +12,7 @@ class CreateCommentsTable < ActiveRecord::Migration
   end
 
   def down
-    drop_table :shoppe_comments
+    drop_table :shopr_comments
   end
 
 end

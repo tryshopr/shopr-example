@@ -7,7 +7,8 @@
         = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card-block' do
           %h4.card-title= product.name
           .rating.text-xs-center= rating_stars(average_rating(product))
-          %p.card-text.text-xs-center= raw product.short_description.truncate(130)
+          -if !product.short_description.nil?
+            %p.card-text.text-xs-center= raw product.short_description.truncate(130)
           .pricebox
             - if product.cost_price.is_a?(Numeric) && product.has_variants?
               %p.price до #{number_to_currency product.price}
