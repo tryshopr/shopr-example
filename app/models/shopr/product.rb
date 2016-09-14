@@ -9,10 +9,10 @@ module Shopr
     require_dependency 'shopr/product/variants'
 
     # Attachments for this product
-    has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'shopr::Attachment'
+    has_many :attachments, as: :parent, dependent: :destroy, autosave: true, class_name: 'Shopr::Attachment'
 
     # Product reviews
-    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'shopr::Comment'
+    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'Shopr::Comment'
 
     # The product's categorizations
     #
@@ -24,21 +24,21 @@ module Shopr
     has_many :product_categories, class_name: 'Shopr::ProductCategory', through: :product_categorizations
 
     # Product reviews
-    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'shopr::Comment'
+    has_many :comments, dependent: :destroy, as: :commentable, class_name: 'Shopr::Comment'
 
     # The product's tax rate
     #
-    # @return [shopr::TaxRate]
-    belongs_to :tax_rate, class_name: 'shopr::TaxRate'
+    # @return [Shopr::TaxRate]
+    belongs_to :tax_rate, class_name: 'Shopr::TaxRate'
 
     # Ordered items which are associated with this product
-    has_many :order_items, dependent: :restrict_with_exception, class_name: 'shopr::OrderItem', as: :ordered_item
+    has_many :order_items, dependent: :restrict_with_exception, class_name: 'Shopr::OrderItem', as: :ordered_item
 
     # Orders which have ordered this product
-    has_many :orders, through: :order_items, class_name: 'shopr::Order'
+    has_many :orders, through: :order_items, class_name: 'Shopr::Order'
 
     # Stock level adjustments for this product
-    has_many :stock_level_adjustments, dependent: :destroy, class_name: 'shopr::StockLevelAdjustment', as: :item
+    has_many :stock_level_adjustments, dependent: :destroy, class_name: 'Shopr::StockLevelAdjustment', as: :item
 
     # Validations
     with_options if: proc { |p| p.parent.nil? } do |product|

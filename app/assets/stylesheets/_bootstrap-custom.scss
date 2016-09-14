@@ -29,8 +29,8 @@
     color: #fff;
 }
 
-.modal-backdrop {
-    z-index: 1;
+.modal-dialog {
+    z-index: 10000;
 }
 
 // Products cards
