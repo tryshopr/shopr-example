@@ -1,5 +1,5 @@
 module Shopr
-  class ProductsController < shopr::ApplicationController
+  class ProductsController < Shopr::ApplicationController
     before_action { @active_nav = :products }
     before_action { params[:id] && @product = Shopr::Product.root.find(params[:id]) }
 
@@ -29,7 +29,7 @@ module Shopr
 
       @products = @products_paged
                   .group_by(&:product_category)
-                  # .sort_by { |cat,_pro| cat.name } 
+                  .sort_by { |cat,_pro| cat.name } 
     end
 
     def new
@@ -70,6 +70,11 @@ module Shopr
           redirect_to products_path, flash: { notice: t('shopr.products.imports.success') }
         end
       end
+    end
+
+    def show
+      @product = Product.find(params[:id])
+      @comment = @product.comments.new
     end
 
     private

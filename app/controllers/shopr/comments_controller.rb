@@ -1,5 +1,5 @@
 module Shopr
-  class CommentsController < shopr::ApplicationController
+  class CommentsController < Shopr::ApplicationController
 
     def index
       @product = Shopr::Product.find(params[:product_id])
@@ -7,7 +7,7 @@ module Shopr
     end
 
     def destroy
-      @comment = shopr::Comment.find(params[:id])
+      @comment = Shopr::Comment.find(params[:id])
       @comment.destroy
       redirect_to :back, flash: { notice: t('shopr.comments.destroy_notice') }
     end

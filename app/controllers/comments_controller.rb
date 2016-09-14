@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 	def create
     # Not implemented: check to see whether the user has permission to create a comment on this object
-    @comment = shopr::Comment.new(safe_params)
+    @comment = Shopr::Comment.new(safe_params)
     if @comment.save
       render partial: "comments/comment", locals: { comment: @comment }, layout: false, status: :created
       flash.now[:notice] = "t('shopr.comments.create_notice'"

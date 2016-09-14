@@ -12,10 +12,6 @@ gem 'rails-i18n'
 gem 'redcarpet'
 gem 'faker'
 gem 'simple_form'
-# gem 'shoppe', :git => 'git://github.com/tryshoppe/shoppe.git'
-# gem "shoppe", git: "https://idej@bitbucket.org/craft37/shoppe_fork.git"
-# gem "shoppe", path: '../shoppe_fork'
-# gem "shoppe"
 gem 'shopr'
 gem 'thin'
 

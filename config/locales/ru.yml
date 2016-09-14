@@ -1,5 +1,5 @@
 ru:
-  shoppe:
+  shopr:
     comments:
       create_notice:
         Отзыв успешно добавлен
@@ -18,7 +18,7 @@ ru:
 
   activerecord:
     attributes:
-      shoppe/delivery_service_price:
+      shopr/delivery_service_price:
         cost_price: Цена со скидкой
-      shoppe/product:
+      shopr/product:
         cost_price: Цена со скидкой
