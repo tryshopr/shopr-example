@@ -14,6 +14,11 @@ require 'nifty/dialog'
 require 'carrierwave'
 
 module Shopr
+  # Use table prefix over explicit table name per model
+  def self.table_name_prefix
+    'shopr_'
+  end
+
   class << self
     # The path to the root of the Shopr application
     #

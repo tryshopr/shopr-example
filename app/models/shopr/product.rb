@@ -94,7 +94,7 @@ module Shopr
     # @return [BigDecimal]
     def price
       # self.default_variant ? self.default_variant.price : read_attribute(:price)
-      default_variant ? default_variant.price : read_attribute(:price)
+      default_variant ? default_variant.price : self[:price]
     end
 
     # Is this product currently in stock?
@@ -162,7 +162,7 @@ module Shopr
 
         # Don't import products where the name is blank
         next if row['name'].nil?
-        if product = where(name: row['name']).take
+        if product = find_by(name: row['name'])
           # Dont import products with the same name but update quantities
           qty = row['qty'].to_i
           if qty > 0
