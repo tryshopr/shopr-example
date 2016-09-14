@@ -14,7 +14,6 @@ gem 'redcarpet'
 gem 'faker'
 gem 'simple_form'
 gem 'shopr'
-gem 'thin'
 
 group :development do
 	gem 'sqlite3'
