@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'shopr'
+gem 'shopr', :git => 'https://github.com/shoprgem/shopr.git'
 gem 'rails', '~> 5.0.0.1'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'autoprefixer-rails'
@@ -14,6 +14,7 @@ gem 'rails-i18n'
 gem 'redcarpet'
 gem 'faker'
 gem 'simple_form'
+gem 'roo', '>= 2.5.1'
 
 group :development do
 	gem 'sqlite3'

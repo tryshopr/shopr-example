@@ -6,6 +6,29 @@ GIT
       capistrano (~> 3.0)
       sshkit (~> 1.2)
 
+GIT
+  remote: https://github.com/shoprgem/shopr.git
+  revision: f81717ee31d9eeca6ce3d88a92ea5cfa5763c2c5
+  specs:
+    shopr (1.1.2)
+      awesome_nested_set
+      bcrypt
+      carrierwave
+      devise
+      dynamic_form
+      fog
+      haml
+      jquery-rails
+      kaminari
+      mini_magick
+      net-ssh
+      nifty-dialog
+      nifty-key-value-store
+      nifty-utils
+      rails (>= 5.0.0, < 5.1)
+      ransack
+      roo
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -351,24 +374,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    shopr (1.1.2)
-      awesome_nested_set
-      bcrypt
-      carrierwave
-      devise
-      dynamic_form
-      fog
-      haml
-      jquery-rails
-      kaminari
-      mini_magick
-      net-ssh
-      nifty-dialog
-      nifty-key-value-store
-      nifty-utils
-      rails (>= 5.0.0, < 5.1)
-      ransack
-      roo
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -425,8 +430,9 @@ DEPENDENCIES
   rails (~> 5.0.0.1)
   rails-i18n
   redcarpet
+  roo (>= 2.5.1)
   sass-rails (~> 5.0.4)
-  shopr
+  shopr!
   simple_form
   sqlite3
   uglifier (>= 1.3.0)
