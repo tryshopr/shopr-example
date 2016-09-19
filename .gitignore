@@ -20,6 +20,7 @@ config/database.yml
 Gemfile.lock\
 .locum
 .byebug_history
+bin
 
 
 /.idea/

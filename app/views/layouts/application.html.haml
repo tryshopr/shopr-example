@@ -33,9 +33,9 @@
             - for category in Shopr::ProductCategory.without_parent.ordered
               %li
                 = link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-                -#%ul
-                  -# - for category in Shopr::ProductCategory.parents.ordered
-                    -# %li= link_to category.name, products_path(category.permalink)
+                - for category in category.descendants
+                  %ul
+                    %li= link_to category.name, products_path(category.permalink)
             %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
             %li= link_to "О компании", page_path(:about), :nav_item => :about
             //%li= link_to "Контакты", page_path(:contact), :nav_item => :contact
