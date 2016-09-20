@@ -1,6 +1,6 @@
 %section.sidebar.green-border
   %ul#sidebar.sidebar-categories
-    - for category in Shopr::ProductCategory.ordered
+    - for category in Shopr::ProductCategory.without_parent.ordered
       %li= link_to category.name, products_path(category.permalink), :nav_item => :category
   %ul#sidebar-params
     %h3.attributes Параметры

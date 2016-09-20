@@ -21,6 +21,7 @@ Gemfile.lock\
 .locum
 .byebug_history
 bin
+*.png~
 
 
 /.idea/
