@@ -44,7 +44,8 @@ a {
     line-height: 1.5rem;
 }
 
-a:focus, a:hover {
+a:focus,
+a:hover {
     text-decoration: none;
 }
 
@@ -52,7 +53,7 @@ p {
     font-size: 14px;
 }
 
-img[src='Error.src']{
+img[src='Error.src'] {
     display: none;
 }
 
@@ -68,8 +69,8 @@ nav.sidebar header.logo h1 a {
 
 select {
     background-color: #ffffff;
-border: 1px solid #cccccc;
-border-radius: 2px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
 }
 
 //
@@ -86,9 +87,8 @@ div.container {
     }
     &.last {
         padding: 12px 25px 25px;
-    box-shadow: 0 15px 20px -13px #888888;
+        box-shadow: 0 15px 20px -13px #888888;
         position: relative;
-        z-index: 1;
     }
 }
 
@@ -430,7 +430,6 @@ ul.reasons {
 //
 // The basic header
 //
-
 .arrow-r {
     font-size: 0.9rem;
     font-weight: bold;
@@ -1308,23 +1307,23 @@ a.add,
 .product-slider-box {
     width: 375px;
     padding: 300px 15px 15px;
-    border-right: 2px $gray solid ;
+    border-right: 2px $gray solid;
     .small {
         color: $gray;
         font-weight: 600;
         margin-top: 10px;
     }
     hr {
-    margin: 1rem -15px;
-    height: 2px;
-    border-top: 2px solid #ccc;
-    border-color: #ECECEC;
+        margin: 1rem -15px;
+        height: 2px;
+        border-top: 2px solid #ccc;
+        border-color: #ECECEC;
     }
 }
+
 .product-slider {
     display: flex;
     justify-content: space-between;
-
     > img {
         position: absolute;
         left: 0;
@@ -1891,18 +1890,16 @@ div.product {
 //
 // Products list
 //
-
-    .price {
-            color: $magento;
-    font-weight:bold;
-        font-size: 1.1rem;
-        &.bad {
-                    text-decoration: line-through;
+.price {
+    color: $magento;
+    font-weight: bold;
+    font-size: 1.1rem;
+    &.bad {
+        text-decoration: line-through;
         color: #222;
-            font-size: 0.9rem;
-        }
+        font-size: 0.9rem;
     }
-
+}
 
 
 /* Comments */
