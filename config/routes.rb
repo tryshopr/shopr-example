@@ -10,10 +10,12 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :comments
+    resources :variants
+    collection do
+      get :import
+      post :import
+    end
   end
-
-  # resources :product_categories
-  # resources :products
 
   end
 
@@ -62,5 +64,9 @@ Rails.application.routes.draw do
   # Homepage
   #
   root :to => 'pages#home'
+
+  # Tempo fix admin area redirection
+
+  get '/users/sign_in', to: redirect('/shopr/users/sign_in')
 
 end

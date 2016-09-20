@@ -170,7 +170,7 @@ module Shopr
           end
         else
           # product = Shopr::Product.find_or_initialize_by(permalink: row['url'])
-          product = Shopr::Product.find_or_initialize_by(permalink: row['name'], name: row['url'])
+          product = Shopr::Product.find_or_initialize_by(permalink: row['url'], name: row['name'])
           product.name = row['name']
           product.sku = row['item_code']
           product.description = row['abstract']
@@ -194,7 +194,7 @@ module Shopr
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
       when '.csv'
-      Roo::Csv.new(file.path,csv_options: {col_sep: ";",encoding: Encoding::Windows_F1251})
+      Roo::CSV.new(file.path,csv_options: {col_sep: ";",encoding: Encoding::Windows_1251})
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
       else fail I18n.t('shopr.imports.errors.unknown_format', filename: File.original_filename)

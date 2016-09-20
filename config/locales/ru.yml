@@ -22,3 +22,11 @@ ru:
         cost_price: Цена со скидкой
       shopr/product:
         cost_price: Цена со скидкой
+
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      previous: "&lsaquo; Назад"
+      next: "Далее &rsaquo;"
+      truncate: "..."

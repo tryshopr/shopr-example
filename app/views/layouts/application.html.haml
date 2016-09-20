@@ -118,16 +118,6 @@
               %span= @product.name
         .row
           .col-md-12
-            -# .products.white-off
-          
-            / Sidebar
-            -# %section.sidebar
-            -#   - if content_for?(:sidebar)
-            -#     = yield :sidebar
-            -#   - else
-            -#     = render 'shared/basket'
-            -#     = render 'shared/reasons'
-          
             / Primary section
             %section.primary
               = yield
@@ -203,13 +193,13 @@
         -#   %p We're open 9am to 5pm, Monday to Friday.
           
           / Links to social media
-          %ul.social
-            %li.twitter= link_to "Twitter", 'http://twitter.com/niftyware'
-            %li.facebook= link_to "Facebook", "http://facebook.com/niftyware"
-            %li.pinterest= link_to "Pinterest", "http://pinterest.com"
-            %li.linkedin= link_to "Linked In", "http://linkedin.com"
-            %li.vimeo= link_to "Vimeo", "http://vimeo.com"
-            %li.youtube= link_to "Youtube", "http://youtube.com"
+          -# %ul.social
+          -#   %li.twitter= link_to "Twitter", 'http://twitter.com/niftyware'
+          -#   %li.facebook= link_to "Facebook", "http://facebook.com/niftyware"
+          -#   %li.pinterest= link_to "Pinterest", "http://pinterest.com"
+          -#   %li.linkedin= link_to "Linked In", "http://linkedin.com"
+          -#   %li.vimeo= link_to "Vimeo", "http://vimeo.com"
+          -#   %li.youtube= link_to "Youtube", "http://youtube.com"
       
         / Copyright & trademark information
         .copyright
