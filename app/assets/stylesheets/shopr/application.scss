@@ -15,14 +15,14 @@ html { font-family:$font; font-size:12px; color:#000; -webkit-font-smoothing:ant
 
 nav.sidebar {
 	width:200px;
-	background:$dark_blue;
 	position:fixed;
+	background:$gray-darky;
 	top:0;
 	bottom:0;
 	header.logo {
+	background:$dark_blue;
 		height:57px;
 		// background:image-url('shopr/logo_white.svg') $normal_blue no-repeat 22px 25px;
-		background: none;
 		background-size:45px;
 		padding-left:20px;
 		padding-top:28px;
@@ -38,7 +38,7 @@ nav.sidebar {
 	}
 
 	p.logged {
-		background:$gray-darky;
+		background:$gray-normal;
 		padding:12px 20px;
 		color:#fff;
 		font-size:0.9em;
@@ -46,7 +46,7 @@ nav.sidebar {
 
 	ul {
 		li {
-			span.pending { float:right; font-size:0.9em;  font-weight:bold;background:$gray-darky; color:#fff; padding:2px 10px; border-radius:16px; margin-top:9px; margin-right:10px;}
+			span.pending { float:right; font-size:0.9em;  font-weight:bold;background:$gray-normal; color:#fff; padding:2px 10px; border-radius:16px; margin-top:9px; margin-right:10px;}
 			a {
 				display:block;
 				border-bottom:1px solid rgba(255,255,255,0.05);
@@ -143,7 +143,7 @@ header.main {
 		padding-top:15px;
 		padding-bottom:25px;
 		margin-bottom:15px;
-		legend {color:$gray-darky; margin:0 25px; font-weight:300; font-size:1.5em;}
+		legend {color:$gray-normal; margin:0 25px; font-weight:300; font-size:1.5em;}
 		&.padded { padding:15px 25px 25px 25px;}
 		&.padded legend { margin:0;}
 	}
@@ -416,7 +416,7 @@ header.main {
 	// payments
 	//
 	fieldset.orderPayments {
-		h4 { font-weight:bold; text-transform:uppercase; color:$gray-darky;}
+		h4 { font-weight:bold; text-transform:uppercase; color:$gray-normal;}
 		.table {
 			margin-bottom:20px;
 			table td.refund { width:10%; text-align:center;}
@@ -519,7 +519,7 @@ footer {
 	p.store {
 		a {
 			display:block;
-			background:$gray-darky;
+			background:$gray-normal;
 			color:rgba(255,255,255,0.7);
 			padding:12px 20px;
 			font-size:1.1em;
@@ -575,7 +575,7 @@ table.data {
 	thead th { border:1px solid $dark_blue; background:$dark_blue; text-align:left; font-weight:normal; font-size:0.9em; color:#fff; }
 	tbody td { border:1px solid #cfd4dd; background:#fff;}
 	a { color:inherit;}
-	tbody th { text-align:left; background:$gray-darky; border:1px solid $gray-darky;font-size:1.2em; color:#fff;}
+	tbody th { text-align:left; background:$gray-normal; border:1px solid $gray-normal;font-size:1.2em; color:#fff;}
 	tbody tr.empty td { padding:50px 0; text-align:center; color:#999; font-style:italic;}
 	tfoot td.right { text-align:right; }
 	tfoot td.bold { font-weight:bold;}
@@ -586,7 +586,7 @@ table.data {
 	tbody td.table {
 		padding:0;
 		table.data {
-			td { padding:10px; border-width:0; border-right-width:1px; border-bottom-width:1px;}
+			td { padding:3px; border-width:0; border-right-width:1px; border-bottom-width:1px;}
 			td:last-child { border-right-width:0;}
 			tr:last-child td { border-bottom-width:0;}
 		}
@@ -598,7 +598,7 @@ table.data {
 		td.desc input[type=text] { width:95%;}
 		td.adjustment input[type=text] { width:50px; margin-right:5px;}
 	}
-	tfoot td { background:$gray-darky; color:#fff; border:1px solid $gray-darky; font-weight:bold; font-size:1.1em;}
+	tfoot td { background:$gray-normal; color:#fff; border:1px solid $gray-normal; font-weight:bold; font-size:1.1em;}
 }
 
 //

@@ -101,7 +101,7 @@ module Shopr
     #
     # @return [Boolean]
     def in_stock?
-      default_variant ? default_variant.in_stock? : (stock_control? ? stock > 0 : true)
+      default_variant ? default_variant.in_stock? : (stock_control? ? stock >= 0 : true)
     end
 
     # Return the total number of items currently in stock
