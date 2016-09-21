@@ -33,7 +33,7 @@
         = rating_stars(average_rating(@product))
         %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
         %span.to-review-btn-anchor= link_to 'Оставить отзыв', '#tabs'
-      %p= raw @product.short_description
+      -# %p= raw @product.short_description
       %p= raw @product.description
       - if @product.has_variants?
         = render partial: 'variants', locals: { product: @product, variant: @product.variants.first }
@@ -41,7 +41,7 @@
         .links
           %ul
             - if @product.data_sheet
-              %li.item.datasheet= link_to "Read product datasheet", @product.data_sheet.path
+              -# %li.item.datasheet= link_to "Read product datasheet", @product.data_sheet.path
             - unless @product.in_the_box.blank?
 
               %li.item.box

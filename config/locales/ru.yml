@@ -22,6 +22,16 @@ ru:
         cost_price: Цена со скидкой
       shopr/product:
         cost_price: Цена со скидкой
+    attributes:
+      errors:
+      template:
+        body: ! 'Найдены ошибки в следующих полях:'
+        header:
+          two: 1 ошибка не позволяет сохранить %{model}
+          one: 1 ошибка не позволяет сохранить %{model}
+          many: ! '%{count} не позволяют сохранить %{model}'
+          other: ! '%{count} не позволяют сохранить %{model}'
+
 
   views:
     pagination:

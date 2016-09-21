@@ -46,7 +46,7 @@ module Shopr
       product.validates :description, presence: true, allow_blank: true
       product.validates :short_description, presence: true, allow_blank: true
     end
-    validates :name, presence: true
+    validates :name, uniqueness: true, presence: true
     validates :permalink, presence: true, uniqueness: true, permalink: true
     validates :sku, uniqueness: true, allow_blank: true
     validates :weight, numericality: true

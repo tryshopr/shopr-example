@@ -6,16 +6,16 @@ Rails.application.routes.draw do
 
   Shopr::Engine.routes.draw do
 
-  # Else
+    # Else
 
-  resources :products do
-    resources :comments
-    resources :variants
-    collection do
-      get :import
-      post :import
+    resources :products do
+      resources :comments
+      resources :variants
+      collection do
+        get :import
+        post :import
+      end
     end
-  end
 
   end
 

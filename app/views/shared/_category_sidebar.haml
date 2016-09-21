@@ -1,7 +1,15 @@
 %section.sidebar.green-border
-  %ul#sidebar.sidebar-categories
-    - for category in Shopr::ProductCategory.without_parent.ordered
-      %li= link_to category.name, products_path(category.permalink), :nav_item => :category
+  -if @product_category.nil?
+    -#
+  -else
+    -if @product_category.parent_id.nil?
+      - for category in Shopr::ProductCategory.without_parent.ordered
+        -# %li= link_to category.name, products_path(category.permalink), :nav_item => :category
+    -else
+      %ul#sidebar.sidebar-categories
+        - for category in Shopr::ProductCategory.without_parent.ordered
+          - for category in category.descendants
+            %li= link_to category.name, products_path(category.permalink), :nav_item => :category
   %ul#sidebar-params
     %h3.attributes Параметры
     - Shopr::ProductAttribute.grouped_hash.each do |attribute, values|

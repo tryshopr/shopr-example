@@ -28,6 +28,7 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
 h3 {
@@ -214,7 +215,7 @@ nav.main {
             li {
                 float: none;
                 margin-right: 0;
-                background: rgba(255, 255, 255, 0.9);
+                background: rgba(255, 255, 255, 0.99);
                 a {
                     color: #222;
                     padding: 0;
@@ -416,7 +417,7 @@ ul.reasons.about {
         display: flex;
         align-items: center;
         width: auto;
-        padding: 15px 0;
+        padding: 20px 0;
         background-position: left center;
         h4 {
             color: $green;
@@ -1905,6 +1906,7 @@ div.product {
         line-height: 1.5rem;
         float: left;
         min-width: 145px;
+        margin-bottom: 0;
     }
     li > p+p {
         margin: 0;

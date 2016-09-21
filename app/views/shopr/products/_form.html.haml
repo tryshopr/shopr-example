@@ -1,9 +1,9 @@
 = form_for @product, :html => {:multipart => true} do |f|
-  = f.error_messages
+  = f.error_messages.html_safe
   = field_set_tag  t('shopr.products.product_information') do
     %dl
       %dt= f.label :product_categories, t('shopr.product_category.product_categories')
-      %dd= f.collection_select :product_category_ids, Shopr::ProductCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shopr.product_category.choose_product_category') } }
+      %dd= f.collection_select :product_category_ids, Shopr::ProductCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :required => true, :multiple => true, :data => {:placeholder => t('shopr.product_category.choose_product_category') } }
 
     .splitContainer
       %dl.third
@@ -38,8 +38,8 @@
             %td
         %tbody
           %tr.template{:style => 'display:none;'}
-            %td= text_field_tag 'product[product_attributes_array][][key]', '', :placeholder => t('shopr.products.name')
-            %td= text_field_tag 'product[product_attributes_array][][value]', '', :placeholder => t('shopr.products.value')
+            %td= text_field_tag 'product[product_attributes_array][][key]', '', :placeholder => t('shopr.products.name'), :class => 'text focus'
+            %td= text_field_tag 'product[product_attributes_array][][value]', '', :placeholder => t('shopr.products.value'), :class => 'text focus'
             %td.searchable= check_box_tag 'product[product_attributes_array][][searchable]', '1'
             %td.searchable= check_box_tag 'product[product_attributes_array][][public]', '1'
             %td.remove= link_to t('shopr.remove') , '#', :class => 'button button-mini purple'

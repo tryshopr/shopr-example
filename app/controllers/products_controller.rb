@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = @product_category.products.includes(:product_categories, :variants).root.active
+
   end
 
   def filter

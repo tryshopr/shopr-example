@@ -33,8 +33,8 @@
             - for category in Shopr::ProductCategory.without_parent.ordered
               %li
                 = link_to category.name, products_path(category.permalink), :nav_item => :catalogue
-                - for category in category.descendants
-                  %ul
+                %ul
+                  - for category in category.descendants
                     %li= link_to category.name, products_path(category.permalink)
             %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
             %li= link_to "О компании", page_path(:about), :nav_item => :about
@@ -182,7 +182,7 @@
       .container.text-xs-center      
         / Useful footer links (policies etc...)
         %ul.links
-          - for category in Shopr::ProductCategory.ordered
+          - for category in Shopr::ProductCategory.without_parent.ordered
             %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
           %li= link_to "Акции", page_path(:faqs)
           %li= link_to "О компании", page_path(:cookies)
