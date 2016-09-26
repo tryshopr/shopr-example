@@ -36,12 +36,13 @@
 // Products cards
 .card-deck {
     margin-top: 20px;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 @media (min-width: 544px) {
     .card-deck .card {
         margin-bottom: 1.5rem;
+        margin-right: auto;
     }
 }
 

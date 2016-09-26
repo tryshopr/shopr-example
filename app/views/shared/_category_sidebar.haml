@@ -1,22 +1,31 @@
 %section.sidebar.green-border
   -if @product_category.nil?
-    -#
-  -else
-    -if @product_category.parent_id.nil?
+    %ul#sidebar.sidebar-categories
       - for category in Shopr::ProductCategory.without_parent.ordered
-        -# %li= link_to category.name, products_path(category.permalink), :nav_item => :category
-    -else
+        %li= link_to category.name, products_path(category.permalink), :nav_item => :category
+  -else
+    -if !@product_category.children.none?
       %ul#sidebar.sidebar-categories
-        - for category in Shopr::ProductCategory.without_parent.ordered
-          - for category in category.descendants
-            %li= link_to category.name, products_path(category.permalink), :nav_item => :category
+        - for category in @product_category.children
+          %li= link_to category.name, products_path(category.permalink), :nav_item => :category
+    -else
   %ul#sidebar-params
     %h3.attributes Параметры
-    - Shopr::ProductAttribute.grouped_hash.each do |attribute, values|
-      %ul
-        %li
-          %h4= attribute
-        - values.each do |values|
-          %a= link_to values, product_filter_path(key: attribute, value: values)
-          %span='('+Shopr::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
-          .clearfix
+    -if !@product_category.nil? && !@products.empty?
+      - Shopr::ProductAttribute.where(id: [@products.ids]).grouped_hash.each do |attribute, values|
+        %ul
+          %li
+            %h4= attribute
+          - values.each do |values|
+            %a= link_to values, product_filter_path(key: attribute, value: values)
+            %span='('+Shopr::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
+            .clearfix
+    -else
+      - Shopr::ProductAttribute.grouped_hash.each do |attribute, values|
+        %ul
+          %li
+            %h4= attribute
+          - values.each do |values|
+            %a= link_to values, product_filter_path(key: attribute, value: values)
+            %span='('+Shopr::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
+            .clearfix
