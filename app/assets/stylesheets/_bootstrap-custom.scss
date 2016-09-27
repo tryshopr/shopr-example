@@ -42,13 +42,17 @@
 @media (min-width: 544px) {
     .card-deck .card {
         margin-bottom: 1.5rem;
-        margin-right: auto;
     }
+}
+
+.category .card {
+    min-width: 231px;
+    max-width: 31%;
 }
 
 .card {
     min-width: 231px;
-    max-width: 250px;
+    max-width: 23.2%;
     display: flex;
     flex-direction: column;
     border-radius: 3px;
