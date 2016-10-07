@@ -44,4 +44,5 @@
                     -# %button.btn.btn-primary{:type => "button"} Перейти
           - else
             = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink), :class => 'btn add'
-= paginate @products
+- unless current_page?(root_path)
+  = paginate @products.per(9)
