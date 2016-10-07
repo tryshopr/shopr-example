@@ -46,11 +46,11 @@
 }
 
 .category .card {
-    min-width: 231px;
     max-width: 31%;
 }
 
 .card {
+    width: 231px;
     min-width: 231px;
     max-width: 23.2%;
     display: flex;
@@ -64,12 +64,13 @@
 }
 
 .card-header {
+    margin: 0 auto;
     padding: 0;
     background-color: transparent;
     border-bottom: none;
 }
 
-a.card-block {
+.card-block {
     flex: 1;
     padding: 0 0.5rem;
     > p {
@@ -99,14 +100,14 @@ h4.card-title {
 
 .card-img-top {
     height: 160px;
-    width: 100%;
+    width: auto;
 }
 
 .card-img-top:after {
     content: "🙉" "Изображение отсутствует" attr(alt);
     text-align: center;
     padding-top: 1.25rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: rgb(100, 100, 100);
     display: block;
     position: absolute;

@@ -434,13 +434,13 @@ ul.reasons.about {
         display: none;
     }
     li:after {
-            background: none;
-            position: absolute;
-            bottom: 0;
-            border-bottom: 1px solid #dedede;
-            width: 100%;
-            content: '';
-        }
+        background: none;
+        position: absolute;
+        bottom: 0;
+        border-bottom: 1px solid #dedede;
+        width: 100%;
+        content: '';
+    }
     li > p {
         font-weight: 500;
         width: 68%;
@@ -1962,5 +1962,45 @@ div.product {
         height: 14px;
         width: 14px;
         background: image-url('star-gray.svg') 0 0 no-repeat;
+    }
+}
+
+// Kaminari pagination
+nav.pagination {
+    justify-content: flex-end;
+    display: flex;
+}
+
+nav.pagination span {
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    background: white;
+    border: 1px solid $gray;
+    margin-right: 4px;
+    &.page.current {
+        color: white;
+        background: $green;
+        padding: 3px 8px;
+    }
+    &.gap {
+        border: none;
+        color: $gray-darky;
+    }
+    &.first,
+    &.last,
+    &.prev,
+    &.next {
+        letter-spacing: -6px;
+        & a {
+            color: $gray;
+            padding: 1px 8px;
+        }
+    }
+    & a {
+        padding: 3px 8px;
+        display: inline-block;
+        text-decoration: none;
+        color: $gray-dark;
     }
 }

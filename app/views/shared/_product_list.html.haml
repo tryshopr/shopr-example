@@ -1,13 +1,13 @@
 .card-deck
   - for product in products
-    .card
+    = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card' do
       .card-header
         %img.card-img-top{:src => product.default_image ? "#{product.default_image.path}" : ''}
-      = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card-block' do
-        %h4.card-title= product.name
+      .card-block
+        %h4.card-title= product.name.html_safe
         .rating.text-xs-center= rating_stars(average_rating(product))
         -if !product.short_description.nil?
-          %p.card-text.text-xs-center= raw product.short_description.truncate(130)
+          %p.card-text.text-xs-center= raw product.short_description.html_safe.truncate(130)
         .pricebox
           - if product.cost_price.is_a?(Numeric) && product.has_variants?
             %p.price до #{number_to_currency product.price}
@@ -44,5 +44,4 @@
                     -# %button.btn.btn-primary{:type => "button"} Перейти
           - else
             = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink), :class => 'btn add'
-.col-md-12
-  -# = paginate @products
+= paginate @products.per(9)

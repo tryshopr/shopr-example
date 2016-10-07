@@ -30,11 +30,11 @@
         %nav.main
           %ul
             //%li= link_to "Home", root_path, :nav_item => :home
-            - for category in Shopr::ProductCategory.without_parent.ordered
+            - for category in Shopr::ProductCategory.without_parent.order('created_at ASC')
               %li
                 = link_to category.name, products_path(category.permalink), :nav_item => :catalogue
                 %ul
-                  - for category in category.descendants
+                  - for category in category.descendants.ordered
                     %li= link_to category.name, products_path(category.permalink)
             %li= link_to "Акции", page_path(:instock), :nav_item => :instock, class: 'instock'
             %li= link_to "О компании", page_path(:about), :nav_item => :about

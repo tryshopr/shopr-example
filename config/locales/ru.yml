@@ -35,8 +35,8 @@ ru:
 
   views:
     pagination:
-      first: "&laquo; Первая"
-      last: "Последняя &raquo;"
-      previous: "&lsaquo; Назад"
-      next: "Далее &rsaquo;"
+      first: "&#10094;&#10094;"
+      last: "&#10095;&#10095;"
+      previous: "&#10094;"
+      next: "&#10095;"
       truncate: "..."
