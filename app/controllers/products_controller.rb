@@ -11,12 +11,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = @product_category.products.includes(:product_categories, :variants).root.active
-    @products = @products.page(params[:page]).per(9)
+    @products = @products.page(params[:page]).per(12)
   end
 
   def filter
     @products = Shopr::Product.active.with_attributes(params[:key].to_s, params[:value].to_s)
-    @products = @products.page(params[:page]).per(9)
+    @products = @products.page(params[:page]).per(16)
   end
 
   def categories

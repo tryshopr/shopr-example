@@ -182,7 +182,7 @@
       .container.text-xs-center      
         / Useful footer links (policies etc...)
         %ul.links
-          - for category in Shopr::ProductCategory.without_parent.ordered
+          - for category in Shopr::ProductCategory.without_parent.order('created_at ASC')
             %li= link_to category.name, products_path(category.permalink), :nav_item => :catalogue
           %li= link_to "Акции", page_path(:faqs)
           %li= link_to "О компании", page_path(:cookies)

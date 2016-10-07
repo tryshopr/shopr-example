@@ -1,9 +1,9 @@
 .card-deck
   - for product in products
-    = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card' do
-      .card-header
+    .card
+      = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card-header' do
         %img.card-img-top{:src => product.default_image ? "#{product.default_image.path}" : ''}
-      .card-block
+      = link_to product_path(product.product_category.permalink, product.permalink), :class => 'card-block' do
         %h4.card-title= product.name.html_safe
         .rating.text-xs-center= rating_stars(average_rating(product))
         -if !product.short_description.nil?
@@ -19,30 +19,25 @@
               %p.price= number_to_currency product.price
       .card-footer
         - if product.has_variants?
-          %p Размер (см х см):
-        .btn-box
-          - if product.has_variants?
-            -# -locals: { product: @product, variant: @product.variants.first }
+          .select-wrapper
+            %p Размер (см х см):
             = select_tag 'product_variants', options_for_select(product.variants.collect{ |v| [v.name, v.id] })
-          - if product.orderable?
-            -# = link_to "Купить", buy_product_path(product.product_category.permalink, product.permalink), :class => 'btn add', :method => :post
-            %button.btn.btn-primary.add{"data-target" => "#buyModal", "data-toggle" => "modal", :type => "button"}
-              Купить
-            / Modal
-            #buyModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "buyModalLabel", :role => "dialog", :tabindex => "-1"}
-              .modal-dialog{:role => "document"}
-                .modal-content
-                  .modal-header
-                    %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-                      %span{"aria-hidden" => "true"} ×
-                    %h4#buyModalLabel.modal-title Сделать заказ можно позвонив по телефону:
-                  .modal-body
-                    %h4 (029) 127 55 55
-                    %p 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
-                  .modal-footer
-                    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Закрыть
-                    -# %button.btn.btn-primary{:type => "button"} Перейти
-          - else
-            = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink), :class => 'btn add'
+          -if !product.orderable?
+            = link_to "Подробнее", product_path(product.product_category.permalink, product.permalink), :class => 'button btn add'
+        - else
+          %button.btn.btn-primary.add{"data-target" => "#buyModal", "data-toggle" => "modal", :type => "button"} Купить
+          / Modal
+          #buyModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "buyModalLabel", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog{:role => "document"}
+              .modal-content
+                .modal-header
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                  %h4#buyModalLabel.modal-title Сделать заказ можно позвонив по телефону:
+                .modal-body
+                  %h4 (029) 127 55 55
+                  %p 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
+                .modal-footer
+                  %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Закрыть
 - unless current_page?(root_path)
-  = paginate @products.per(9)
+  = paginate @products
