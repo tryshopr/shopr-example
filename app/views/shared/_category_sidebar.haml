@@ -15,7 +15,7 @@
   %ul#sidebar-params
     %h3.attributes Параметры
     -if !@product_category.nil? && !@products.empty?
-      - Shopr::ProductAttribute.where(product_id: [@products.ids]).grouped_hash.each do |attribute, values|
+      - Shopr::ProductAttribute.where(product_id: [@products.ids], searchable: true).grouped_hash.each do |attribute, values|
         %ul
           %li
             %h4= attribute

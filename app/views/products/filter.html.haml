@@ -1,6 +1,6 @@
 - active_nav_item :catalogue
-- @page_title = "#{params[:value]} - Products"
-.category
+- @page_title = "#{params[:value]} - Товары"
+.category.category-filter
   %h2 Товары
   %p.intro Отображение товаров где <b>#{params[:key]}</b> указан как <b>#{params[:value]}</b>.
   - if @products.empty?
