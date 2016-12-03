@@ -102,8 +102,8 @@
             -#   %p.offer <b>This week only!</b> FREE next day shipping on all orders over &pound;30.
     
     / Main content section
-    .content
-      .container.white-off.last
+    .container.white-off.last
+      .content
         -# Breadcrumbs
         -if current_page?(root_path)
         -else
@@ -176,9 +176,12 @@
                 .price 
                   %p.price 
                     %strike от 5 490 000 руб.
+        .row
+          .col-xs-12.reviews-home
+            / %h2 Отзывы
     
     / Footer
-    %footer.main
+    %footer.container.main
       .container.text-xs-center      
         / Useful footer links (policies etc...)
         %ul.links
