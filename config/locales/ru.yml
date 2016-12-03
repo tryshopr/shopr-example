@@ -17,6 +17,7 @@ ru:
       cost_price: Цена со скидкой
 
   activerecord:
+    models:
     attributes:
       shopr/delivery_service_price:
         cost_price: Цена со скидкой

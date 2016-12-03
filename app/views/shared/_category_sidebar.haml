@@ -21,7 +21,7 @@
             %h4= attribute
           - values.each do |values|
             %a= link_to values, product_filter_path(key: attribute, value: values)
-            %span='('+Shopr::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
+            %span='('+Shopr::ProductAttribute.where(key: attribute, value: values, searchable: true).select(:product_id).distinct.count.to_s+')'
             .clearfix
     -else
       - Shopr::ProductAttribute.grouped_hash.each do |attribute, values|
@@ -30,5 +30,5 @@
             %h4= attribute
           - values.each do |values|
             %a= link_to values, product_filter_path(key: attribute, value: values)
-            %span='('+Shopr::ProductAttribute.where(key: attribute, value: values).select(:product_id).distinct.count.to_s+')'
+            %span='('+Shopr::ProductAttribute.where(key: attribute, value: values, searchable: true).select(:product_id).distinct.count.to_s+')'
             .clearfix
