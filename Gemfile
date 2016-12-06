@@ -16,7 +16,7 @@ gem 'redcarpet'
 gem 'faker'
 gem 'simple_form'
 gem 'roo', '>= 2.5.1'
-# gem "mysql2", '~> 0.4.4'
+gem "mysql2", '~> 0.4.4'
 
 group :development do
 	gem 'sqlite3'

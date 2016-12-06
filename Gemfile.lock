@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/amatsuda/kaminari.git
-  revision: 7dafd3136ec4e66a9354488c90ef4097c4481682
+  revision: 87ace543ba9829eb342b17146bf0f7170c89d968
   branch: master
   specs:
     kaminari (1.0.0.alpha)
@@ -10,8 +10,10 @@ GIT
       kaminari-core
     kaminari-actionview (0.1.0)
       actionview
+      kaminari-core
     kaminari-activerecord (0.1.0)
       activerecord
+      kaminari-core
     kaminari-core (0.1.0)
 
 GIT
@@ -89,7 +91,7 @@ GEM
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.4)
-    autoprefixer-rails (6.5.3)
+    autoprefixer-rails (6.5.3.1)
       execjs
     awesome_nested_set (3.1.1)
       activerecord (>= 4.0.0, < 5.1)
@@ -305,10 +307,11 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
-    mini_magick (4.5.1)
+    mini_magick (4.6.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    mysql2 (0.4.5)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -358,7 +361,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.17.0)
-    rake (11.3.0)
+    rake (12.0.0)
     ransack (1.8.2)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
@@ -436,6 +439,7 @@ DEPENDENCIES
   hamlit-rails
   jquery-rails
   kaminari!
+  mysql2 (~> 0.4.4)
   pry-byebug
   rails (~> 5.0.0.1)
   rails-i18n

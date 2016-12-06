@@ -36,7 +36,7 @@ set :log_level, :info
 set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w(log tmp/cache vendor/bundle public/system public/attachment public/uploads)
+set :linked_dirs, %w(log tmp/cache tmp/pids vendor/bundle public/system)
 
 # Default value for keep_releases is 5
 set :keep_releases, 3
@@ -84,11 +84,4 @@ namespace :deploy do
               "#{fetch(:unicorn_start_cmd)}"
     end
   end
-
-  # after "deploy:update_code", :copy_database_config
-  # task :copy_database_config, roles => :app do
-  #   db_config = "#{shared_path}/database.yml"
-  #   run "cp #{db_config} #{release_path}/config/database.yml"
-  # end
-
 end
