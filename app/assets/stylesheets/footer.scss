@@ -1,0 +1,92 @@
+//
+// Footer
+//
+footer {
+    padding-bottom: 30px;
+}
+
+footer.main > .container {
+    width: 70vw;
+    color: #53686B;
+    background: #D0D1D5;
+    font-size: 1rem;
+    margin: 0 auto;
+    padding: 15px 10px;
+    overflow: hidden;
+    clear: both;
+    box-shadow: 0px 3px 5px #888888;
+    font-weight: 600;
+    a {
+        color: #616168;
+    }
+}
+
+ul.links {
+    display: flex;
+    justify-content: center;
+    line-height: 1.8;
+    color: #97AEB2;
+    li {
+        color: #66676D;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+    li+li:before {
+        content: '|';
+        margin: 0 5px;
+    }
+}
+
+div.callUs {
+    p.number {
+        color: #fff;
+        font-size: 2.2rem;
+        font-weight: bold;
+        margin: 2px 0;
+    }
+}
+
+ul.social {
+    margin-top: 25px;
+    overflow: hidden;
+    li {
+        float: left;
+        margin-right: 15px;
+    }
+    li a {
+        display: block;
+        width: 24px;
+        height: 24px;
+        text-indent: -40000px;
+        opacity: 0.3;
+        background-size: 24px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    li.facebook a {
+        background-image: image-url('social/facebook.svg')
+    }
+    li.twitter a {
+        background-image: image-url('social/twitter.svg')
+    }
+    li.pinterest a {
+        background-image: image-url('social/pinterest.svg')
+    }
+    li.linkedin a {
+        background-image: image-url('social/linkedin.svg')
+    }
+    li.youtube a {
+        background-image: image-url('social/youtube.svg')
+    }
+    li.vimeo a {
+        background-image: image-url('social/vimeo.svg')
+    }
+}
+
+div.copyright {
+    color: #999999;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    margin: 5px 0 10px;
+}

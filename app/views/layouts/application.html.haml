@@ -26,7 +26,7 @@
                   %p.small 09:00 - 20:00 (рабочие дни), 09:00 - 17:00 (выходные)
               .search
       / Primary navigation
-      .container.p-a-0
+      .container.p-0
         %nav.main
           %ul
             //%li= link_to "Home", root_path, :nav_item => :home
@@ -178,7 +178,9 @@
                     %strike от 5 490 000 руб.
         .row
           .col-xs-12.reviews-home
-            / %h2 Отзывы
+            .dere
+              = render partial: 'comments/comment', collection: @comments, as: :comment
+
     
     / Footer
     %footer.container.main

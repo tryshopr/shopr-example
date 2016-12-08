@@ -1,8 +1,14 @@
+/* Products */
+
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 nav.sidebar header.logo h1 a {
     background: none !important;
+}
+
+.hidden {
+    display: none
 }
 
 a.add,
@@ -15,11 +21,68 @@ a.add,
     background-image: linear-gradient(to bottom, #FFBE60, #DE610B);
 }
 
-// //
-ul.products hr {
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 0 -10px;
+// Attached images slider //
+.product-slider-box {
+    width: 375px;
+    padding: 300px 15px 15px;
+    border-right: 2px $gray solid;
+    .small {
+        color: $gray;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    hr {
+        margin: 1rem -15px;
+        height: 2px;
+        border-top: 2px solid #ccc;
+        border-color: #ECECEC;
+    }
+}
+
+.product-slider {
+    display: flex;
+    justify-content: flex-start;
+    > img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.25s;
+    }
+    input[name='slide_switch'] {
+        display: none;
+    }
+    label {
+        border: 2px solid #ECECEC;
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.25s;
+        opacity: 0.6;
+        width: 30%;
+        height: 100px;
+        margin-right: 30px;
+        img {
+            display: block;
+            max-height: 100%;
+        }
+    }
+    input[name='slide_switch'] {
+        &:checked {
+            + label {
+                border-color: $green;
+                opacity: 1;
+            }
+            + label + img {
+                opacity: 1;
+                object-fit: contain;
+            }
+        }
+        ~ img {
+            height: auto;
+            max-height: 290px;
+            opacity: 0;
+            width: 100%;
+        }
+    }
 }
 
 // TABS //
@@ -41,7 +104,7 @@ ul.products hr {
 .tabs {
     float: none;
     list-style: none;
-    margin-top: 15px;
+    margin-top: 2rem;
 }
 
 .tabs:after {
@@ -87,7 +150,6 @@ ul.products hr {
     display: none;
     width: 100%;
     float: left;
-    margin-top: 15px;
     box-sizing: border-box;
     background-color: #ffffff;
     min-height: 150px;
@@ -125,7 +187,7 @@ ul.products hr {
 }
 
 span.yellow {
-    display: block;
+    display: none;
     color: $yellow;
     font-size: 1.35rem;
     margin-left: 25%;
@@ -133,7 +195,7 @@ span.yellow {
 }
 
 span.gray {
-    display: block;
+    display: none;
     color: $gray;
     font-size: 1.35rem;
     float: left;
@@ -145,7 +207,7 @@ span.material {
     height: 40px;
     display: block;
     background-repeat: no-repeat !important;
-    margin: 10px auto;
+    margin-bottom: 5px;
 }
 
 span.j130 {
@@ -179,10 +241,15 @@ div.product {
         box-shadow: 0px 0px 10px #DAD5D5;
         flex-direction: row;
         display: flex;
+        background: #fff;
         justify-content: space-between;
+        margin: 0;
         .intro > p {
             display: inline-block;
             min-width: 100%;
+        }
+        span.material {
+            margin: 5px 0;
         }
     }
     .product-tabs {
@@ -219,29 +286,41 @@ div.product {
             border-radius: 15px;
         }
         p.no {
-            color: #c04a4a;
+            color: black;
             font-size: 1em;
-            background: image-url('unhappy.svg') no-repeat 0 3px;
+            background: $gray;
             background-size: 13px;
-            padding-left: 18px;
+            padding: 5px 20px;
             font-weight: 600;
+            border-radius: 15px;
         }
     }
     table.variants {
         width: 100%;
         margin: 15px 0;
-        font-size: 0.8em;
+        font-size: 0.8rem;
         @include border-radius($radius);
-        td {
+        tr {
             border: 1px solid $gray-light;
+            background: #fff;
+        }
+        tr:first-child {
             background: $gray;
+        }
+        select {
+            padding: 0.2rem;
+            width: 100%;
+            background: #fff;
+        }
+        td {
             line-height: 1rem;
-            padding: 10px;
+            font-weight: 600;
+            padding: 15px 10px;
             vertical-align: middle;
         }
+        td:first-child {width: 120px;}
         td.buy {
             width: 170px;
-            background: #fff;
             font-size: 0.8rem;
         }
         td h4 {
@@ -249,7 +328,6 @@ div.product {
             color: black;
         }
         td p {
-            color: $magento;
             font-weight: 600;
         }
         td form {
@@ -266,13 +344,16 @@ div.product {
             }
             select {
                 -webkit-appearance: none;
-                background: image-url('down-arrow.svg') #fff no-repeat 24px 11px;
-                width: 40px;
-                background-size: 8px;
-                height: 25px;
+                background: image-url('down-arrow.svg') #fff no-repeat 45px 15px;
+                width: 60px;
+                background-size: 9px;
+                height: 36px;
                 font-weight: bold;
-                padding: 4px 10px;
+                padding: 10px;
                 font-family: $font;
+            }
+            .btn {
+                float: right;
             }
             &.no-stock {
                 select {
@@ -287,11 +368,6 @@ div.product {
         }
     }
     div.optionsBox {
-        margin-top: 50px;
-        padding-top: 20px;
-        clear: left;
-        width: 370px;
-        font-size: 0.8em;
         .top {
             overflow: hidden;
             p.price {
@@ -463,23 +539,20 @@ div.product {
 }
 
 //tab-contents
-.tab-content {
-    ol {
-        float: left;
-        display: block;
-        list-style: none;
-        overflow: hidden;
-        counter-reset: numList;
-    }
-    ol li {
+.tab-content ol {
+    float: left;
+    display: block;
+    list-style: none;
+    overflow: hidden;
+    counter-reset: numList;
+    li {
         display: flex;
         align-items: center;
         padding: 15px 0;
         position: relative;
-        position: relative;
         font-weight: 600;
     }
-    ol li:before {
+    li:before {
         counter-increment: numList;
         content: counter(numList);
         margin-right: 30px;
@@ -494,7 +567,7 @@ div.product {
         -moz-border-radius: 999px;
         border-radius: 999px
     }
-    ol li:not(:last-child):after {
+    li:not(:last-child):after {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -508,6 +581,7 @@ div.product {
         line-height: 1.5rem;
         float: left;
         min-width: 145px;
+        margin-bottom: 0;
     }
     li > p+p {
         margin: 0;
@@ -536,79 +610,33 @@ div.product {
 //
 // Products list
 //
-ul.products {
-    font-size: 0.9em;
-    margin: 20px 0 0;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    li {
-        display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-        width: 25%;
-        padding: 10px;
-        background: #fff;
-        border-radius: 3px;
-        margin: 0 5px 5px;
-        border-top: 1px solid #EAEAEA;
-        box-shadow: 0px 0px 10px #DAD5D5;
-        &:hover {
-            background: $gray-lighter;
-        }
-        div.img {
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: top center;
-            margin: -10px -10px 0;
-            height: 160px;
-                min-width: 200px;
-        }
-        h4 {
-            text-align: center;
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #333;
-            line-height: 1.2rem;
-        }
-        h4 a {
-            text-decoration: none;
-            color: black;
-        }
-        h4 a:hover {
-            text-decoration: underline;
-        }
-        p.info {
-            margin: 5px 0px 10px;
-            text-align: center;
-            min-height: 115px;
-        }
-        p.price {
-            text-align: center;
-            margin-bottom: 5px;
-            &.bad {
-                text-decoration: line-through;
-                color: #222;
-                font-size: 0.9rem;
-            }
-            color: $magento;
-            font-size:1.1rem;
-            font-weight:bold;
-        }
-        p.buttons {
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            margin: 10px 0;
-        }
-        p.buttons a {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            padding: 3px 6px;
-            border-radius: 3px;
-        }
+.price {
+    color: $magento;
+    font-weight: bold;
+    font-size: 1.1rem;
+    &.bad {
+        text-decoration: line-through;
+        color: #222;
+        font-size: 0.9rem;
     }
 }
+
+
+/* Comments */
+
+.rating {
+    clear: both;
+    .star-gold {
+        display: inline-block;
+        height: 14px;
+        width: 14px;
+        background: image-url('star-gold.svg') 0 0 no-repeat;
+    }
+    .star-gray {
+        display: inline-block;
+        height: 14px;
+        width: 14px;
+        background: image-url('star-gray.svg') 0 0 no-repeat;
+    }
+}
+
