@@ -61,7 +61,6 @@
 
 .card {
     width: 231px;
-    min-width: 231px;
     max-width: 23.2%;
     display: flex;
     flex-direction: column;
@@ -70,6 +69,10 @@
     box-shadow: 0px 0px 10px #DAD5D5;
     a:hover {
         cursor: pointer;
+    }
+    @media (min-width: 544px){
+    width: 23.2%;
+    min-width: 231px;
     }
 }
 

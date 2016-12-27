@@ -177,11 +177,30 @@
                   %p.price 
                     %strike от 5 490 000 руб.
         .row
-          .col-xs-12.reviews-home
-            .dere
-              = render partial: 'comments/comment', collection: @comments, as: :comment
+          .col-xs-12
+            .reviews-home
+              %input#button-1{:checked => "checked", :name => "controls", :type => "radio"}
+              %input#button-2{:name => "controls", :type => "radio"}
+              %input#button-3{:name => "controls", :type => "radio"} 
+              %input#button-4{:name => "controls", :type => "radio"}
+              %input#button-5{:name => "controls", :type => "radio"}
+              %label#arrow-1.arrows{:for => "button-1"} &#10093;
+              %label#arrow-2.arrows{:for => "button-2"} &#10093;
+              %label#arrow-3.arrows{:for => "button-3"} &#10093;
+              %label#arrow-4.arrows{:for => "button-4"} &#10093;
+              %label#arrow-5.arrows{:for => "button-5"} &#10093;
 
-    
+              .reviews-home__comment
+                %ul
+                  - @comments.each do |comment|
+                    %li{id: "slide#{comment.id}"}
+                      %h3= comment.title
+                      .rating= rating_stars(comment.rating)
+                      %p.comment= '"' + comment.comment + '"'
+                      =image_tag "avavtar.png"
+                      %p.name= comment.commenter
+                      %p.timestamp= timestamp(comment.created_at)
+
     / Footer
     %footer.container.main
       .container.text-xs-center      

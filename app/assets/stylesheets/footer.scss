@@ -32,8 +32,13 @@ ul.links {
         text-transform: uppercase;
     }
     li+li:before {
-        content: '|';
         margin: 0 5px;
+        @media (min-width:992px) {
+        content: '|';
+        }
+    }
+    @media (min-width:576px) {
+        flex-direction: column;
     }
 }
 
