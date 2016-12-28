@@ -19,14 +19,6 @@
         align-content: center;
         align-items: center;
     }
-    .rating {
-        width: 100px;
-        margin: 0 auto;
-        margin-bottom: 1rem;
-    }
-    .star-* {
-        margin-right: 5px;
-    }
     .comment {
         color: #000000;
         font-size: 18px;
@@ -50,12 +42,6 @@
     }
 }
 
-@font-face {
-    font-family: 'WebSymbolsRegular';
-    src: url('http://html5css3demos.bplaced.net/css3-slider-v3/websymbols-regular-webfont.eot');
-    src: url('http://html5css3demos.bplaced.net/css3-slider-v3/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'), url('http://html5css3demos.bplaced.net/css3-slider-v3/websymbols-regular-webfont.woff') format('woff'), url('http://html5css3demos.bplaced.net/css3-slider-v3/websymbols-regular-webfont.ttf') format('truetype'), url('http://html5css3demos.bplaced.net/css3-slider-v3/websymbols-regular-webfont#WebSymbolsRegular') format('svg');
-}
-
 .reviews-home__comment>ul {
     list-style: none;
     height: 100%;
@@ -72,6 +58,7 @@
 .reviews-home__comment>ul>li {
     width: 20%;
     position: relative;
+    padding: 0 25px;
 }
 
 .reviews-home__comment>ul>li>img {
@@ -128,12 +115,12 @@
 }
 
 label.arrows {
-    font-size: 35px;
-    -webkit-text-stroke: 2px #c7f2e1;
+    font-size: 50px;
+    -webkit-text-stroke: 3px #c7f2e1;
     color: #379a5f;
     position: absolute;
     top: 50%;
-    margin-top: -25px;
+    margin-top: -45px;
     display: none;
     opacity: 0.8;
     cursor: pointer;
@@ -143,7 +130,6 @@ label.arrows {
     -moz-transition: opacity .2s;
     -o-transition: opacity .2s;
     transition: opacity .2s;
-    transform: scaley(1.4);
 }
 
 label.arrows:hover {
@@ -151,7 +137,7 @@ label.arrows:hover {
 }
 
 label.arrows:active {
-    margin-top: -23px
+    margin-top: -43px
 }
 
 input[type=radio]#button-1:checked~.arrows#arrow-2,
@@ -170,7 +156,7 @@ input[type=radio]#button-3:checked~.arrows#arrow-2,
 input[type=radio]#button-4:checked~.arrows#arrow-3,
 input[type=radio]#button-5:checked~.arrows#arrow-4 {
     display: block;
-    transform: scaleX(-1) scaley(1.4);
+    transform: scaleX(-1);
     left: 15px;
     @media (min-width: 1024px) {
         left: 40px;

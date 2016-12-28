@@ -42,7 +42,7 @@ a.add,
 .product-slider {
     display: flex;
     justify-content: flex-start;
-    > img {
+    >img {
         position: absolute;
         left: 0;
         top: 0;
@@ -58,7 +58,7 @@ a.add,
         transition: all 0.25s;
         opacity: 0.6;
         width: 30%;
-        height: 100px;
+        height: 80px;
         margin-right: 30px;
         img {
             display: block;
@@ -67,16 +67,16 @@ a.add,
     }
     input[name='slide_switch'] {
         &:checked {
-            + label {
+            +label {
                 border-color: $green;
                 opacity: 1;
             }
-            + label + img {
+            +label+img {
                 opacity: 1;
                 object-fit: contain;
             }
         }
-        ~ img {
+        ~img {
             height: auto;
             max-height: 290px;
             opacity: 0;
@@ -86,7 +86,7 @@ a.add,
 }
 
 // TABS //
-.tabs [id^="tab"]:checked + label {
+.tabs [id^="tab"]:checked+label {
     background: linear-gradient(to bottom, $purple, $purple-dark);
     color: white;
     span {
@@ -94,10 +94,10 @@ a.add,
     }
 }
 
-#tab1:checked ~ #tab-content1,
-#tab2:checked ~ #tab-content2,
-#tab3:checked ~ #tab-content3,
-#tab4:checked ~ #tab-content4 {
+#tab1:checked~#tab-content1,
+#tab2:checked~#tab-content2,
+#tab3:checked~#tab-content3,
+#tab4:checked~#tab-content4 {
     display: block;
 }
 
@@ -244,7 +244,7 @@ div.product {
         background: #fff;
         justify-content: space-between;
         margin: 0;
-        .intro > p {
+        .intro>p {
             display: inline-block;
             min-width: 100%;
         }
@@ -267,6 +267,11 @@ div.product {
         font-size: 0.8em;
         color: #333;
         line-height: 1.5;
+    }
+    .rating {
+        width: 100%;
+        display: block;
+        margin: 0
     }
     hr {
         clear: both;
@@ -318,7 +323,9 @@ div.product {
             padding: 15px 10px;
             vertical-align: middle;
         }
-        td:first-child {width: 120px;}
+        td:first-child {
+            width: 120px;
+        }
         td.buy {
             width: 170px;
             font-size: 0.8rem;
@@ -504,7 +511,7 @@ div.product {
         tr {
             line-height: 2.5rem;
         }
-        tr + tr {
+        tr+tr {
             border-top: 2px solid $gray;
             padding: 6px;
         }
@@ -577,13 +584,13 @@ div.product {
         display: block;
         width: 100%;
     }
-    li > p {
+    li>p {
         line-height: 1.5rem;
         float: left;
         min-width: 145px;
         margin-bottom: 0;
     }
-    li > p+p {
+    li>p+p {
         margin: 0;
         font-weight: 500;
     }
@@ -593,7 +600,7 @@ div.product {
     display: flex;
     align-items: center;
     padding: 10px 0;
-    > img {
+    >img {
         margin-right: 30px;
     }
     .tech-item-info {
@@ -603,7 +610,7 @@ div.product {
     }
 }
 
-.tech-item + .tech-item {
+.tech-item+.tech-item {
     border-top: 1px solid $gray;
 }
 
@@ -626,6 +633,10 @@ div.product {
 
 .rating {
     clear: both;
+    margin: 0 auto 1rem;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
     .star-gold {
         display: inline-block;
         height: 14px;
@@ -639,4 +650,3 @@ div.product {
         background: image-url('star-gray.svg') 0 0 no-repeat;
     }
 }
-
