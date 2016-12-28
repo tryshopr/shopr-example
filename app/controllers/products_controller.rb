@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_filter do
+  before_action do
     if params[:category_id]
       @product_category = Shopr::ProductCategory.where(:permalink => params[:category_id]).first!
     end

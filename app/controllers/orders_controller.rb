@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-  before_filter(:except => :status) { redirect_to root_path unless has_order? }
+  before_action(:except => :status) { redirect_to root_path unless has_order? }
 
   def status
     @order = Shopr::Order.find_by_token!(params[:token])

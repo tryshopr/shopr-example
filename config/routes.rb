@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   #
   # Homepage
   #
-  root :to => 'pages#home'
+  root 'pages#home'
 
   # Tempo fix admin area redirection
 
