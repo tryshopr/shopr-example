@@ -26,6 +26,7 @@ ul.links {
     justify-content: center;
     line-height: 1.8;
     color: #97AEB2;
+    flex-direction: column;
     li {
         color: #66676D;
         font-size: 0.8rem;
@@ -33,12 +34,14 @@ ul.links {
     }
     li+li:before {
         margin: 0 5px;
+        content: '';
         @media (min-width:992px) {
+        margin: 0 10px;
         content: '|';
         }
     }
     @media (min-width:576px) {
-        flex-direction: column;
+    flex-direction: row;
     }
 }
 

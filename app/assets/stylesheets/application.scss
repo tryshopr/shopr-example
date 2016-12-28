@@ -7,7 +7,6 @@
 @import "products";
 @import "footer";
 @import 'reset';
-
 html {
     font-size: 100%;
     background: #fff;
@@ -143,8 +142,14 @@ header.main {
         display: flex;
         justify-content: space-between;
         color: $green;
+        flex-direction: column;
+        height: 175px;
+        @media (min-width: 768px) {
+            flex-direction: row;
+            height: auto;
+        }
         .phone_icon {
-            margin: 5px 10px;
+            margin: 5px 10px 5px 0;
             height: 45px;
             width: 28px;
         }
@@ -155,17 +160,17 @@ header.main {
         }
         .call {
             font-size: 28px;
-            line-height: 2rem;
-            padding-bottom: 3px;
+            line-height: 1.9rem;
         }
         .search {
-            width: 30%;
+            width: 25%;
         }
     }
     .logo {
         width: 208px;
         height: 44px;
         background: image-url('logo.png') left center no-repeat;
+        margin-right: 20px;
         a {
             display: block;
             width: inherit;
@@ -254,6 +259,10 @@ div.info {
     height: 370px;
     max-height: 370px;
     padding: 15px;
+    margin-bottom: 10px;
+    @media (min-width: 992px) {
+        margin: 0;
+    }
     & h2 {
         font-size: 26px;
         font-weight: bold;
@@ -275,7 +284,7 @@ ul.reasons {
     margin: 1.875rem 0 0;
     color: #fff;
     padding: 15px 0;
-    li + li:before {
+    li+li:before {
         height: 100%;
         width: 1px;
         display: block;
@@ -294,10 +303,15 @@ ul.reasons {
         background-position: center top;
         h4 {
             margin: 0 auto;
-            width: 75%;
+            font-size: 0.6rem;
+            width: 95%;
             font-weight: bold;
             text-align: center;
             text-transform: uppercase;
+            @media(min-width: 768px) {
+                font-size: 1rem;
+                width: 75%;
+            }
         }
         p {
             font-size: 0.85rem;
@@ -351,7 +365,7 @@ ul.reasons.about {
             line-height: 1.6;
         }
     }
-    li + li:before {
+    li+li:before {
         display: none;
     }
     li:after {
@@ -362,12 +376,12 @@ ul.reasons.about {
         width: 100%;
         content: '';
     }
-    li > p {
+    li>p {
         font-weight: 500;
         width: 68%;
         margin-bottom: 0;
     }
-    li > p+p {
+    li>p+p {
         margin: 0;
         font-weight: 500;
     }
