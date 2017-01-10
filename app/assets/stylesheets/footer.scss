@@ -5,7 +5,7 @@ footer {
     padding-bottom: 30px;
 }
 
-footer.main > .container {
+footer.main>.container {
     width: 70vw;
     color: #53686B;
     background: #D0D1D5;
@@ -16,6 +16,7 @@ footer.main > .container {
     clear: both;
     box-shadow: 0px 3px 5px #888888;
     font-weight: 600;
+    margin-bottom: 40px;
     a {
         color: #616168;
     }
@@ -35,13 +36,13 @@ ul.links {
     li+li:before {
         margin: 0 5px;
         content: '';
-        @media (min-width:992px) {
-        margin: 0 10px;
-        content: '|';
+        @media (min-width: 992px) {
+            margin: 0 10px;
+            content: '|';
         }
     }
     @media (min-width:576px) {
-    flex-direction: row;
+        flex-direction: row;
     }
 }
 

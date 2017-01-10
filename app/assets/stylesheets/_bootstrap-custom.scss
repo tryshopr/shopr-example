@@ -165,11 +165,24 @@ h4.card-title {
 // Breadcrumbs
 .breadcrumb {
     padding: 0;
-    background-color: none;
+    background-color: transparent;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    color: $gray-darky;
     a {
         text-decoration: underline !important;
+        padding: 0 10px;
+        font-size: 13px;
+        font-weight: 400;
+        &:first-child {
+            padding: 0 10px 0 0;
+        }
     }
     span {
-        color: $purple-dark
+        color: $purple-dark;
+        font-size: 13px;
+        padding: 0 10px;
+        font-weight: 400;
     }
 }

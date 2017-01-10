@@ -2,7 +2,7 @@
 - @page_title = @product.name + " - " + @product.product_category.name
 .product
   .product-info.row
-    .product-slider-box.col-xs-4
+    .product-slider-box.col-xs-12.col-md-4
       %hr
       .product-slider
         - if @product.default_image
@@ -19,7 +19,7 @@
               %img{src: "#{attachment.path}", width: "100"}
             %img{src: "#{attachment.path}"}
       %p.small На иллюстрациях представлены прототипы. Внешний вид поставляемых товаров и их компонентов может отличаться от иллюстраций с сохранением декларируемых потребительских свойств.
-    .intro.col-xs-8
+    .intro.col-xs-12.col-md-8
       %h2= @product.name
       .stock
         - if @product.in_stock?
@@ -31,6 +31,7 @@
       .rating
         = rating_stars(average_rating(@product))
         %span.to-review-anchor= link_to '(' + @product.comments.count.to_s + ')', '#tabs'
+        %span= '|'
         %span.to-review-btn-anchor= link_to 'Оставить отзыв', '#tabs'
       -# %p= raw @product.short_description
       %p= raw @product.description

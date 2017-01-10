@@ -25,16 +25,18 @@ a.add,
 .product-slider-box {
     width: 375px;
     padding: 300px 15px 15px;
-    border-right: 2px $gray solid;
+    border-right: 1px $gray solid;
     .small {
-        color: $gray;
-        font-weight: 600;
+        color: #000000;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
         margin-top: 10px;
     }
     hr {
         margin: 1rem -15px;
         height: 2px;
-        border-top: 2px solid #ccc;
+        border-top: 1px solid #ccc;
         border-color: #ECECEC;
     }
 }
@@ -238,7 +240,13 @@ div.product {
     }
     .product-info {
         min-height: 300px;
-        box-shadow: 0px 0px 10px #DAD5D5;
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #d2d2d2;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.1);
         flex-direction: row;
         display: flex;
         background: #fff;
@@ -247,17 +255,23 @@ div.product {
         .intro>p {
             display: inline-block;
             min-width: 100%;
+            font-size: 16px;
         }
         span.material {
             margin: 5px 0;
         }
     }
     .product-tabs {
-        box-shadow: 0px 0px 10px #DAD5D5;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #d2d2d2;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.1);
         padding: 15px;
     }
     h2 {
-        font-size: 1.7rem;
+        font-size: 32px;
         float: left;
         font-weight: bold;
     }
@@ -271,7 +285,19 @@ div.product {
     .rating {
         width: 100%;
         display: block;
-        margin: 0
+        margin: 0;
+        font-size: 14px;
+        >div {
+            margin-right: 5px;
+        }
+        >span {
+            margin-right: 5px;
+            color: #008cc6;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            text-align: left;
+        }
     }
     hr {
         clear: both;
@@ -282,11 +308,14 @@ div.product {
         margin: 0 15px 15px;
         p.yes {
             color: white;
-            font-size: 1em;
             background: $green;
-            // image-url('tick.svg') no-repeat 0 3px;
+            font-size: 15px;
+            text-align: center;
             background-size: 13px;
             padding: 5px 20px;
+            margin: 0;
+            width: 122px;
+            height: 31px;
             font-weight: 600;
             border-radius: 15px;
         }
@@ -304,10 +333,25 @@ div.product {
         width: 100%;
         margin: 15px 0;
         font-size: 0.8rem;
-        @include border-radius($radius);
+        tbody {
+            @include border-radius($radius);
+            border-width: 3px;
+            border-color: #e3e3e3;
+            border-style: solid;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
         tr {
-            border: 1px solid $gray-light;
             background: #fff;
+            font-weight: 600;
+            background-color: #e3e3e3;
+            height: 60px;
+        }
+        tr.details {
+            font-weight: 400;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            height: 70px;
         }
         tr:first-child {
             background: $gray;
@@ -319,16 +363,21 @@ div.product {
         }
         td {
             line-height: 1rem;
-            font-weight: 600;
             padding: 15px 10px;
             vertical-align: middle;
         }
         td:first-child {
             width: 120px;
         }
+        .price {
+            font-size: 20px;
+        }
         td.buy {
             width: 170px;
             font-size: 0.8rem;
+            border-right-width: 3px;
+            border-right-style: solid;
+            border-color: #e3e3e3;
         }
         td h4 {
             font-size: 1.2em;
@@ -351,16 +400,22 @@ div.product {
             }
             select {
                 -webkit-appearance: none;
-                background: image-url('down-arrow.svg') #fff no-repeat 45px 15px;
+                background: image-url('down-arrow.svg') #fff no-repeat 45px 12px;
                 width: 60px;
                 background-size: 9px;
-                height: 36px;
+                height: 30px;
                 font-weight: bold;
-                padding: 10px;
+                padding: 7px;
                 font-family: $font;
             }
             .btn {
                 float: right;
+                border-radius: 2px;
+                background: linear-gradient(0deg, #fe8736 0%, #fe7c53 40%, #ffc261 100%);
+                box-shadow: 1px 2px 0px 0px rgba(50, 0, 85, 0.17);
+                width: 76px;
+                height: 30px;
+                font-size: 14px;
             }
             &.no-stock {
                 select {
