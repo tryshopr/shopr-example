@@ -1,9 +1,7 @@
 require 'roo'
 
 module Shopr
-  class Product < ActiveRecord::Base
-    self.table_name = 'shopr_products'
-
+  class Product < ApplicationRecord
     # Add dependencies for products
     require_dependency 'shopr/product/product_attributes'
     require_dependency 'shopr/product/variants'
@@ -41,10 +39,10 @@ module Shopr
     has_many :stock_level_adjustments, dependent: :destroy, class_name: 'Shopr::StockLevelAdjustment', as: :item
 
     # Validations
-    with_options if: proc { |p| p.parent.nil? } do |product|
+    with_options if: proc { |p| p.parent.nil? } do
       # product.validate :has_at_least_one_product_category
-      product.validates :description, presence: true, allow_blank: true
-      product.validates :short_description, presence: true, allow_blank: true
+      validates :description, presence: true, allow_blank: true
+      validates :short_description, presence: true, allow_blank: true
     end
     validates :name, uniqueness: true, presence: true
     validates :permalink, presence: true, uniqueness: true, permalink: true
@@ -67,8 +65,8 @@ module Shopr
     scope :ordered, -> { order(:name) }
 
     def attachments=(attrs)
-      if attrs['default_image']['file'].present? then attachments.build(attrs['default_image']) end
-      if attrs['data_sheet']['file'].present? then attachments.build(attrs['data_sheet']) end
+      attachments.build(attrs['default_image']) if attrs['default_image']['file'].present?
+      attachments.build(attrs['data_sheet']) if attrs['data_sheet']['file'].present?
 
       if attrs['extra']['file'].present? then attrs['extra']['file'].each { |attr| attachments.build(file: attr, parent_id: attrs['extra']['parent_id'], parent_type: attrs['extra']['parent_type']) } end
     end
@@ -116,7 +114,7 @@ module Shopr
     # @return [Shopr::ProductCategory]
     def product_category
       product_categories.first
-    rescue
+    rescue StandardError
       nil
     end
 
@@ -151,8 +149,8 @@ module Shopr
       where(id: product_ids)
     end
 
- # File.extname(file.original_filename)
- # Roo::Excel.new(file.path)
+    # File.extname(file.original_filename)
+    # Roo::Excel.new(file.path)
     def self.import(file)
       spreadsheet = open_spreadsheet(file)
       spreadsheet.default_sheet = spreadsheet.sheets.first
@@ -165,9 +163,7 @@ module Shopr
         if product = find_by(name: row['name'])
           # Dont import products with the same name but update quantities
           qty = row['qty'].to_i
-          if qty > 0
-            product.stock_level_adjustments.create!(description: I18n.t('shopr.import'), adjustment: qty)
-          end
+          product.stock_level_adjustments.create!(description: I18n.t('shopr.import'), adjustment: qty) if qty > 0
         else
           # product = Shopr::Product.find_or_initialize_by(permalink: row['url'])
           product = Shopr::Product.find_or_initialize_by(permalink: row['url'], name: row['name'])
@@ -184,9 +180,7 @@ module Shopr
           product.save!
 
           qty = row['qty'].to_i
-          if qty > 0
-            product.stock_level_adjustments.create!(description: I18n.t('shopr.import'), adjustment: qty)
-          end
+          product.stock_level_adjustments.create!(description: I18n.t('shopr.import'), adjustment: qty) if qty > 0
         end
       end
     end
@@ -194,10 +188,10 @@ module Shopr
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
       when '.csv'
-      Roo::CSV.new(file.path,csv_options: {col_sep: ";",encoding: Encoding::Windows_1251})
+        Roo::CSV.new(file.path, csv_options: { col_sep: ';', encoding: Encoding::Windows_1251 })
       when '.xls' then Roo::Excel.new(file.path)
       when '.xlsx' then Roo::Excelx.new(file.path)
-      else fail I18n.t('shopr.imports.errors.unknown_format', filename: File.original_filename)
+      else raise I18n.t('shopr.imports.errors.unknown_format', filename: File.original_filename)
       end
     end
 

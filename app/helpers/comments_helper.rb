@@ -9,6 +9,6 @@ module CommentsHelper
   end
 
   def timestamp(date)
-    "#{date.strftime('%d')}.#{date.strftime('%m')}.#{date.strftime('%Y')} в #{date.strftime("%I:%M")}"
+    "#{date.strftime('%d')}.#{date.strftime('%m')}.#{date.strftime('%Y')} в #{date.strftime('%I:%M')}"
   end
 end

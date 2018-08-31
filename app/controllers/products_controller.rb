@@ -1,11 +1,8 @@
 class ProductsController < ApplicationController
-
   before_action do
-    if params[:category_id]
-      @product_category = Shopr::ProductCategory.where(:permalink => params[:category_id]).first!
-    end
+    @product_category = Shopr::ProductCategory.where(permalink: params[:category_id]).first! if params[:category_id]
     if @product_category && params[:product_id]
-      @product = @product_category.products.where(:permalink => params[:product_id]).active.first!
+      @product = @product_category.products.where(permalink: params[:product_id]).active.first!
     end
   end
 
@@ -35,13 +32,12 @@ class ProductsController < ApplicationController
     current_order.order_items.add_item(product_to_order, params[:quantity].blank? ? 1 : params[:quantity].to_i)
     respond_to do |wants|
       wants.html { redirect_to request.referer }
-      wants.json { render :json => {:added => true} }
+      wants.json { render json: { added: true } }
     end
   rescue Shopr::Errors::NotEnoughStock => e
     respond_to do |wants|
-      wants.html { redirect_to request.referer, :alert => "We're sorry but we don't have enough stock to add that many products. We currently have #{e.available_stock} item(s) in stock. Please try again."}
-      wants.json { render :json => {:error => 'NotEnoughStock', :available_stock => e.available_stock}}
+      wants.html { redirect_to request.referer, alert: "We're sorry but we don't have enough stock to add that many products. We currently have #{e.available_stock} item(s) in stock. Please try again." }
+      wants.json { render json: { error: 'NotEnoughStock', available_stock: e.available_stock } }
     end
   end
-
 end

@@ -1,4 +1,3 @@
-# encoding: utf-8
 # config valid only for Capistrano 3
 lock '3.6.1'
 
@@ -13,13 +12,13 @@ set :deploy_to,      "/home/#{fetch(:user)}/projects/#{fetch(:application)}"
 set :unicorn_conf,   "/etc/unicorn/#{fetch(:application)}.#{fetch(:login)}.rb"
 set :unicorn_pid,    "/var/run/unicorn/#{fetch(:user)}/" \
                      "#{fetch(:application)}.#{fetch(:login)}.pid"
-set :bundle_without, %w{development test}.join(' ')             # this is default
+set :bundle_without, ['development', 'test'].join(' ') # this is default
 set :use_sudo,       false
 
 # set :repo_url,       "#{fetch(:user)}@neon.locum.ru:" \
 #                      "git/#{fetch(:application)}.git"
 
-set :repo_url,        'git@bitbucket.org:craft37/widget_shop.git'
+set :repo_url, 'git@bitbucket.org:craft37/widget_shop.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -36,7 +35,7 @@ set :log_level, :info
 set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w(log tmp/cache vendor/bundle public/system public/attachment public/uploads)
+set :linked_dirs, ['log', 'tmp/cache', 'vendor/bundle', 'public/system', 'public/attachment', 'public/uploads']
 
 # Default value for keep_releases is 5
 set :keep_releases, 3

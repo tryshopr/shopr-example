@@ -3,9 +3,7 @@ module Shopr
     before_action { @active_nav = :settings }
 
     def update
-      if Shopr.settings.demo_mode?
-        fail Shopr::Error, t('shopr.settings.demo_mode_error')
-      end
+      raise Shopr::Error, t('shopr.settings.demo_mode_error') if Shopr.settings.demo_mode?
 
       Shopr::Setting.update_from_hash(params[:settings].permit!)
       redirect_to :settings, notice: t('shopr.settings.update_notice')

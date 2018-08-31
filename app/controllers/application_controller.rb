@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       if has_order?
         @current_order
       else
-        order = Shopr::Order.create(:ip_address => request.ip, :billing_country => Shopr::Country.where(:name => "United Kingdom").first)
+        order = Shopr::Order.create(ip_address: request.ip, billing_country: Shopr::Country.where(name: 'United Kingdom').first)
         session[:order_id] = order.id
         order
       end
@@ -20,9 +20,8 @@ class ApplicationController < ActionController::Base
 
   # Has an active order?
   def has_order?
-    session[:order_id] && @current_order = Shopr::Order.includes(:order_items => :ordered_item).find_by_id(session[:order_id])
+    session[:order_id] && @current_order = Shopr::Order.includes(order_items: :ordered_item).find_by(id: session[:order_id])
   end
 
   helper_method :current_order, :has_order?
-
 end

@@ -1,2 +1,2 @@
 require 'shopr/settings'
-require 'shopr/version' 
+require 'shopr/version'

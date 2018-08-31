@@ -1,8 +1,8 @@
 module Shopr
-  class Comment < ActiveRecord::Base
+  class Comment < ApplicationRecord
     self.table_name = 'shopr_comments'
- 
-    belongs_to :commentable, polymorphic: true    
-    validates_presence_of :comment, :title, :commenter
+
+    belongs_to :commentable, polymorphic: true
+    validates :comment, :title, :commenter, presence: true
   end
  end

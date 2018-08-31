@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-
   # Shopr admin interface
   #
-  mount Shopr::Engine => "/shopr"
+  mount Shopr::Engine => '/shopr'
 
   Shopr::Engine.routes.draw do
-
     # Else
 
     resources :products do
@@ -16,7 +14,6 @@ Rails.application.routes.draw do
         post :import
       end
     end
-
   end
 
   #
@@ -32,7 +29,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments
   end
-  
+
   #
   # Order status
   #
@@ -46,7 +43,7 @@ Rails.application.routes.draw do
   post 'basket/:order_item_id' => 'orders#change_item_quantity', :as => 'adjust_basket_item_quantity'
   delete 'basket/:order_item_id' => 'orders#change_item_quantity'
   delete 'basket/delete/:order_item_id' => 'orders#remove_item', :as => 'remove_basket_item'
-  
+
   #
   # Checkout
   #
@@ -54,11 +51,11 @@ Rails.application.routes.draw do
   match 'checkout/delivery' => 'orders#change_delivery_service', :as => 'change_delivery_service', :via => [:post]
   match 'checkout/pay' => 'orders#payment', :as => 'checkout_payment', :via => [:get, :patch]
   match 'checkout/confirm' => 'orders#confirmation', :as => 'checkout_confirmation', :via => [:get, :patch]
-  
+
   #
   # Static pages
   #
-  get ':action', :controller => 'pages', :as => 'page'
+  get ':action', controller: 'pages', as: 'page'
 
   #
   # Homepage
@@ -68,5 +65,4 @@ Rails.application.routes.draw do
   # Tempo fix admin area redirection
 
   get '/users/sign_in', to: redirect('/shopr/users/sign_in')
-
 end

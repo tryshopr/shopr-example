@@ -1,6 +1,5 @@
 module Shopr
   class CommentsController < Shopr::ApplicationController
-
     def index
       @product = Shopr::Product.find(params[:product_id])
       @comments = @product.comments

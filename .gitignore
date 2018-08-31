@@ -4,6 +4,11 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+.ruby-version
+public/uploads
+public/assets
+public/attachments
+
 # Ignore bundler config.
 /.bundle
 
@@ -16,7 +21,6 @@
 !/log/.keep
 /tmp
 
-config/database.yml
 Gemfile.lock\
 .locum
 .byebug_history

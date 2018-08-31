@@ -1,0 +1,97 @@
+Rails:
+  Enabled: true
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - vendor/**/*
+    - db/**/*
+    - config/**/*
+    - bin/**/*
+
+LineLength:
+  Max: 120
+  Exclude:
+    - spec/**/*
+
+MethodLength:
+  Max: 15
+
+Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+NumericLiterals:
+  MinDigits: 7
+
+StringLiterals:
+  EnforcedStyle: single_quotes
+
+SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SpaceBeforeBlockParameters: true
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: compact
+  EnforcedStyleForEmptyBraces: no_space
+
+DotPosition:
+  EnforcedStyle: trailing
+
+RaiseArgs:
+  EnforcedStyle: exploded
+
+SignalException:
+  EnforcedStyle: only_raise
+
+Layout/IndentationConsistency:
+  Enabled: true
+
+Style/DoubleNegation:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - "db/fixtures/dev/**.rb"
+    - "config/routes.rb"
+
+Style/BlockDelimiters:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/AbcSize:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
