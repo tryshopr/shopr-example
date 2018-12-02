@@ -22,7 +22,7 @@ gem 'sprockets-rails', '~> 3.2.0', require: 'sprockets/railtie'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
-  gem 'capistrano', '~> 3.6.1'
+  gem 'capistrano', '~> 3.11.0'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails', '~> 1.1.1'
   gem 'sqlite3'
