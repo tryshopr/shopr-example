@@ -24,7 +24,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'capistrano', '~> 3.11.0'
   gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rails', '~> 1.4.0'
   gem 'sqlite3'
   # Add this if you're using rvm
   gem 'better_errors'
