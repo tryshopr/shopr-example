@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '>=2.4.1'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 gem 'coffee-rails', '>= 4.0.0'
 gem 'faker'
 gem 'hamlit', '>= 2.7.0'
