@@ -348,7 +348,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    mysql2 (0.4.10)
+    mysql2 (0.5.3)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
@@ -499,7 +499,7 @@ DEPENDENCIES
   hamlit-rails
   jquery-rails
   kaminari
-  mysql2 (~> 0.4.4)
+  mysql2 (~> 0.5.3)
   pry-byebug
   rails (~> 5.2.1)
   rails-i18n
