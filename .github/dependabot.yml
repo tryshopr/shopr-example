@@ -1,0 +1,30 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: carrierwave
+    versions:
+    - 2.1.1
+  - dependency-name: autoprefixer-rails
+    versions:
+    - 10.1.0.0
+    - 10.2.0.0
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.0
+  - dependency-name: loofah
+    versions:
+    - 2.8.0
+  - dependency-name: devise
+    versions:
+    - 4.7.2
+  - dependency-name: json
+    versions:
+    - 2.3.1
+  - dependency-name: rake
+    versions:
+    - 13.0.1
